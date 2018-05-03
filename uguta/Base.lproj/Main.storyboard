@@ -917,19 +917,50 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="5tI-pN-4HQ">
+                                <rect key="frame" x="140" y="588" width="20" height="20"/>
+                                <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVX-Xj-jUN" customClass="BaseButton" customModule="uguta" customModuleProvider="target">
+                                <rect key="frame" x="335" y="538" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Bm4-VQ-OSr"/>
+                                    <constraint firstAttribute="width" constant="30" id="GcG-Mo-Gnz"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="e6G-fF-Lfw"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="zS5-6S-Wl6"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="bluetoothCode:" destination="SgU-Pe-Afe" eventType="touchUpInside" id="Ccw-9G-B8G"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="I3Q-tK-8vi" firstAttribute="top" secondItem="feN-5h-Xvb" secondAttribute="bottom" constant="10" id="03V-8f-Zix"/>
+                            <constraint firstItem="QYa-oM-Z5C" firstAttribute="trailing" secondItem="LVX-Xj-jUN" secondAttribute="trailing" constant="10" id="0nJ-Eo-9nB"/>
                             <constraint firstItem="QYa-oM-Z5C" firstAttribute="trailing" secondItem="p3Q-4I-92i" secondAttribute="trailing" id="AOe-hK-52M"/>
                             <constraint firstItem="QYa-oM-Z5C" firstAttribute="trailing" secondItem="hl6-kD-AYu" secondAttribute="trailing" id="BS9-Cu-3E2"/>
                             <constraint firstItem="c40-Mg-tjR" firstAttribute="leading" secondItem="QYa-oM-Z5C" secondAttribute="leading" id="D9D-sF-XEW"/>
                             <constraint firstItem="QYa-oM-Z5C" firstAttribute="bottom" secondItem="hl6-kD-AYu" secondAttribute="bottom" id="E0V-Af-Ali"/>
                             <constraint firstItem="feN-5h-Xvb" firstAttribute="width" secondItem="Gc4-Ip-8KV" secondAttribute="width" multiplier="5:7" id="Fsq-v6-roZ"/>
                             <constraint firstItem="C25-54-Der" firstAttribute="top" secondItem="GkB-LI-7bL" secondAttribute="bottom" constant="5" id="G8p-4d-2WV"/>
+                            <constraint firstItem="hl6-kD-AYu" firstAttribute="top" secondItem="LVX-Xj-jUN" secondAttribute="bottom" constant="10" id="GKl-Qf-Lrt"/>
                             <constraint firstItem="p3Q-4I-92i" firstAttribute="centerX" secondItem="QYa-oM-Z5C" secondAttribute="centerX" id="HOJ-K9-thb"/>
                             <constraint firstItem="I3Q-tK-8vi" firstAttribute="leading" secondItem="QYa-oM-Z5C" secondAttribute="leading" id="J9B-kc-P79"/>
                             <constraint firstItem="feN-5h-Xvb" firstAttribute="centerX" secondItem="QYa-oM-Z5C" secondAttribute="centerX" id="KGy-7P-iZ8"/>
+                            <constraint firstItem="hl6-kD-AYu" firstAttribute="leading" secondItem="5tI-pN-4HQ" secondAttribute="trailing" constant="27.5" id="O9c-GD-qhs"/>
+                            <constraint firstItem="5tI-pN-4HQ" firstAttribute="centerY" secondItem="I3Q-tK-8vi" secondAttribute="centerY" id="Qwi-fN-E4x"/>
                             <constraint firstItem="C25-54-Der" firstAttribute="width" secondItem="Gc4-Ip-8KV" secondAttribute="width" id="Whw-Lk-dG5"/>
                             <constraint firstItem="QYa-oM-Z5C" firstAttribute="trailing" secondItem="SxA-gF-Glw" secondAttribute="trailing" id="YYV-Bf-hf8"/>
                             <constraint firstItem="GkB-LI-7bL" firstAttribute="centerX" secondItem="QYa-oM-Z5C" secondAttribute="centerX" id="ZY1-zJ-CzW"/>
@@ -956,9 +987,11 @@
                         <outlet property="lbName" destination="C25-54-Der" id="arC-nX-qyl"/>
                         <outlet property="lbOwner" destination="p3Q-4I-92i" id="AZ6-gN-oao"/>
                         <outlet property="lbPrice" destination="c40-Mg-tjR" id="77o-Rc-iYT"/>
+                        <outlet property="progress" destination="5tI-pN-4HQ" id="e2q-lv-d42"/>
                         <segue destination="1nD-kd-63b" kind="show" identifier="producthistory" id="WhW-g9-pkA"/>
                         <segue destination="Apw-ml-4I8" kind="show" identifier="publishsell" id="bHY-zC-Nqh"/>
                         <segue destination="zhU-Fk-CzB" kind="show" identifier="payment" id="ODU-E2-r3m"/>
+                        <segue destination="jqh-6l-pgc" kind="show" identifier="bluetoothcode" id="tF1-h1-eqB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WO3-FF-amA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1259,6 +1292,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tVy-DX-tnJ"/>
+        <segue reference="tF1-h1-eqB"/>
         <segue reference="bHY-zC-Nqh"/>
         <segue reference="ga1-Hm-EHQ"/>
         <segue reference="l4C-gJ-rut"/>

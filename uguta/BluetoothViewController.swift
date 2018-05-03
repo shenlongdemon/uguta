@@ -17,28 +17,21 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
     var manager:CBCentralManager!
     var peripheral:CBPeripheral!
     @IBOutlet weak var tableView: UITableView!
-    var timer : Timer?
+    //var timer : Timer?
     var tableAdapter : TableAdapter!
     var items: NSMutableArray = NSMutableArray()
     var names: NSMutableArray = NSMutableArray()
+    let SERVICE : [CBUUID]? = nil //[CBUUID.init()]
     override func viewDidLoad() {
         super.viewDidLoad()
         initTable()
         let opts = [CBCentralManagerOptionShowPowerAlertKey: true]
         manager = CBCentralManager(delegate: self, queue: nil, options: opts)
         progress.stopAnimating()
-        timer = Timer.scheduledTimer(timeInterval: 8, target: self,   selector: (#selector(BluetoothViewController.updateTimer)), userInfo: nil, repeats: false)
-        timer?.fire()
-        
-        // Do any additional setup after loading the view.
     }
-    @objc func updateTimer() -> Void {
-        timer?.invalidate()
-        loadData()
-    }
+
     override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.progress.startAnimating()        
+        super.viewWillAppear(animated)        
     }
     @IBAction func allProduct(_ sender: Any) {
         self.performSegue(withIdentifier: "allproducts", sender: nil)
@@ -49,10 +42,26 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        timer?.invalidate()
+        //timer?.invalidate()
+    }
+    func scanBLEDevice(){
+        print("start scan")
+        progress.startAnimating()
+        manager?.scanForPeripherals(withServices: nil, options: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
+            self.stopScanForBLEDevice()
+            self.loadData()
+        }
+        
+    }
+    func stopScanForBLEDevice(){
+        manager?.stopScan()
+        print("scan stopped")
     }
     func loadData() {
         self.items.removeAllObjects()
+        self.tableView.reloadData()
+
         if (self.names.count > 0){
             WebApi.getProductsByBluetoothCodes(codes: self.names as! [String]) { (list) in
                 self.items.addObjects(from: list)
@@ -99,13 +108,10 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
         refreshList()
     }
     func refreshList(){
-        progress.startAnimating()
-        manager.scanForPeripherals(withServices: nil, options: nil)
-        timer = Timer.scheduledTimer(timeInterval: 8, target: self,   selector: (#selector(BluetoothViewController.updateTimer)), userInfo: nil, repeats: false)
-        timer?.fire()
         
+        self.scanBLEDevice()
     }
-  
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "bluetoothdevice"){
             let vc = segue.destination as! ProductViewController
@@ -113,21 +119,47 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
         }
     }
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        print("\(central.state )")
+        switch(central.state){
+            case .poweredOn:
+                print("Bluetooth is powered ON")
+            case .poweredOff:
+                print("Bluetooth is powered OFF")
+            case .resetting:
+                print("Bluetooth is resetting")
+            case .unauthorized:
+                print("Bluetooth is unauthorized")
+            case .unknown:
+                print("Bluetooth is unknown")
+            case .unsupported:
+                print("Bluetooth is not supported")
+        }
         if central.state == .poweredOn {
-            central.scanForPeripherals(withServices: nil, options: nil)
-            progress.startAnimating()
+            self.scanBLEDevice()
         } else {
             Util.showOKAlert(VC: self, message: "Please turn on Bluetooth")
         }
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        let name = peripheral.name
+        
+        var hasName = false
+        
+        if let name = peripheral.name {
+            addName(name: name)
+            hasName = true
+        }
+        //if !hasName {
+        if let device = (advertisementData as NSDictionary) .object(forKey: CBAdvertisementDataLocalNameKey) as? NSString {
+            addName(name: device as String)
+            hasName = true
+        }
+        //}
+    }
+    func addName(name: String) {
+        print("\(name)")
         if !self.names.contains(name) {
             self.names.add(name)
         }
     }
-    
    
 }

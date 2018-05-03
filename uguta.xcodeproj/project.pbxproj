@@ -116,10 +116,10 @@
 		3B210D572095826000A5CF84 = {
 			isa = PBXGroup;
 			children = (
+				3B210D622095826200A5CF84 /* uguta */,
 				6318905BC8FF2C05A50F622E /* Frameworks */,
 				D1E5014B7B7C9A0F910AFCA3 /* Pods */,
 				3B210D612095826200A5CF84 /* Products */,
-				3B210D622095826200A5CF84 /* uguta */,
 			);
 			sourceTree = "<group>";
 		};
@@ -257,7 +257,6 @@
 				3B210D5D2095826200A5CF84 /* Frameworks */,
 				3B210D5E2095826200A5CF84 /* Resources */,
 				55698C1F25567D214840BA3E /* [CP] Embed Pods Frameworks */,
-				0B721F604140FB329242DE5E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -324,21 +323,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0B721F604140FB329242DE5E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uguta/Pods-uguta-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		11777531128F5FAD40060FA9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

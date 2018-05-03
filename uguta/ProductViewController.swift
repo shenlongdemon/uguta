@@ -16,6 +16,7 @@ class ProductViewController: BaseViewController {
     @IBOutlet weak var lbName: UILabel!
     @IBOutlet weak var lbCategory: UILabel!
     @IBOutlet weak var imgQR: UIImageView!
+    @IBOutlet weak var progress: UIActivityIndicatorView!
     
     @IBOutlet weak var lbOwner: UILabel!
     @IBOutlet weak var btnAction: UIButton!
@@ -24,6 +25,7 @@ class ProductViewController: BaseViewController {
     var action = 1
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.progress.stopAnimating()
         self.imgImage.image = self.item.getImage()
         self.lbName.text = self.item.name
         self.lbCategory.text = self.item.category.value
@@ -95,22 +97,31 @@ class ProductViewController: BaseViewController {
         
     }
     @IBAction func doAction(_ sender: Any) {
-        if action == 1{
-            self.publishSell()
-        }
-        else if action == 2{
-            self.buy()
-        }
-        else if action == 3{
-            self.comfirm()
-        }
-        else if action == 4{
-            self.cancelSell()
+        if (action > 0){
+            if self.progress.isAnimating{
+                Util.showOKAlert(VC: self, message: "Please wait.")
+                return
+            }
+            self.progress.startAnimating()
+            if action == 1{
+                self.publishSell()
+            }
+            else if action == 2{
+                self.buy()
+            }
+            else if action == 3{
+                self.comfirm()
+            }
+            else if action == 4{
+                self.cancelSell()
+            }
         }
     }
+   
     func publishSell() {
         Util.getUesrInfo { (history) in
             WebApi.publishSell(itemId: self.item.id, ownerInfo: history, completion: { (i) in
+                self.progress.stopAnimating()
                 if let itm = i {
                     self.performSegue(withIdentifier: "publishsell", sender: itm)
                 }
@@ -123,12 +134,14 @@ class ProductViewController: BaseViewController {
     func comfirm() {
         Util.showYesNoAlert(VC: self, message: "You received product and comfirm?", yesHandle: { () in
             WebApi.confirmReceived(itemId: self.item.id, completion: { (done) in
+                self.progress.stopAnimating()
                 if (done) {
                     self.bactToRoot()
                 }
                 else{
                     Util.showOKAlert(VC: self, message: "Error when confirm")
                 }
+                
             })
         }) { () in
             
@@ -137,12 +150,14 @@ class ProductViewController: BaseViewController {
     }
     func cancelSell() {
         WebApi.cancelSell(itemId: self.item.id, completion: { (done) in
+            self.progress.stopAnimating()
             if (done) {
                 self.bactToRoot()
             }
             else{
                 Util.showOKAlert(VC: self, message: "Error when cancelling.")
             }
+            
         })
        
     }
@@ -165,10 +180,22 @@ class ProductViewController: BaseViewController {
             let vc = segue.destination as! PaymentViewController
             vc.prepareModel(item: sender as! Item)
         }
+        else if segue.identifier == "bluetoothcode" {
+            let vc = segue.destination as! OMIDCODEViewController
+            vc.prepareModel(item: sender as! Item)
+        }
     }
     
     @IBAction func viewHistory(_ sender: Any) {
+        if self.progress.isAnimating{
+            Util.showOKAlert(VC: self, message: "Please wait")
+            return
+        }
         self.performSegue(withIdentifier: "producthistory", sender: self.item)
+    }
+    
+    @IBAction func bluetoothCode(_ sender: Any) {
+        self.performSegue(withIdentifier: "bluetoothcode", sender: self.item)
     }
     
 }

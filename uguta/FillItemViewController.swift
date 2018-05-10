@@ -8,7 +8,14 @@
 
 import UIKit
 import DropDown
-class FillItemViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class FillItemViewController: BaseViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ChoiceProto {
+    func select(device: BLEDevice) {
+        self.bluetoothDevice = device
+        self.txtBluetoothName.text = self.bluetoothDevice!.name
+        self.lbBluetoothId.text = self.bluetoothDevice!.id
+        
+    }
+    
     let imagePicker = UIImagePickerController()
     @IBOutlet weak var imgImage: UIImageView!
     @IBOutlet weak var progress: UIActivityIndicatorView!
@@ -17,9 +24,14 @@ class FillItemViewController: BaseViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var txtCategory: UITextField!
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtPrice: UITextField!
+    @IBOutlet weak var txtBluetoothName: UITextField!
+    
+    @IBOutlet weak var lbBluetoothId: UILabel!
     var categories: [Category] = []
     let dropDown = DropDown()
     var selectCategpry : Category?
+    var bluetoothDevice: BLEDevice?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         progress.stopAnimating()
@@ -82,13 +94,17 @@ class FillItemViewController: BaseViewController, UIImagePickerControllerDelegat
             Util.showOKAlert(VC: self, message: "Please select category")
             return
         }
+        guard  let device = self.bluetoothDevice else {
+            Util.showOKAlert(VC: self, message: "Please select bluetooth device")
+            return
+        }
         var item : Item = Item()
         item.name = txtName.text!
         item.price = txtPrice.text!
         item.description = txtDescription.text
         item.category = self.selectCategpry!
         item.image = Util.getData64(image: imgImage.image)
-        
+        item.bluetoothCode = device.id
         progress.startAnimating()
         Util.getUesrInfo { (history) in
             item.owner = history
@@ -104,14 +120,18 @@ class FillItemViewController: BaseViewController, UIImagePickerControllerDelegat
         }
         
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "bluetoothitem" {
+            let vc = segue.destination as! BluetoothItemViewController
+            vc.prepareModel(choiceProto: self)
+        }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

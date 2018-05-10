@@ -57,12 +57,11 @@ class ProductTableViewCell: TableCell {
             if let b = self.imgNext {
                 b.removeFromSuperview()
             }            
-
-            self.lbCategory.text = self.item.name
-            self.lbName.text = ""           
+            self.lbName.text = self.item.name
+            self.lbCategory.text = self.item.description
             self.lbPrice.text = ""
-            self.lbOwner.text = ""
             self.lbStatus.text = ""
+            self.lbOwner.text = self.item.bluetoothCode
             
         }
     }

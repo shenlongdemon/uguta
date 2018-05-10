@@ -49,6 +49,10 @@
 		3B76B86A2096EEE9000438C9 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B76B8692096EEE8000438C9 /* CoreBluetooth.framework */; };
 		3B76B86C20970461000438C9 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B76B86B20970461000438C9 /* MyProfileViewController.swift */; };
 		3B76B86E20979F0E000438C9 /* OMIDCODEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B76B86D20979F0E000438C9 /* OMIDCODEViewController.swift */; };
+		3B799EB620A41A3C00320A70 /* BLEDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B799EB520A41A3B00320A70 /* BLEDevice.swift */; };
+		3B799EB820A4249400320A70 /* BluetoothItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B799EB720A4249400320A70 /* BluetoothItemViewController.swift */; };
+		3B799EBB20A427C000320A70 /* BLEDeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B799EB920A427C000320A70 /* BLEDeviceTableViewCell.swift */; };
+		3B799EBC20A427C000320A70 /* BLEDeviceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B799EBA20A427C000320A70 /* BLEDeviceTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +100,10 @@
 		3B76B8692096EEE8000438C9 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		3B76B86B20970461000438C9 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		3B76B86D20979F0E000438C9 /* OMIDCODEViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMIDCODEViewController.swift; sourceTree = "<group>"; };
+		3B799EB520A41A3B00320A70 /* BLEDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDevice.swift; sourceTree = "<group>"; };
+		3B799EB720A4249400320A70 /* BluetoothItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothItemViewController.swift; sourceTree = "<group>"; };
+		3B799EB920A427C000320A70 /* BLEDeviceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDeviceTableViewCell.swift; sourceTree = "<group>"; };
+		3B799EBA20A427C000320A70 /* BLEDeviceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BLEDeviceTableViewCell.xib; sourceTree = "<group>"; };
 		774118D0D85DBFDD0FBCE2E6 /* Pods-uguta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uguta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uguta/Pods-uguta.debug.xcconfig"; sourceTree = "<group>"; };
 		B28DBF4389D9FFA96CDF2965 /* Pods-uguta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uguta.release.xcconfig"; path = "Pods/Target Support Files/Pods-uguta/Pods-uguta.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,6 +169,7 @@
 				3B210D6A2095826300A5CF84 /* uguta.xcdatamodeld */,
 				3B210D652095826200A5CF84 /* ViewController.swift */,
 				3B76B86D20979F0E000438C9 /* OMIDCODEViewController.swift */,
+				3B799EB720A4249400320A70 /* BluetoothItemViewController.swift */,
 			);
 			path = uguta;
 			sourceTree = "<group>";
@@ -192,6 +201,7 @@
 				3B210DA42095D5C200A5CF84 /* Item.swift */,
 				3B210DA62096051D00A5CF84 /* User.swift */,
 				3B210DB220962B7400A5CF84 /* History.swift */,
+				3B799EB520A41A3B00320A70 /* BLEDevice.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,6 +233,8 @@
 				3B210DA12095D59400A5CF84 /* ProductTableViewCell.xib */,
 				3B210DAE20962B4900A5CF84 /* HistoryTableViewCell.swift */,
 				3B210DAF20962B4900A5CF84 /* HistoryTableViewCell.xib */,
+				3B799EB920A427C000320A70 /* BLEDeviceTableViewCell.swift */,
+				3B799EBA20A427C000320A70 /* BLEDeviceTableViewCell.xib */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -257,6 +269,7 @@
 				3B210D5D2095826200A5CF84 /* Frameworks */,
 				3B210D5E2095826200A5CF84 /* Resources */,
 				55698C1F25567D214840BA3E /* [CP] Embed Pods Frameworks */,
+				F2860077BD52E7933AA8E9F0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -316,6 +329,7 @@
 				3B210DA32095D59400A5CF84 /* ProductTableViewCell.xib in Resources */,
 				3B210D692095826200A5CF84 /* Main.storyboard in Resources */,
 				3B210DB120962B4900A5CF84 /* HistoryTableViewCell.xib in Resources */,
+				3B799EBC20A427C000320A70 /* BLEDeviceTableViewCell.xib in Resources */,
 				3B210D9D2095CD5800A5CF84 /* CategoryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,6 +387,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uguta/Pods-uguta-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F2860077BD52E7933AA8E9F0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uguta/Pods-uguta-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -380,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B799EB820A4249400320A70 /* BluetoothItemViewController.swift in Sources */,
 				3B210D7D20958A4300A5CF84 /* BaseViewController.swift in Sources */,
 				3B210DAD2096297400A5CF84 /* HistoryViewController.swift in Sources */,
 				3B76B8642096D37F000438C9 /* GenCodeViewController.swift in Sources */,
@@ -396,12 +426,14 @@
 				3B76B8682096D65F000438C9 /* BluetoothViewController.swift in Sources */,
 				3B210DB320962B7400A5CF84 /* History.swift in Sources */,
 				3B76B86C20970461000438C9 /* MyProfileViewController.swift in Sources */,
+				3B799EBB20A427C000320A70 /* BLEDeviceTableViewCell.swift in Sources */,
 				3B210D942095CBF900A5CF84 /* TableAdapter.swift in Sources */,
 				3B210DA72096051D00A5CF84 /* User.swift in Sources */,
 				3B210D892095B83F00A5CF84 /* WebApi.swift in Sources */,
 				3B210D8220958C9E00A5CF84 /* BaseButton.swift in Sources */,
 				3B210D662095826200A5CF84 /* ViewController.swift in Sources */,
 				3B210DA22095D59400A5CF84 /* ProductTableViewCell.swift in Sources */,
+				3B799EB620A41A3C00320A70 /* BLEDevice.swift in Sources */,
 				3B210DAB2096065000A5CF84 /* ProductViewController.swift in Sources */,
 				3B210D6C2095826300A5CF84 /* uguta.xcdatamodeld in Sources */,
 				3B210D962095CC2A00A5CF84 /* IObject.swift in Sources */,

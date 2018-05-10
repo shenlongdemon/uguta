@@ -11,10 +11,11 @@ import UIKit
 class BaseViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.view.backgroundColor = #colorLiteral(red: 0.8979413509, green: 0.8980956078, blue: 0.8979316354, alpha: 1)
+        self.view.backgroundColor = #colorLiteral(red: 0.8980392157, green: 0.8980392157, blue: 0.8980392157, alpha: 1)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 
         // Do any additional setup after loading the view.
     }
@@ -38,5 +39,8 @@ class BaseViewController: UIViewController {
         self.dismiss(animated: true, completion: {});
         self.navigationController?.popViewController(animated: true);
     }
-
+    func back() {
+        self.navigationController?.popViewController(animated: true)
+        
+    }
 }

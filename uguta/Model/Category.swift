@@ -13,6 +13,9 @@ import ObjectMapper
 class Category: IObject, Mappable {
     var value: String = ""
     var icon: String = ""
+    override init() {
+        super.init()
+    }
     required init?(map: Map) {
         
     }

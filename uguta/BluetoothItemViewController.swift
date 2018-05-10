@@ -1,27 +1,27 @@
 //
-//  BluetoothViewController.swift
+//  BluetoothItemViewController.swift
 //  uguta
 //
-//  Created by CO7VF2D1G1HW on 4/30/18.
+//  Created by CO7VF2D1G1HW on 5/10/18.
 //  Copyright © 2018 CO7VF2D1G1HW. All rights reserved.
 //
 
 import UIKit
 import CoreBluetooth
 
-class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPeripheralDelegate {
-    
-    
-    
+protocol ChoiceProto {
+    func select(device: BLEDevice)
+}
+
+class BluetoothItemViewController: BaseViewController,CBCentralManagerDelegate, CBPeripheralDelegate {
+    var choiceProto : ChoiceProto?
     @IBOutlet weak var progress: UIActivityIndicatorView!
     var manager:CBCentralManager!
     var peripheral:CBPeripheral!
-    @IBOutlet weak var tableView: UITableView!
-    //var timer : Timer?
-    var tableAdapter : TableAdapter!
-    var items: NSMutableArray = NSMutableArray()
-    var devices: NSMutableArray = NSMutableArray()
     let SERVICE : [CBUUID]? = nil //[CBUUID.init()]
+    var devices: NSMutableArray = NSMutableArray()
+    var tableAdapter : TableAdapter!
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         initTable()
@@ -29,17 +29,22 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
         manager = CBCentralManager(delegate: self, queue: nil, options: opts)
         progress.stopAnimating()
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)        
-    }
-    @IBAction func allProduct(_ sender: Any) {
-        self.performSegue(withIdentifier: "allproducts", sender: nil)
+    
+    func prepareModel(choiceProto : ChoiceProto){
+        self.choiceProto = choiceProto
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    @IBAction func allProduct(_ sender: Any) {
+        self.performSegue(withIdentifier: "allproducts", sender: nil)
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         //timer?.invalidate()
@@ -47,7 +52,6 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
     func scanBLEDevice(){
         print("start scan")
         progress.startAnimating()
-        self.items.removeAllObjects()
         self.devices.removeAllObjects()
         self.tableView.reloadData()
         manager?.scanForPeripherals(withServices: nil, options: nil)
@@ -62,47 +66,22 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
         print("scan stopped")
     }
     func loadData() {
-        self.items.removeAllObjects()
         self.tableView.reloadData()
-
-        if (self.devices.count > 0){
-            let names = self.devices.map({ (device) -> String in
-                return (device as! BLEDevice).id
-            })
-            WebApi.getProductsByBluetoothCodes(codes: names as! [String]) { (list) in
-                self.items.addObjects(from: list)
-                self.devices.forEach({ (device) in
-                    if let d = device as? BLEDevice{
-                        let i : Item = Item()
-                        i.name = d.name
-                        i.description = d.localName
-                        i.bluetoothCode = d.id
-                        i.id = ""
-                        self.items.add(i)
-                    }
-                })
-                self.tableView.reloadData()
-                self.progress.stopAnimating()
-            }
-        }
-        else {
-            self.progress.stopAnimating()
-        }
+        self.progress.stopAnimating()
         
     }
     func prepareModel(){
         
     }
     func initTable() {
-        let cellIdentifier = ProductTableViewCell.reuseIdentifier
+        let cellIdentifier = BLEDeviceTableViewCell.reuseIdentifier
         let cellNib = UINib(nibName: cellIdentifier, bundle: nil)
         self.tableView.register(cellNib, forCellReuseIdentifier: cellIdentifier)
         
-        self.tableAdapter = TableAdapter(items:self.items, cellIdentifier: cellIdentifier, cellHeight : ProductTableViewCell.height)
+        self.tableAdapter = TableAdapter(items:self.devices, cellIdentifier: cellIdentifier, cellHeight : BLEDeviceTableViewCell.height)
         self.tableAdapter.onDidSelectRowAt { (item) in
-            if item.id.count > 0{
-                self.performSegue(withIdentifier: "bluetoothdevice", sender: item)
-            }
+            self.choiceProto?.select(device: item as! BLEDevice)
+            self.back()
         }
         self.tableView.delegate = self.tableAdapter
         self.tableView.dataSource = self.tableAdapter
@@ -129,18 +108,18 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
     }
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch(central.state){
-            case .poweredOn:
-                print("Bluetooth is powered ON")
-            case .poweredOff:
-                print("Bluetooth is powered OFF")
-            case .resetting:
-                print("Bluetooth is resetting")
-            case .unauthorized:
-                print("Bluetooth is unauthorized")
-            case .unknown:
-                print("Bluetooth is unknown")
-            case .unsupported:
-                print("Bluetooth is not supported")
+        case .poweredOn:
+            print("Bluetooth is powered ON")
+        case .poweredOff:
+            print("Bluetooth is powered OFF")
+        case .resetting:
+            print("Bluetooth is resetting")
+        case .unauthorized:
+            print("Bluetooth is unauthorized")
+        case .unknown:
+            print("Bluetooth is unknown")
+        case .unsupported:
+            print("Bluetooth is not supported")
         }
         if central.state == .poweredOn {
             self.scanBLEDevice()
@@ -165,6 +144,11 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
         self.devices.add(bleDevice)
         
     }
-    
-   
+
 }
+
+
+
+
+    
+

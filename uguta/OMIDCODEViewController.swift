@@ -13,7 +13,7 @@ class OMIDCODEViewController: BaseViewController {
     @IBOutlet weak var imgImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.imgImage.image = Util.drawOMIDCode(str: self.item.bluetoothCode)
+        self.imgImage.image = Util.drawOMIDCode(strCode: self.item.id)
         // Do any additional setup after loading the view.
     }
 

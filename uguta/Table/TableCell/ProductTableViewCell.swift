@@ -59,9 +59,10 @@ class ProductTableViewCell: TableCell {
             }            
             self.lbName.text = self.item.name
             self.lbCategory.text = self.item.description
-            self.lbPrice.text = ""
+            self.lbPrice.text = self.item.price
             self.lbStatus.text = ""
             self.lbOwner.text = self.item.bluetoothCode
+            
             
         }
     }

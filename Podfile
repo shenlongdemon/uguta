@@ -11,6 +11,7 @@ target 'uguta' do
   pod 'QRCodeReader.swift', '~> 8.1.1'
   pod 'DropDown'
   pod 'IQKeyboardManagerSwift'
+  pod 'SwiftyJSON', '~> 4.0'
   # Pods for uguta
 
 end

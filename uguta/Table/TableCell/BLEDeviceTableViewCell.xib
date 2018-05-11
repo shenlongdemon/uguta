@@ -30,7 +30,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3b4-Tu-K7H">
-                        <rect key="frame" x="10" y="36" width="337" height="21"/>
+                        <rect key="frame" x="10" y="36" width="277" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="Ceb-we-x4f"/>
                         </constraints>
@@ -43,14 +43,26 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="Irb-ER-lYz"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0H-Hz-BCr">
+                        <rect key="frame" x="287" y="36" width="70" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="I9A-xp-7gb"/>
+                            <constraint firstAttribute="width" constant="70" id="rCd-Vr-ddK"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                        <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="l0H-Hz-BCr" firstAttribute="centerY" secondItem="3b4-Tu-K7H" secondAttribute="centerY" id="2rP-O7-N1w"/>
+                    <constraint firstItem="l0H-Hz-BCr" firstAttribute="leading" secondItem="3b4-Tu-K7H" secondAttribute="trailing" id="4dg-xK-C99"/>
+                    <constraint firstAttribute="trailing" secondItem="l0H-Hz-BCr" secondAttribute="trailing" id="6QK-ua-ixT"/>
                     <constraint firstItem="3b4-Tu-K7H" firstAttribute="top" secondItem="6Zg-OI-3lq" secondAttribute="bottom" constant="10" id="Bbc-Eb-mrW"/>
-                    <constraint firstAttribute="trailing" secondItem="3b4-Tu-K7H" secondAttribute="trailing" constant="10" id="Fpu-uF-GjO"/>
                     <constraint firstItem="wkp-Iz-LaT" firstAttribute="top" secondItem="3b4-Tu-K7H" secondAttribute="bottom" constant="10" id="ITn-Xd-pgV"/>
                     <constraint firstItem="6Zg-OI-3lq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="ORb-kn-PKb"/>
                     <constraint firstAttribute="trailing" secondItem="6Zg-OI-3lq" secondAttribute="trailing" constant="10" id="bVH-b6-tm9"/>
@@ -62,6 +74,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="lbDistance" destination="l0H-Hz-BCr" id="Oef-W4-Nxm"/>
                 <outlet property="lbId" destination="wkp-Iz-LaT" id="0Bc-g8-mbO"/>
                 <outlet property="lbLocalName" destination="3b4-Tu-K7H" id="aFy-HT-2cd"/>
                 <outlet property="lbName" destination="6Zg-OI-3lq" id="Pfc-is-inu"/>

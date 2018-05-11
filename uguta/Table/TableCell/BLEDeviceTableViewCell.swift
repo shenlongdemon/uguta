@@ -10,6 +10,7 @@ import UIKit
 
 class BLEDeviceTableViewCell: TableCell {
 
+    @IBOutlet weak var lbDistance: UILabel!
     @IBOutlet weak var lbId: UILabel!
     @IBOutlet weak var lbLocalName: UILabel!
     @IBOutlet weak var lbName: UILabel!
@@ -29,6 +30,9 @@ class BLEDeviceTableViewCell: TableCell {
         self.lbId.text = self.item.id
         self.lbName.text = self.item.name
         self.lbLocalName.text = self.item.localName
+        
+        
+        self.lbDistance.text = self.item.getDistance()
        
     }
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {

@@ -85,27 +85,29 @@ class FillItemViewController: BaseViewController, UIImagePickerControllerDelegat
         
         dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func save(_ sender: Any) {
         if self.progress.isAnimating {
             Util.showOKAlert(VC: self, message: "Please wait")
             return
         }
+        
         guard  let cat = self.selectCategpry else {
             Util.showOKAlert(VC: self, message: "Please select category")
             return
         }
-        guard  let device = self.bluetoothDevice else {
-            Util.showOKAlert(VC: self, message: "Please select bluetooth device")
-            return
-        }
-        var item : Item = Item()
+        
+        self.progress.startAnimating()
+        let device = self.bluetoothDevice?.id ?? ""
+           
+        let item : Item = Item()
         item.name = txtName.text!
         item.price = txtPrice.text!
         item.description = txtDescription.text
-        item.category = self.selectCategpry!
+        item.category = cat
         item.image = Util.getData64(image: imgImage.image)
-        item.bluetoothCode = device.id
-        progress.startAnimating()
+        item.bluetoothCode = device
+       
         Util.getUesrInfo { (history) in
             item.owner = history
             WebApi.addItem(item: item, completion: { (done) in
@@ -115,7 +117,8 @@ class FillItemViewController: BaseViewController, UIImagePickerControllerDelegat
                 else{
                     Util.showOKAlert(VC: self, message: "Cannot add item")
                 }
-                self.progress.startAnimating()
+                self.progress.stopAnimating()
+                
             })
         }
         

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreBluetooth
+import SwiftyJSON
 
 class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPeripheralDelegate {
     
@@ -77,6 +78,7 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
                         i.name = d.name
                         i.description = d.localName
                         i.bluetoothCode = d.id
+                        i.price = d.getDistance()
                         i.id = ""
                         self.items.add(i)
                     }
@@ -154,6 +156,7 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
         let bleDevice = BLEDevice()
         
         bleDevice.id = peripheral.identifier.uuidString
+        
         if let name = peripheral.name {
             bleDevice.name = name
         }
@@ -161,10 +164,10 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
         if let device = (advertisementData as NSDictionary) .object(forKey: CBAdvertisementDataLocalNameKey) as? NSString {
             bleDevice.name = device as String
         }
-        
+        bleDevice.distance = Util.getBLEBeaconDistance(RSSI: RSSI)
         self.devices.add(bleDevice)
         
     }
     
-   
+
 }

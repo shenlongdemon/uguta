@@ -258,9 +258,8 @@ class WebApi{
                     return
                 }
                 
-                if(apiModel.Status == 1){
-                    let dic = apiModel.Data as! NSDictionary
-                    let i : Item = dic.cast()!
+                if(apiModel.Status == 1){                    
+                    let i : Item? = Mapper<Item>().map(JSONObject: apiModel.Data)
                     completion(i)
                 }
                 else {

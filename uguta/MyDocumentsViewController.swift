@@ -17,11 +17,12 @@ class MyDocumentsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initTable()
-        loadData()
+        
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        loadData()
         
     }
     override func didReceiveMemoryWarning() {
@@ -33,6 +34,10 @@ class MyDocumentsViewController: BaseViewController {
     }
     
     @IBAction func refresh(_ sender: Any) {
+        if self.progress.isAnimating {
+            Util.showOKAlert(VC: self, message: "Please wait")
+            return
+        }
         loadData()
     }
     func initTable() {
@@ -51,6 +56,7 @@ class MyDocumentsViewController: BaseViewController {
     func loadData() {
         progress.startAnimating()
         items.removeAllObjects()
+        self.tableView.reloadData()
         let user = Store.getUser()!
         WebApi.getItemsByOwnerId(userId: user.id) { (list) in
             self.items.addObjects(from: list)

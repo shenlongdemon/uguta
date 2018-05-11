@@ -204,3 +204,72 @@ extension UINavigationBar {
 }
 
 
+
+
+extension NSObject{
+    func toDic() -> NSDictionary {
+        let dict:NSMutableDictionary = NSMutableDictionary()
+        var counts = UInt32();
+        let properties = class_copyPropertyList(self.classForCoder, &counts);
+        for i in 0..<counts {
+            let property = properties?.advanced(by: Int(i)).pointee;
+           
+            let cName = property_getName(property!);
+            
+            let prop = String(cString: cName)
+            let cAttr = property_getAttributes(property!)!
+            let attr = String(cString:cAttr)
+           
+            self.add(dict: dict, prop: prop, objAny: self, type: attr)
+        }
+        return dict;
+    }
+    private func add(dict: NSMutableDictionary, prop: String, objAny: Any, type: String) {
+        if let obj = objAny as? AnyObject {
+            if let val = obj.value(forKey: prop) as? String {
+                dict.setValue(val, forKey: prop)
+            } else if let val = obj.value(forKey: prop) as? Int {
+                dict.setValue(val, forKey: prop)
+            } else if let val = obj.value(forKey: prop) as? Double {
+                dict.setValue(val, forKey: prop)
+            }
+            else if let val = obj.value(forKey: prop) as? Array<Any> {
+                dict.setValue(val, forKey: prop)
+            }
+            else if let val = obj.value(forKey: prop) as? Array<AnyObject> {
+                dict.setValue(val, forKey: prop)
+            }
+            else if let val = obj.value(forKey: prop) as? Array<String> {
+                dict.setValue(val, forKey: prop)
+            } else if let val = obj.value(forKey: prop) as? Int64 {
+                dict.setValue(val, forKey: prop)
+            } else if let val = obj.value(forKey: prop) as? Array<Dictionary<String,Any>> {
+                dict.setValue(val, forKey: prop)
+               
+            } else if let val = obj.value(forKey: prop) as? Array<Dictionary<String,AnyObject>> {
+                dict.setValue(val, forKey: prop)
+                
+            } else if let val = obj.value(forKey: prop) as? Dictionary<String,AnyObject> {
+                dict.setValue(val, forKey: prop)
+                
+            } else if let val = obj.value(forKey: prop) as? Dictionary<String,Any> {
+                dict.setValue(val, forKey: prop)
+                
+            } else if obj.value(forKey: prop) is Array<Any> {
+                let arr = obj.value(forKey: prop)  as! Array<Any>
+            }
+            else if let val = obj.value(forKey: prop) as? AnyObject {
+                
+                
+            } else if let val = obj.value(forKey: prop) as? Any {
+                 dict.setValue(val, forKey: prop)
+            } else if let val = obj.value(forKey: prop) as? NSObject{
+                let d = val.toDic()
+                dict.setValue(d, forKey: prop)
+            }
+        }
+        else {
+            dict.setValue(objAny, forKey: prop)
+        }
+    }
+}

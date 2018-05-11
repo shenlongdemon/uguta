@@ -136,11 +136,11 @@ class BluetoothItemViewController: BaseViewController,CBCentralManagerDelegate, 
         if let name = peripheral.name {
             bleDevice.name = name
         }
-        //if !hasName {
+        
         if let device = (advertisementData as NSDictionary) .object(forKey: CBAdvertisementDataLocalNameKey) as? NSString {
             bleDevice.name = device as String
         }
-        
+        bleDevice.distance = Util.getBLEBeaconDistance(RSSI: RSSI)
         self.devices.add(bleDevice)
         
     }

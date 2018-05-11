@@ -84,7 +84,8 @@ class Util {
         }
     }
 
-    static func drawOMIDCode(str : String) -> UIImage{
+    static func drawOMIDCode(strCode : String) -> UIImage{
+        let str = strCode.lowercased()
         let size = 500
         UIGraphicsBeginImageContextWithOptions(CGSize(width: size, height: size), false, 0)
         
@@ -143,5 +144,20 @@ class Util {
         let img = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return img
+    }
+    static func getBLEBeaconDistance(RSSI: NSNumber) -> Double {
+        let rssi : Double = RSSI.doubleValue
+        if (rssi == 0) {
+            return -1.0; // if we cannot determine accuracy, return -1.
+        }
+        
+        let ratio: Double = rssi * 1.0 / (-60.0);
+        if (ratio < 1.0) {
+            return pow(ratio,10);
+        }
+        else {
+            let accuracy : Double =  (0.89976) * pow(ratio,7.7095) + 0.111;
+            return accuracy;
+        }
     }
 }

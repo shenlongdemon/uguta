@@ -152,7 +152,6 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        
         let bleDevice = BLEDevice()
         
         bleDevice.id = peripheral.identifier.uuidString

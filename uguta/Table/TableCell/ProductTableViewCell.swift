@@ -38,8 +38,8 @@ class ProductTableViewCell: TableCell {
             self.imgImage.image = item.getImage()
             self.lbCategory.text = self.item.category.value
             
-            self.lbPrice.text = self.item.price
-            self.lbOwner.text = "\(self.item.owner.firstName ) \(self.item.owner.lastName )"
+            self.lbPrice.text = "$ \(self.item.price)"
+            self.lbOwner.text = "\(self.item.owner.lastName )"
             self.lbStatus.text = ""
             if self.item.buyerCode.count > 0 {
                 self.lbStatus.text = "SOLD by \(self.item.buyer?.firstName ?? "" )"
@@ -86,7 +86,7 @@ class ProductTableViewCell: TableCell {
     
     static let nibName = String(describing:  ProductTableViewCell.self)
     static let reuseIdentifier = String(describing: ProductTableViewCell.self)
-    static let height : CGFloat = 180
+    static let height : CGFloat = 120
     
 }
 

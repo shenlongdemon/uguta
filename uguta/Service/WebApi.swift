@@ -19,7 +19,7 @@ import Alamofire
 import ObjectMapper
 class WebApi{
     //static let HOST = "http://96.93.123.234:5000"
-    static let HOST = "http://192.168.1.4:5000"
+    static let HOST = "http://192.168.1.10:5000"
     static let GET_CATEGORIES = "\(WebApi.HOST)/api/sellrecognizer/getCategories"
     static let GET_PRODUCT_BY_CATEGORY = "\(WebApi.HOST)/api/sellrecognizer/getProductsByCategory"
     static let GET_DESCRIPTION_BY_QRCODE = "\(WebApi.HOST)/api/sellrecognizer/getDescriptionQRCode"
@@ -57,22 +57,23 @@ class WebApi{
                 
         }
     }
-    static func addItem(item: Item, completion: @escaping (_ done: Bool )->Void){
+    static func addItem(item: Item, completion: @escaping (_ item: Item? )->Void){
         let json = item.toJSON()
         let url = URL(string: WebApi.ADD_ITEM)
         
         WebApi.manager().request(url!, method: .post, parameters: json, encoding: URLEncoding.default)
             .responseJSON { (data) in
                 guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
-                    completion(false)
+                    completion(nil)
                     return
                 }
                 
                 if(apiModel.Status == 1){
-                    completion(true)
+                    let item: Item? = Mapper<Item>().map(JSONObject: apiModel.Data)
+                    completion(item)
                 }
                 else {
-                    completion(false)
+                    completion(nil)
                 }
                 
                 

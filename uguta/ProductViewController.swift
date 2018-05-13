@@ -41,8 +41,8 @@ class ProductViewController: BaseViewController {
         self.imgImage.isUserInteractionEnabled = true
         self.imgImage.addGestureRecognizer(tapGestureRecognizer1)
         
-        self.makeButtonAction()
-        // Do any additional setup after loading the view.
+        self.makeButtonAction()       
+        
     }
 
     func makeButtonAction() {
@@ -174,7 +174,7 @@ class ProductViewController: BaseViewController {
         }
         else if segue.identifier == "publishsell" {
             let vc = segue.destination as! GenCodeViewController
-            vc.prepareModel(item: sender as! Item)
+            vc.prepareModel(item: (sender as! Item).sellCode)
         }
         else if segue.identifier == "payment" {
             let vc = segue.destination as! PaymentViewController
@@ -182,7 +182,7 @@ class ProductViewController: BaseViewController {
         }
         else if segue.identifier == "bluetoothcode" {
             let vc = segue.destination as! OMIDCODEViewController
-            vc.prepareModel(item: sender as! Item)
+            vc.prepareModel(item: (sender as! Item).id)
         }
     }
     

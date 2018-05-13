@@ -512,7 +512,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fCM-py-554">
                                 <rect key="frame" x="10" y="74" width="355" height="534"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductTableViewCell" id="Nhq-x6-cdh" customClass="ProductTableViewCell" customModule="uguta" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="355" height="44"/>
@@ -551,7 +551,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="WoP-4f-0bM" firstAttribute="leading" secondItem="Oxb-0q-Q3h" secondAttribute="leading" id="4OW-oK-CmZ"/>
                             <constraint firstItem="Oxb-0q-Q3h" firstAttribute="bottom" secondItem="fCM-py-554" secondAttribute="bottom" constant="10" id="7eo-HM-vNS"/>
@@ -823,6 +823,7 @@
                         <outlet property="txtDescription" destination="iqs-kk-q0w" id="Mys-Rg-O2j"/>
                         <outlet property="txtName" destination="h8o-vA-AxC" id="5lP-yJ-6Y5"/>
                         <outlet property="txtPrice" destination="FBQ-Wv-J6h" id="yJ7-OW-je6"/>
+                        <segue destination="Apw-ml-4I8" kind="show" identifier="doneadditem" id="jri-g6-iOF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ftj-sP-VMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -887,7 +888,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ik-Ga-Dmv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4146" y="2630"/>
+            <point key="canvasLocation" x="3158" y="3421"/>
         </scene>
         <!--Product List View Controller-->
         <scene sceneID="uup-4B-Jpd">
@@ -1156,7 +1157,7 @@
             </objects>
             <point key="canvasLocation" x="6764" y="1413"/>
         </scene>
-        <!--Gen Code View Controller-->
+        <!--Code-->
         <scene sceneID="bdx-Gl-rtm">
             <objects>
                 <viewController id="Apw-ml-4I8" customClass="GenCodeViewController" customModule="uguta" customModuleProvider="target" sceneMemberID="viewController">
@@ -1225,6 +1226,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UvK-Sy-JdB"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Code" id="nny-ZF-gGD">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="printer" id="N4v-aA-Djm">
+                            <connections>
+                                <action selector="print:" destination="Apw-ml-4I8" id="qUp-73-v1E"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imgImage" destination="paM-a5-3Rp" id="VwA-1d-TLz"/>
                         <segue destination="jqh-6l-pgc" kind="show" identifier="omidcode" id="T79-j3-tvY"/>
@@ -1393,13 +1401,14 @@
         <image name="logo" width="737" height="670"/>
         <image name="myprofile" width="30" height="30"/>
         <image name="plus" width="512" height="512"/>
+        <image name="printer" width="30" height="30"/>
         <image name="splash" width="750" height="1334"/>
         <image name="sync" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tVy-DX-tnJ"/>
-        <segue reference="tF1-h1-eqB"/>
-        <segue reference="bHY-zC-Nqh"/>
+        <segue reference="T79-j3-tvY"/>
+        <segue reference="jri-g6-iOF"/>
         <segue reference="PnA-A5-uNA"/>
         <segue reference="l4C-gJ-rut"/>
     </inferredMetricsTieBreakers>

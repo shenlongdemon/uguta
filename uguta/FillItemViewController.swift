@@ -110,9 +110,9 @@ class FillItemViewController: BaseViewController, UIImagePickerControllerDelegat
        
         Util.getUesrInfo { (history) in
             item.owner = history
-            WebApi.addItem(item: item, completion: { (done) in
-                if (done){
-                    self.bactToRoot()
+            WebApi.addItem(item: item, completion: { (item) in
+                if let it = item {
+                    self.performSegue(withIdentifier: "doneadditem", sender: it)
                 }
                 else{
                     Util.showOKAlert(VC: self, message: "Cannot add item")
@@ -131,6 +131,12 @@ class FillItemViewController: BaseViewController, UIImagePickerControllerDelegat
         if segue.identifier == "bluetoothitem" {
             let vc = segue.destination as! BluetoothItemViewController
             vc.prepareModel(choiceProto: self)
+        }
+        else if segue.identifier == "doneadditem" {
+            let sellCode = (sender as! Item).sellCode
+            let vc = segue.destination as! GenCodeViewController
+            
+            vc.prepareModel(item: sellCode)
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.

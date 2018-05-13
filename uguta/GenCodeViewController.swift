@@ -9,30 +9,37 @@
 import UIKit
 import QRCode
 class GenCodeViewController: BaseViewController {
-    var item: Item!
-    
+    var item: String!
+    var backToRoot = false
     @IBOutlet weak var imgImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let qrCode = QRCode(self.item.getProductCode())
+        let qrCode = QRCode(self.item)
         imgImage.image = qrCode?.image
         // Do any additional setup after loading the view.
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(qrCodeImageTapped(tapGestureRecognizer:)))
         self.imgImage.isUserInteractionEnabled = true
         self.imgImage.addGestureRecognizer(tapGestureRecognizer)
+        
+        
     }
 
+    @IBAction func print(_ sender: Any) {
+        let qrCode = QRCode(self.item)
+        Util.print(id: "QRCode", image: qrCode!.image!, frame: self.imgImage.frame, inView: self.view)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     @objc func qrCodeImageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
-        WebApi.getDescriptionQRCode(code: self.item.getProductCode()) { (description) in
+        WebApi.getDescriptionQRCode(code: self.item) { (description) in
             Util.showOKAlert(VC: self, message: description);
         }
     }
-    func prepareModel(item: Item){
+    func prepareModel(item: String){
         self.item = item
     }
     @IBAction func omidCode(_ sender: Any) {

@@ -45,6 +45,10 @@ class ProductViewController: BaseViewController {
         
     }
 
+    @IBAction func print(_ sender: Any) {
+        let image = Util.getQRCodeImage(str: self.item.sellCode)
+        Util.print(id: "QRCode", image: image!, frame: self.imgQR.frame, inView: self.view)
+    }
     func makeButtonAction() {
         var title = "SELL"
         let user = Store.getUser()!

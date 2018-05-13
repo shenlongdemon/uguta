@@ -938,7 +938,7 @@
             </objects>
             <point key="canvasLocation" x="6044" y="260"/>
         </scene>
-        <!--Product View Controller-->
+        <!--Detail-->
         <scene sceneID="bsz-Nf-VPz">
             <objects>
                 <viewController id="SgU-Pe-Afe" customClass="ProductViewController" customModule="uguta" customModuleProvider="target" sceneMemberID="viewController">
@@ -1085,6 +1085,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QYa-oM-Z5C"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Detail" id="PRm-4R-eoc">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="printer" id="vac-nP-kvE">
+                            <connections>
+                                <action selector="print:" destination="SgU-Pe-Afe" id="bXB-7J-Skp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="btnAction" destination="I3Q-tK-8vi" id="SXY-Qq-amB"/>
                         <outlet property="imgImage" destination="GkB-LI-7bL" id="ISN-x5-BqG"/>
@@ -1407,8 +1414,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tVy-DX-tnJ"/>
-        <segue reference="T79-j3-tvY"/>
-        <segue reference="jri-g6-iOF"/>
+        <segue reference="tF1-h1-eqB"/>
+        <segue reference="bHY-zC-Nqh"/>
         <segue reference="PnA-A5-uNA"/>
         <segue reference="l4C-gJ-rut"/>
     </inferredMetricsTieBreakers>

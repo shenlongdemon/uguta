@@ -11,15 +11,20 @@ import CoreData
 import CoreLocation
 import DropDown
 import IQKeyboardManagerSwift
+import GoogleMaps
+import GooglePlaces
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
     var locationManager = CLLocationManager()
     
+    // AIzaSyCaUN_gPVbw-hTZq6qivI1pHlvQ_7SFT8k
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        GMSServices.provideAPIKey("AIzaSyCaUN_gPVbw-hTZq6qivI1pHlvQ_7SFT8k")
+        GMSPlacesClient.provideAPIKey("AIzaSyCaUN_gPVbw-hTZq6qivI1pHlvQ_7SFT8k")
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.requestAlwaysAuthorization()
         if (CLLocationManager.locationServicesEnabled())
@@ -105,15 +110,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locationObj = locations.last!
-        let coord = locationObj.coordinate
+        let coordinate = locationObj.coordinate
         var position : Position = Position()
-        var coords : Coord = Coord()
+        var coord : Coord = Coord()
         
-        coords.latitude = coord.latitude
-        coords.longitude = coord.longitude
-        coords.altitude = locationObj.altitude
+        coord.latitude = coordinate.latitude
+        coord.longitude = coordinate.longitude
+        coord.altitude = locationObj.altitude
         
-        position.coords = coords
+        position.coord = coord
         
         Store.savePosition(position: position);
     }

@@ -12,6 +12,8 @@ target 'uguta' do
   pod 'DropDown'
   pod 'IQKeyboardManagerSwift'
   pod 'SwiftyJSON', '~> 4.0'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
   # Pods for uguta
 
 end

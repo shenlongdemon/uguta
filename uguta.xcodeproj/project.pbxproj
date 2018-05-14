@@ -40,6 +40,7 @@
 		3B210DB020962B4900A5CF84 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B210DAE20962B4900A5CF84 /* HistoryTableViewCell.swift */; };
 		3B210DB120962B4900A5CF84 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B210DAF20962B4900A5CF84 /* HistoryTableViewCell.xib */; };
 		3B210DB320962B7400A5CF84 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B210DB220962B7400A5CF84 /* History.swift */; };
+		3B448B9820A9DACF00A71001 /* ProductMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B448B9720A9DACF00A71001 /* ProductMapViewController.swift */; };
 		3B76B85C2096A8CA000438C9 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B76B85B2096A8CA000438C9 /* Store.swift */; };
 		3B76B85E2096B1EB000438C9 /* MyDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B76B85D2096B1EB000438C9 /* MyDocumentsViewController.swift */; };
 		3B76B8602096B54A000438C9 /* FillItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B76B85F2096B54A000438C9 /* FillItemViewController.swift */; };
@@ -92,6 +93,7 @@
 		3B210DAE20962B4900A5CF84 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		3B210DAF20962B4900A5CF84 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		3B210DB220962B7400A5CF84 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		3B448B9720A9DACF00A71001 /* ProductMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMapViewController.swift; sourceTree = "<group>"; };
 		3B76B85B2096A8CA000438C9 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		3B76B85D2096B1EB000438C9 /* MyDocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDocumentsViewController.swift; sourceTree = "<group>"; };
 		3B76B85F2096B54A000438C9 /* FillItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillItemViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				3B210D652095826200A5CF84 /* ViewController.swift */,
 				3B76B86D20979F0E000438C9 /* OMIDCODEViewController.swift */,
 				3B799EB720A4249400320A70 /* BluetoothItemViewController.swift */,
+				3B448B9720A9DACF00A71001 /* ProductMapViewController.swift */,
 			);
 			path = uguta;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				3B210D5D2095826200A5CF84 /* Frameworks */,
 				3B210D5E2095826200A5CF84 /* Resources */,
 				55698C1F25567D214840BA3E /* [CP] Embed Pods Frameworks */,
+				98A48E6F4165FEBA3C2533F4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -391,6 +395,26 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uguta/Pods-uguta-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		98A48E6F4165FEBA3C2533F4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-uguta/Pods-uguta-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uguta/Pods-uguta-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -421,6 +445,7 @@
 				3B210DA72096051D00A5CF84 /* User.swift in Sources */,
 				3B210D892095B83F00A5CF84 /* WebApi.swift in Sources */,
 				3B210D8220958C9E00A5CF84 /* BaseButton.swift in Sources */,
+				3B448B9820A9DACF00A71001 /* ProductMapViewController.swift in Sources */,
 				3B210D662095826200A5CF84 /* ViewController.swift in Sources */,
 				3B210DA22095D59400A5CF84 /* ProductTableViewCell.swift in Sources */,
 				3B799EB620A41A3C00320A70 /* BLEDevice.swift in Sources */,

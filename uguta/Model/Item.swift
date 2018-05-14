@@ -24,6 +24,7 @@ class Item: IObject, Mappable {
     var section: Section!
     var owner: History!
     var buyer: History?
+    var location:Position!
     override init() {
         
     }
@@ -46,6 +47,7 @@ class Item: IObject, Mappable {
         self.section   <- map["section"]
         self.owner   <- map["owner"]
         self.buyer   <- map["buyer"]
+        self.location   <- map["location"]
     }
     func getImage() -> UIImage? {
         return Util.getImage(data64: self.image)

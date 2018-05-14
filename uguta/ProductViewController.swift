@@ -188,6 +188,10 @@ class ProductViewController: BaseViewController {
             let vc = segue.destination as! OMIDCODEViewController
             vc.prepareModel(item: (sender as! Item).getProductCode())
         }
+        else if segue.identifier == "productmap" {
+            let vc = segue.destination as! ProductMapViewController
+            vc.prepareModel(item: self.item)
+        }
     }
     
     @IBAction func viewHistory(_ sender: Any) {

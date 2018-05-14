@@ -13,6 +13,7 @@ class BLEDevice: IObject, Mappable  {
     var name: String = ""
     var localName : String = ""
     var distance: Double = 0.0
+    var ownerId : String = ""
     override init() {
         super.init()
     }
@@ -28,5 +29,6 @@ class BLEDevice: IObject, Mappable  {
         self.name     <- map["name"]
         self.localName   <- map["localName"]
         self.distance     <- map["distance"]
+        self.ownerId     <- map["ownerId"]
     }
 }

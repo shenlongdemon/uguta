@@ -19,9 +19,14 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>28</string>
+	<string>30</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>googlechromes</string>
+		<string>comgooglemaps</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -32,9 +37,9 @@
 		<dict>
 			<key>192.168.79.84</key>
 			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
 				<true/>
 			</dict>
 			<key>api.openweathermap.org</key>
@@ -61,7 +66,7 @@
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Allow Ubuta to access your microphone</string>
 	<key>NSMotionUsageDescription</key>
-	<string>Allow Ubuta to access your device&apos;s accelerometer</string>
+	<string>Allow Ubuta to access your device's accelerometer</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Give Ubuta permission to save photos</string>
 	<key>NSPhotoLibraryUsageDescription</key>

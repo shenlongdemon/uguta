@@ -9,6 +9,8 @@
 import Foundation
 import Alamofire
 import ObjectMapper
+
+
 class History: User {
     var code: String = ""
     var position: Position!
@@ -69,7 +71,7 @@ class WeatherSys: Mappable {
     }
 }
 class Position: Mappable {
-    var coords: Coord!
+    var coord: Coord!
     init() {
         
     }
@@ -78,7 +80,7 @@ class Position: Mappable {
     }
     
     func mapping(map: Map) {
-        self.coords     <- map["coords"]
+        self.coord     <- map["coord"]
     }
 }
 class Coord: Mappable {
@@ -93,8 +95,9 @@ class Coord: Mappable {
     }
     
     func mapping(map: Map) {
-        self.latitude   <- map["latitude"]
-        self.longitude   <- map["longitude"]
-        self.altitude   <- map["altitude"]
+        self.latitude   <-  map["latitude"]
+        self.longitude   <-  map["longitude"]
+        self.altitude   <-  map["altitude"]       
+       
     }
 }

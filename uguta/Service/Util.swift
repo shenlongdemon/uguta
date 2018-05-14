@@ -10,7 +10,24 @@ import Foundation
 import UIKit
 import QRCode
 import DataCompression
+import Alamofire
+import ObjectMapper
 class Util {
+    static let transformDouble = TransformOf<Double, String>(fromJSON: { (value: String?) -> Double? in
+        // transform value from String? to Int?
+        if let v = value {
+            return Double(v)
+        }
+        else {
+            return nil
+        }
+    }, toJSON: { (value: Double?) -> String? in
+        // transform value from Int? to String?
+        if let value = value {
+            return String(value)
+        }
+        return nil
+    })
     static func getImage(data64: String) -> UIImage? {
         var uiimage:UIImage? = nil
         if (data64 != ""){
@@ -49,6 +66,22 @@ class Util {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         VC.present(alert, animated: true, completion: nil)
     }
+    
+    static func showAlert(message:String?)-> Void {
+        if var topController = UIApplication.shared.keyWindow?.rootViewController {
+            while let presentedViewController = topController.presentedViewController {
+                topController = presentedViewController
+            }
+            let alert = UIAlertController(title: "uGuta", message: message ?? "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            topController.present(alert, animated: true, completion: nil)
+            // topController should now be your topmost view controller
+        }
+        
+    }
+        
+        
+    
     static func resizeImage(image : UIImage) -> UIImage{
        
         let newSize: CGSize = CGSize(width: 70, height: 70)
@@ -76,11 +109,16 @@ class Util {
     static func getUesrInfo(completion: @escaping (_ history: History )->Void){
         var history : History = Store.getUserHistory()!
         history.position = Store.getPosition()!
-        WebApi.getWeather(lat: history.position.coords.latitude, lon: history.position.coords.longitude) { (weather) in
-            history.weather = weather
-            let nowDoublevaluseis = NSDate().timeIntervalSince1970
-            history.time = Int64(nowDoublevaluseis*1000)
-            completion(history)
+        WebApi.getWeather(lat: history.position.coord.latitude, lon: history.position.coord.longitude) { (weather) in
+            if let wa = weather {
+                history.weather = wa
+                let nowDoublevaluseis = NSDate().timeIntervalSince1970
+                history.time = Int64(nowDoublevaluseis*1000)
+                completion(history)
+            }
+            else {
+                Util.showAlert(message: "Cannot get weather.")
+            }
         }
     }
 

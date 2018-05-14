@@ -18,10 +18,10 @@ import Foundation
 import Alamofire
 import ObjectMapper
 class WebApi{
-    //static let HOST = "http://96.93.123.234:5000"
-    //static let HOST = "http://192.168.1.10:5000"
+    static let HOST = "http://96.93.123.234:5000"
+    //static let HOST = "http://192.168.1.6:5000"
     //static let HOST = "http://192.168.79.84:5001"
-    static let HOST = "http://192.168.60.67:5001"
+    //static let HOST = "http://192.168.60.67:5001"
     
     static let GET_CATEGORIES = "\(WebApi.HOST)/api/sellrecognizer/getCategories"
     static let GET_PRODUCT_BY_CATEGORY = "\(WebApi.HOST)/api/sellrecognizer/getProductsByCategory"
@@ -39,32 +39,37 @@ class WebApi{
     
     
     static func manager()-> SessionManager{
+//        var defaultHeaders = Alamofire.SessionManager.defaultHTTPHeaders
+//        defaultHeaders["Accept"] = "application/json"
+//        defaultHeaders["Content-Type"] = "application/json"
+//        let configuration = URLSessionConfiguration.default
+//        configuration.httpAdditionalHeaders = defaultHeaders
+//        configuration.timeoutIntervalForRequest = 120
+//        let sessionManager = Alamofire.SessionManager(configuration: configuration)
+//        return sessionManager
+        
+        
         let manager = Alamofire.SessionManager.default
         manager.session.configuration.timeoutIntervalForRequest = 120
+        manager.session.configuration.httpAdditionalHeaders?.updateValue("application/json", forKey: "Accept")
+        manager.session.configuration.httpAdditionalHeaders?.updateValue("application/json", forKey: "Content-Type")
         return manager
     }
-    static func getWeather(lat: Double, lon: Double, completion: @escaping (_ weather:Weather)->Void){
+    static func getWeather(lat: Double, lon: Double, completion: @escaping (_ weather:Weather?)->Void){
         let str =   "http://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(lon)&APPID=6435508fad5982cda8c0a812d7a57860&units=metric"
         let url = URL(string: str)
         
         WebApi.manager().request(url!)
             .responseJSON { (data) in
-                let dic = data.result.value as! NSDictionary
-                let weather : Weather = dic.cast()!
-//                let sys = dic.object(forKey: "sys") as! NSDictionary
-//
-//                let address = sys.object(forKey: "country") as! String
-//                let main = dic.object(forKey: "main")  as! NSDictionary
-//                let temp = main.object(forKey: "temp") as! Double
+                let weather = Mapper<Weather>().map(JSONObject: data.result.value)
                 completion(weather)
-                
         }
     }
     static func addItem(item: Item, completion: @escaping (_ item: Item? )->Void){
         let json = item.toJSON()
         let url = URL(string: WebApi.ADD_ITEM)
         
-        WebApi.manager().request(url!, method: .post, parameters: json, encoding: URLEncoding.default)
+        WebApi.manager().request(url!, method: .post, parameters: json, encoding: JSONEncoding.default)
             .responseJSON { (data) in
                 guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
                     completion(nil)
@@ -88,7 +93,7 @@ class WebApi{
             ]
         let url = URL(string: WebApi.GET_DESCRIPTION_BY_QRCODE)
         
-        WebApi.manager().request(url!, method: .post, parameters: parameters, encoding: URLEncoding.default)
+        WebApi.manager().request(url!, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { (data) in
                 guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
                     completion("Error")
@@ -118,7 +123,7 @@ class WebApi{
         ]
         let url = URL(string: WebApi.UPDATE_USER)
         
-        WebApi.manager().request(url!, method: .post, parameters: parameters, encoding: URLEncoding.default)
+        WebApi.manager().request(url!, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { (data) in
                 guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
                     completion(false)
@@ -143,7 +148,7 @@ class WebApi{
         ]
         let url = URL(string: WebApi.PAYMENT)
         
-        WebApi.manager().request(url!, method: .post, parameters: parameters, encoding: URLEncoding.default)
+        WebApi.manager().request(url!, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { (data) in
                 guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
                     completion(nil)
@@ -168,7 +173,7 @@ class WebApi{
         ]
         let url = URL(string: WebApi.PUBLISH_SELL)
         
-        WebApi.manager().request(url!, method: .post, parameters: parameters, encoding: URLEncoding.default)
+        WebApi.manager().request(url!, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { (data) in
                 guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
                     completion(nil)
@@ -256,7 +261,7 @@ class WebApi{
         ]
         let url = URL(string: WebApi.GET_ITEM_BY_QRCODE)
         
-        WebApi.manager().request(url!, method: .post, parameters: parameters, encoding: URLEncoding.default)
+        WebApi.manager().request(url!, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { (data) in
                 guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
                     completion(nil)
@@ -311,7 +316,7 @@ class WebApi{
             "devices": devices.toJSON(),
             "coord" : coord.toJSON()
         ]
-        WebApi.manager().request(url!, method: .post, parameters: parameters, encoding: URLEncoding.default)
+        WebApi.manager().request(url!, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { (data) in
                 
                 guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {

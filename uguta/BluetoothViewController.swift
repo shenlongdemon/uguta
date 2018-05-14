@@ -23,6 +23,7 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
     var items: NSMutableArray = NSMutableArray()
     var devices: NSMutableArray = NSMutableArray()
     let SERVICE : [CBUUID]? = nil //[CBUUID.init()]
+    var user = Store.getUser()!
     override func viewDidLoad() {
         super.viewDidLoad()
         initTable()
@@ -55,7 +56,7 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
         self.devices.removeAllObjects()
         self.tableView.reloadData()
         manager?.scanForPeripherals(withServices: nil, options: nil)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
             self.stopScanForBLEDevice()
             self.loadData()
         }
@@ -70,7 +71,8 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
         self.tableView.reloadData()
 
         if (self.devices.count > 0){
-            WebApi.getProductsByBluetoothCodes(devices: self.devices) { (list) in
+            let coord = Store.getPosition()!.coord!
+            WebApi.getProductsByBluetoothCodes(devices: self.devices as! [BLEDevice], coord: coord) { (list) in
                 self.items.addObjects(from: list)
                 self.devices.forEach({ (device) in
                     if let d = device as? BLEDevice{
@@ -151,6 +153,7 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
         let bleDevice = BLEDevice()
         
         bleDevice.id = peripheral.identifier.uuidString
+        bleDevice.ownerId = self.user.id
         if let name = peripheral.name {
             bleDevice.name = name
         }

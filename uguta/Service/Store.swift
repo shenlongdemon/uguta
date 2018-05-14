@@ -49,10 +49,10 @@ class Store {
     }
     static func getPosition() -> Position? {
         var position: Position? = nil
-        guard let json = UserDefaults.standard.object(forKey: "position") as? String else {
+        guard let json = UserDefaults.standard.object(forKey: "position") else {
             return nil
         }
-        position = json.cast()
+        position = Mapper<Position>().map(JSONString: json as! String)
         return position
     }
     

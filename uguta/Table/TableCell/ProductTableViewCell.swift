@@ -19,6 +19,8 @@ class ProductTableViewCell: TableCell {
     @IBOutlet weak var lbCategory: UILabel!
     @IBOutlet weak var imgNext: UIButton!
     
+    @IBOutlet weak var heightImage: NSLayoutConstraint!
+    
     var item : Item!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,6 +36,7 @@ class ProductTableViewCell: TableCell {
         self.item = object as! Item
        
         if (self.item.id.count > 0){
+            heightImage.constant = 0.0
             self.lbName.text = "\(self.item.name)"
             self.imgImage.image = item.getImage()
             self.lbCategory.text = self.item.category.value
@@ -51,17 +54,13 @@ class ProductTableViewCell: TableCell {
             }
         }
         else{
-            if let i = self.imgImage {
-                i.removeFromSuperview()
-            }
-            if let b = self.imgNext {
-                b.removeFromSuperview()
-            }            
+            heightImage.constant = -120.0
+            
             self.lbName.text = self.item.name
-            self.lbCategory.text = self.item.description
+            self.lbCategory.text = self.item.bluetoothCode
             self.lbPrice.text = self.item.price
             self.lbStatus.text = ""
-            self.lbOwner.text = self.item.bluetoothCode
+            self.lbOwner.text = self.item.description
             
             
         }

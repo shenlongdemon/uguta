@@ -1050,6 +1050,17 @@
                                     <action selector="bluetoothCode:" destination="SgU-Pe-Afe" eventType="touchUpInside" id="Ccw-9G-B8G"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Jv-fM-Wxd">
+                                <rect key="frame" x="325" y="96" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="PQK-Ca-PDe"/>
+                                    <constraint firstAttribute="height" constant="40" id="rYN-rY-IXr"/>
+                                </constraints>
+                                <state key="normal" image="map"/>
+                                <connections>
+                                    <segue destination="MDV-46-Q1r" kind="show" identifier="productmap" id="46C-92-WHH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1075,12 +1086,14 @@
                             <constraint firstItem="p3Q-4I-92i" firstAttribute="top" secondItem="SxA-gF-Glw" secondAttribute="bottom" constant="5" id="glZ-gR-tnt"/>
                             <constraint firstItem="p3Q-4I-92i" firstAttribute="leading" secondItem="QYa-oM-Z5C" secondAttribute="leading" id="kTz-Vh-GGf"/>
                             <constraint firstItem="GkB-LI-7bL" firstAttribute="top" secondItem="QYa-oM-Z5C" secondAttribute="top" constant="5" id="nDX-GX-JoD"/>
+                            <constraint firstItem="1Jv-fM-Wxd" firstAttribute="centerY" secondItem="GkB-LI-7bL" secondAttribute="centerY" id="qWj-gK-doK"/>
                             <constraint firstItem="C25-54-Der" firstAttribute="centerX" secondItem="QYa-oM-Z5C" secondAttribute="centerX" id="tek-KY-bhb"/>
                             <constraint firstItem="hl6-kD-AYu" firstAttribute="leading" secondItem="I3Q-tK-8vi" secondAttribute="trailing" id="wDx-0P-zp0"/>
                             <constraint firstItem="GkB-LI-7bL" firstAttribute="width" secondItem="Gc4-Ip-8KV" secondAttribute="width" multiplier="1:4" id="wlK-EB-JQB"/>
                             <constraint firstItem="SxA-gF-Glw" firstAttribute="leading" secondItem="QYa-oM-Z5C" secondAttribute="leading" id="xIW-ze-qPl"/>
                             <constraint firstItem="I3Q-tK-8vi" firstAttribute="bottom" secondItem="QYa-oM-Z5C" secondAttribute="bottom" id="xJ1-p3-Th8"/>
                             <constraint firstItem="SxA-gF-Glw" firstAttribute="top" secondItem="C25-54-Der" secondAttribute="bottom" constant="5" id="xgh-ZS-DkN"/>
+                            <constraint firstItem="QYa-oM-Z5C" firstAttribute="trailing" secondItem="1Jv-fM-Wxd" secondAttribute="trailing" constant="10" id="xqi-0v-r3g"/>
                             <constraint firstItem="I3Q-tK-8vi" firstAttribute="width" secondItem="Gc4-Ip-8KV" secondAttribute="width" multiplier="1:2" id="ymV-LR-5g2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QYa-oM-Z5C"/>
@@ -1163,6 +1176,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ztq-Dd-cqC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6764" y="1413"/>
+        </scene>
+        <!--Product Map View Controller-->
+        <scene sceneID="Knc-jf-E5N">
+            <objects>
+                <viewController id="MDV-46-Q1r" customClass="ProductMapViewController" customModule="uguta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u9d-B3-l16">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="8zP-jd-fOq"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Esb-zk-YqW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4502" y="2039"/>
         </scene>
         <!--Code-->
         <scene sceneID="bdx-Gl-rtm">
@@ -1406,6 +1434,7 @@
         <image name="fingerprint" width="317" height="399"/>
         <image name="library" width="512" height="512"/>
         <image name="logo" width="737" height="670"/>
+        <image name="map" width="512" height="512"/>
         <image name="myprofile" width="30" height="30"/>
         <image name="plus" width="512" height="512"/>
         <image name="printer" width="30" height="30"/>

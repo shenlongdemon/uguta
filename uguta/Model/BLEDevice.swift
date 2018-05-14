@@ -7,7 +7,9 @@
 //
 
 import Foundation
-class BLEDevice: IObject {
+import Alamofire
+import ObjectMapper
+class BLEDevice: IObject, Mappable  {
     var name: String = ""
     var localName : String = ""
     var distance: Double = 0.0
@@ -17,5 +19,14 @@ class BLEDevice: IObject {
     func getDistance() -> String {
         let text = String(format: "%.1fm", arguments: [self.distance])
         return text
+    }
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {        
+        self.id     <- map["id"]
+        self.name     <- map["name"]
+        self.localName   <- map["localName"]
+        self.distance     <- map["distance"]
     }
 }

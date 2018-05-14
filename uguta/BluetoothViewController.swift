@@ -46,6 +46,9 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
         //timer?.invalidate()
     }
     func scanBLEDevice(){
+        if progress.isAnimating {
+            return
+        }
         print("start scan")
         progress.startAnimating()
         self.items.removeAllObjects()
@@ -67,10 +70,7 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
         self.tableView.reloadData()
 
         if (self.devices.count > 0){
-            let names = self.devices.map({ (device) -> String in
-                return (device as! BLEDevice).id
-            })
-            WebApi.getProductsByBluetoothCodes(codes: names as! [String]) { (list) in
+            WebApi.getProductsByBluetoothCodes(devices: self.devices) { (list) in
                 self.items.addObjects(from: list)
                 self.devices.forEach({ (device) in
                     if let d = device as? BLEDevice{
@@ -116,10 +116,6 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
             return
         }
         
-        refreshList()
-    }
-    func refreshList(){
-        
         self.scanBLEDevice()
     }
     
@@ -155,7 +151,6 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
         let bleDevice = BLEDevice()
         
         bleDevice.id = peripheral.identifier.uuidString
-        
         if let name = peripheral.name {
             bleDevice.name = name
         }
@@ -164,7 +159,11 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
             bleDevice.name = device as String
         }
         bleDevice.distance = Util.getBLEBeaconDistance(RSSI: RSSI)
-        self.devices.add(bleDevice)
+        if !self.devices.map({ (device) -> String in
+            return (device as! BLEDevice).id
+        }).contains(bleDevice.id) {
+            self.devices.add(bleDevice)
+        }
         
     }
     

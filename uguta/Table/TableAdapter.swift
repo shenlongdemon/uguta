@@ -84,7 +84,7 @@ class TableAdapter: NSObject, UITableViewDelegate, UITableViewDataSource {
         
         
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! TableCell
-        if (self.items.count > 0){
+        if self.isIndexPathValid(indexPath: indexPath) {
             let item = self.items[indexPath.row]
             
             
@@ -96,20 +96,20 @@ class TableAdapter: NSObject, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (self.items.count > 0){
+        if self.isIndexPathValid(indexPath: indexPath) {
             let item = self.items[indexPath.row]
             self.didDeleteRowAt?(item as! IObject)
         }
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (self.items.count > 0){
+        if self.isIndexPathValid(indexPath: indexPath) {
             let item = self.items[indexPath.row]
             self.didSelectRowAt?(item as! IObject)
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if (self.items.count > 0){
+        if self.isIndexPathValid(indexPath: indexPath) {
             let item = self.items[indexPath.row]
             let height : CGFloat = (self.filterPredicate?(item as! IObject) ?? true) ? self.cellHeight : 0.0
             return height
@@ -117,6 +117,9 @@ class TableAdapter: NSObject, UITableViewDelegate, UITableViewDataSource {
         else {
             return 0.0
         }
+    }
+    private func isIndexPathValid(indexPath: IndexPath) -> Bool{
+        return self.items.count > 0 && indexPath.row < self.items.count
     }
     
     

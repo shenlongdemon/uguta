@@ -186,7 +186,7 @@ class ProductViewController: BaseViewController {
         }
         else if segue.identifier == "bluetoothcode" {
             let vc = segue.destination as! OMIDCODEViewController
-            vc.prepareModel(item: (sender as! Item).id)
+            vc.prepareModel(item: (sender as! Item).getProductCode())
         }
     }
     

@@ -272,7 +272,6 @@
 				3B210D5D2095826200A5CF84 /* Frameworks */,
 				3B210D5E2095826200A5CF84 /* Resources */,
 				55698C1F25567D214840BA3E /* [CP] Embed Pods Frameworks */,
-				F2860077BD52E7933AA8E9F0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -390,21 +389,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uguta/Pods-uguta-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F2860077BD52E7933AA8E9F0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-uguta/Pods-uguta-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

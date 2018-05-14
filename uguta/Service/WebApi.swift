@@ -18,8 +18,11 @@ import Foundation
 import Alamofire
 import ObjectMapper
 class WebApi{
-    static let HOST = "http://96.93.123.234:5000"
+    //static let HOST = "http://96.93.123.234:5000"
     //static let HOST = "http://192.168.1.10:5000"
+    //static let HOST = "http://192.168.79.84:5001"
+    static let HOST = "http://192.168.60.67:5001"
+    
     static let GET_CATEGORIES = "\(WebApi.HOST)/api/sellrecognizer/getCategories"
     static let GET_PRODUCT_BY_CATEGORY = "\(WebApi.HOST)/api/sellrecognizer/getProductsByCategory"
     static let GET_DESCRIPTION_BY_QRCODE = "\(WebApi.HOST)/api/sellrecognizer/getDescriptionQRCode"
@@ -246,9 +249,10 @@ class WebApi{
                 
         }
     }
-    static func getItemByQRCode(code: String, completion: @escaping (_ item: Item? )->Void){
+    static func getItemByQRCode(code: String, coord: Coord, completion: @escaping (_ item: Item? )->Void){
         let parameters: Parameters = [
-            "code": code
+            "code": code,
+            "coord": coord.toJSON()
         ]
         let url = URL(string: WebApi.GET_ITEM_BY_QRCODE)
         
@@ -300,11 +304,12 @@ class WebApi{
         }
     }
     
-    static func getProductsByBluetoothCodes(codes: [String], completion: @escaping (_ list:[Item])->Void){
+    static func getProductsByBluetoothCodes(devices: [BLEDevice], coord: Coord, completion: @escaping (_ list:[Item])->Void){
         
         let url = URL(string: WebApi.GET_PRODUCTS_BY_BLUETOOTH_CODES)
         let parameters: Parameters = [
-            "names": codes
+            "devices": devices.toJSON(),
+            "coord" : coord.toJSON()
         ]
         WebApi.manager().request(url!, method: .post, parameters: parameters, encoding: URLEncoding.default)
             .responseJSON { (data) in

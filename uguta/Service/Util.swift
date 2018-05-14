@@ -86,8 +86,10 @@ class Util {
 
     static func drawOMIDCode(strCode : String) -> UIImage{
         let str = strCode.lowercased()
-        
-        let STR = "__________-0123456789abcdefghijklmnopqrstuvwxyz";
+//        let a = "____-__0__1__2__3__4__5__6__7__8__9__a__b__c__d__e__f__g__h__i__j__k__l__m__n__o__p__q__r__s__t__u__v__w__x__y__z";
+//        let chacs = "abcdefghijklmnopqrstuvwxyz"
+//        let numbers = "0123456789"
+        let STR = "____abcdefghijklmnopqrstuvwxyz-0123456789_____";
         let size = 500
         UIGraphicsBeginImageContextWithOptions(CGSize(width: size, height: size), false, 0)
         

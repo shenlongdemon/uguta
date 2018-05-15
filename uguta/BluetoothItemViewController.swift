@@ -21,6 +21,8 @@ class BluetoothItemViewController: BaseViewController,CBCentralManagerDelegate, 
     let SERVICE : [CBUUID]? = nil //[CBUUID.init()]
     var devices: NSMutableArray = NSMutableArray()
     var tableAdapter : TableAdapter!
+    var position = Store.getPosition()
+    var user = Store.getUser()
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +57,7 @@ class BluetoothItemViewController: BaseViewController,CBCentralManagerDelegate, 
         self.devices.removeAllObjects()
         self.tableView.reloadData()
         manager?.scanForPeripherals(withServices: nil, options: nil)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
             self.stopScanForBLEDevice()
             self.loadData()
         }
@@ -140,8 +142,15 @@ class BluetoothItemViewController: BaseViewController,CBCentralManagerDelegate, 
         if let device = (advertisementData as NSDictionary) .object(forKey: CBAdvertisementDataLocalNameKey) as? NSString {
             bleDevice.name = device as String
         }
-        bleDevice.distance = Util.getBLEBeaconDistance(RSSI: RSSI)
-        self.devices.add(bleDevice)
+        let coord = self.position!.toBLEPosition().coord!
+        coord.distance = Util.getBLEBeaconDistance(RSSI: RSSI)
+        bleDevice.coord = coord
+        bleDevice.ownerId = self.user!.id
+        if !self.devices.map({ (device) -> String in
+            return (device as! BLEDevice).id
+        }).contains(bleDevice.id) {
+            self.devices.add(bleDevice)
+        }      
         
     }
 

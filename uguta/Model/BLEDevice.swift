@@ -12,13 +12,13 @@ import ObjectMapper
 class BLEDevice: IObject, Mappable  {
     var name: String = ""
     var localName : String = ""
-    var distance: Double = 0.0
     var ownerId : String = ""
+    var coord : BLECoord!
     override init() {
         super.init()
     }
     func getDistance() -> String {
-        let text = String(format: "%.1fm", arguments: [self.distance])
+        let text = String(format: "%.1fm", arguments: [self.coord.distance])
         return text
     }
     required init?(map: Map) {
@@ -28,7 +28,7 @@ class BLEDevice: IObject, Mappable  {
         self.id     <- map["id"]
         self.name     <- map["name"]
         self.localName   <- map["localName"]
-        self.distance     <- map["distance"]
+        self.coord     <- map["coord"]
         self.ownerId     <- map["ownerId"]
     }
 }

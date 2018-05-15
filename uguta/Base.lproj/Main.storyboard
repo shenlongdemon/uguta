@@ -502,7 +502,7 @@
             </objects>
             <point key="canvasLocation" x="3248.8000000000002" y="283.80809595202402"/>
         </scene>
-        <!--Bluetooth View Controller-->
+        <!--Bluetooth List-->
         <scene sceneID="um0-OH-yAZ">
             <objects>
                 <viewController id="Mv8-Ir-XWG" customClass="BluetoothViewController" customModule="uguta" customModuleProvider="target" sceneMemberID="viewController">
@@ -510,6 +510,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibH-v0-2zM">
+                                <rect key="frame" x="167" y="528" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Sd8-ER-Ffw"/>
+                                    <constraint firstAttribute="height" constant="40" id="iIA-t3-Kdq"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="maps"/>
+                                <connections>
+                                    <action selector="showOnMap:" destination="Mv8-Ir-XWG" eventType="touchUpInside" id="ZZT-p5-s1F"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fCM-py-554">
                                 <rect key="frame" x="10" y="74" width="355" height="534"/>
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
@@ -539,17 +550,6 @@
                                     <action selector="allProduct:" destination="Mv8-Ir-XWG" eventType="touchUpInside" id="z5b-dW-ywh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q7h-qt-K4y">
-                                <rect key="frame" x="167" y="528" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="cT1-sH-5b4"/>
-                                    <constraint firstAttribute="width" constant="40" id="nA1-qd-M8r"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="sync"/>
-                                <connections>
-                                    <action selector="refresh:" destination="Mv8-Ir-XWG" eventType="touchUpInside" id="hBm-VJ-fNI"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -559,19 +559,27 @@
                             <constraint firstItem="fCM-py-554" firstAttribute="leading" secondItem="Oxb-0q-Q3h" secondAttribute="leading" constant="10" id="Gkc-u6-vqJ"/>
                             <constraint firstItem="519-Xc-EpS" firstAttribute="centerX" secondItem="Oxb-0q-Q3h" secondAttribute="centerX" id="KGr-4Q-Cjy"/>
                             <constraint firstItem="WoP-4f-0bM" firstAttribute="trailing" secondItem="Oxb-0q-Q3h" secondAttribute="trailing" id="KMo-ds-a8e"/>
+                            <constraint firstItem="WoP-4f-0bM" firstAttribute="top" secondItem="ibH-v0-2zM" secondAttribute="bottom" constant="10" id="XYl-Ge-LMx"/>
                             <constraint firstItem="Oxb-0q-Q3h" firstAttribute="trailing" secondItem="fCM-py-554" secondAttribute="trailing" constant="10" id="jnQ-9n-gfc"/>
-                            <constraint firstItem="WoP-4f-0bM" firstAttribute="top" secondItem="q7h-qt-K4y" secondAttribute="bottom" constant="10" id="n5V-0N-Ocg"/>
-                            <constraint firstItem="q7h-qt-K4y" firstAttribute="centerX" secondItem="Oxb-0q-Q3h" secondAttribute="centerX" id="phc-ek-LtS"/>
+                            <constraint firstItem="ibH-v0-2zM" firstAttribute="centerX" secondItem="Oxb-0q-Q3h" secondAttribute="centerX" id="m6V-Nx-bPy"/>
                             <constraint firstItem="Oxb-0q-Q3h" firstAttribute="bottom" secondItem="WoP-4f-0bM" secondAttribute="bottom" id="uhs-Jk-FbO"/>
                             <constraint firstItem="519-Xc-EpS" firstAttribute="top" secondItem="Oxb-0q-Q3h" secondAttribute="top" constant="10" id="v4X-rG-rXP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Oxb-0q-Q3h"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Bluetooth List" id="Bib-1s-aP0">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="9Cr-Oc-5cl">
+                            <connections>
+                                <action selector="refresh:" destination="Mv8-Ir-XWG" id="39A-dY-pUt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="progress" destination="519-Xc-EpS" id="995-hQ-cvb"/>
                         <outlet property="tableView" destination="fCM-py-554" id="VLE-9d-UFL"/>
                         <segue destination="SgU-Pe-Afe" kind="show" identifier="bluetoothdevice" id="PnA-A5-uNA"/>
                         <segue destination="wyW-LK-GIi" kind="show" identifier="allproducts" id="l4C-gJ-rut"/>
+                        <segue destination="MDV-46-Q1r" kind="show" identifier="bluetoothmap" id="gV9-bB-00A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lNy-yX-thc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -613,13 +621,26 @@
                                 <rect key="frame" x="177.5" y="79" width="20" height="20"/>
                                 <color key="color" red="0.9073926806" green="0.35688179730000003" blue="0.35232397910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ib-hD-ZJG">
+                                <rect key="frame" x="167.5" y="568" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="CZu-FN-OO0"/>
+                                    <constraint firstAttribute="height" constant="40" id="O4k-0U-ojJ"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="maps"/>
+                                <connections>
+                                    <segue destination="MDV-46-Q1r" kind="show" identifier="findproductmaps" id="kD7-ld-Udy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="MmO-Cd-aHU" firstAttribute="leading" secondItem="9qn-Ca-cH6" secondAttribute="leading" constant="10" id="FoD-Ix-b5P"/>
+                            <constraint firstItem="0ib-hD-ZJG" firstAttribute="centerX" secondItem="9qn-Ca-cH6" secondAttribute="centerX" id="GHV-KG-wu1"/>
                             <constraint firstItem="6Jw-re-cwe" firstAttribute="top" secondItem="9qn-Ca-cH6" secondAttribute="top" constant="10" id="J5a-pV-F1L"/>
                             <constraint firstItem="9qn-Ca-cH6" firstAttribute="bottom" secondItem="MmO-Cd-aHU" secondAttribute="bottom" constant="10" id="Ldb-ce-JU6"/>
+                            <constraint firstItem="9qn-Ca-cH6" firstAttribute="bottom" secondItem="0ib-hD-ZJG" secondAttribute="bottom" constant="10" id="Omm-AY-qOW"/>
                             <constraint firstItem="6Jw-re-cwe" firstAttribute="leading" secondItem="9qn-Ca-cH6" secondAttribute="leading" constant="10" id="dia-jy-YjE"/>
                             <constraint firstItem="9qn-Ca-cH6" firstAttribute="trailing" secondItem="MmO-Cd-aHU" secondAttribute="trailing" constant="10" id="fO0-lg-eBd"/>
                             <constraint firstItem="6jh-xF-EfO" firstAttribute="centerX" secondItem="9qn-Ca-cH6" secondAttribute="centerX" id="myz-qa-Prz"/>
@@ -1190,7 +1211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Esb-zk-YqW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4502" y="2039"/>
+            <point key="canvasLocation" x="4276" y="1178"/>
         </scene>
         <!--Code-->
         <scene sceneID="bdx-Gl-rtm">
@@ -1435,6 +1456,7 @@
         <image name="library" width="512" height="512"/>
         <image name="logo" width="737" height="670"/>
         <image name="map" width="512" height="512"/>
+        <image name="maps" width="512" height="512"/>
         <image name="myprofile" width="30" height="30"/>
         <image name="plus" width="512" height="512"/>
         <image name="printer" width="30" height="30"/>
@@ -1445,6 +1467,7 @@
         <segue reference="tVy-DX-tnJ"/>
         <segue reference="tF1-h1-eqB"/>
         <segue reference="bHY-zC-Nqh"/>
+        <segue reference="gV9-bB-00A"/>
         <segue reference="PnA-A5-uNA"/>
         <segue reference="l4C-gJ-rut"/>
     </inferredMetricsTieBreakers>

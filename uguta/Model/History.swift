@@ -70,6 +70,19 @@ class WeatherSys: Mappable {
         self.country     <- map["country"]
     }
 }
+class BLEPosition: Mappable {
+    var coord: BLECoord!
+    init() {
+        
+    }
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        self.coord     <- map["coord"]
+    }
+}
 class Position: Mappable {
     var coord: Coord!
     init() {
@@ -81,6 +94,16 @@ class Position: Mappable {
     
     func mapping(map: Map) {
         self.coord     <- map["coord"]
+    }
+    func toBLEPosition() -> BLEPosition{
+        let blePosition = BLEPosition()
+        let bleCcoord = BLECoord()
+        bleCcoord.latitude = self.coord.latitude
+        bleCcoord.longitude = self.coord.longitude
+        bleCcoord.altitude = self.coord.altitude
+        
+        blePosition.coord = bleCcoord
+        return blePosition
     }
 }
 class Coord: Mappable {
@@ -99,5 +122,25 @@ class Coord: Mappable {
         self.longitude   <-  map["longitude"]
         self.altitude   <-  map["altitude"]       
        
+    }
+}
+class BLECoord: Mappable {
+    var latitude: Double = 0.0
+    var longitude: Double = 0.0
+    var altitude: Double = 0.0
+    var distance: Double = 0.0
+    init() {
+        
+    }
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        self.latitude   <-  map["latitude"]
+        self.longitude   <-  map["longitude"]
+        self.altitude   <-  map["altitude"]
+        self.distance   <-  map["distance"]
+
     }
 }

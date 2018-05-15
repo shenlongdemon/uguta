@@ -18,10 +18,10 @@ import Foundation
 import Alamofire
 import ObjectMapper
 class WebApi{
-    static let HOST = "http://96.93.123.234:5000"
+    //static let HOST = "http://96.93.123.234:5000"
     //static let HOST = "http://192.168.1.6:5000"
-    //static let HOST = "http://192.168.79.84:5001"
-    //static let HOST = "http://192.168.60.67:5001"
+    //static let HOST = "http://192.168.79.84:5000"
+    static let HOST = "http://192.168.60.67:5000" // wifi
     
     static let GET_CATEGORIES = "\(WebApi.HOST)/api/sellrecognizer/getCategories"
     static let GET_PRODUCT_BY_CATEGORY = "\(WebApi.HOST)/api/sellrecognizer/getProductsByCategory"
@@ -62,7 +62,15 @@ class WebApi{
         WebApi.manager().request(url!)
             .responseJSON { (data) in
                 let weather = Mapper<Weather>().map(JSONObject: data.result.value)
-                completion(weather)
+                if let wea = weather {
+                    completion(wea)
+                }
+                else {
+                    let str = "{\n    \"coord\": {\n        \"lon\": 108.2,\n        \"lat\": 16.07\n    },\n    \"weather\": [\n        {\n            \"id\": 801,\n            \"main\": \"Clouds\",\n            \"description\": \"few clouds\",\n            \"icon\": \"02d\"\n        }\n    ],\n    \"base\": \"stations\",\n    \"main\": {\n        \"temp\": 34.37,\n        \"pressure\": 1007,\n        \"humidity\": 66,\n        \"temp_min\": 32,\n        \"temp_max\": 36\n    },\n    \"visibility\": 8000,\n    \"wind\": {\n        \"speed\": 5.1,\n        \"deg\": 110\n    },\n    \"clouds\": {\n        \"all\": 20\n    },\n    \"dt\": 1526367600,\n    \"sys\": {\n        \"type\": 1,\n        \"id\": 7978,\n        \"message\": 0.0112,\n        \"country\": \"VN\",\n        \"sunrise\": 1526336236,\n        \"sunset\": 1526382600\n    },\n    \"id\": 1583992,\n    \"name\": \"Turan\",\n    \"cod\": 200\n}"
+                    let w = Mapper<Weather>().map(JSONString: str)
+                     completion(w)
+                }
+                
         }
     }
     static func addItem(item: Item, completion: @escaping (_ item: Item? )->Void){

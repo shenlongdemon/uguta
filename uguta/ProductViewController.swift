@@ -124,15 +124,20 @@ class ProductViewController: BaseViewController {
    
     func publishSell() {
         Util.getUesrInfo { (history) in
-            WebApi.publishSell(itemId: self.item.id, ownerInfo: history, completion: { (i) in
+            if let his = history {
+                WebApi.publishSell(itemId: self.item.id, ownerInfo: his, completion: { (i) in
+                    self.progress.stopAnimating()
+                    if let itm = i {
+                        self.performSegue(withIdentifier: "publishsell", sender: itm)
+                    }
+                    else {
+                        Util.showOKAlert(VC: self, message: "Cannot publish item to sell.")
+                    }
+                })
+            }
+            else {
                 self.progress.stopAnimating()
-                if let itm = i {
-                    self.performSegue(withIdentifier: "publishsell", sender: itm)
-                }
-                else {
-                    Util.showOKAlert(VC: self, message: "Cannot publish item to sell.")
-                }
-            })
+            }
         }
     }
     func comfirm() {
@@ -190,7 +195,8 @@ class ProductViewController: BaseViewController {
         }
         else if segue.identifier == "productmap" {
             let vc = segue.destination as! ProductMapViewController
-            vc.prepareModel(item: self.item)
+            var items : [Item] = [self.item]
+            vc.prepareModel(items: items)
         }
     }
     

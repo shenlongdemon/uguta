@@ -24,6 +24,7 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
     var devices: NSMutableArray = NSMutableArray()
     let SERVICE : [CBUUID]? = nil //[CBUUID.init()]
     var user = Store.getUser()!
+    var position = Store.getPosition()
     override func viewDidLoad() {
         super.viewDidLoad()
         initTable()
@@ -126,6 +127,11 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
             let vc = segue.destination as! ProductViewController
             vc.prepareModel(item: sender as! Item)
         }
+        else if segue.identifier == "bluetoothmap" {
+            let vc = segue.destination as! ProductMapViewController           
+            
+            vc.prepareModel(items: self.items as! [Item])
+        }
     }
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         switch(central.state){
@@ -161,14 +167,27 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
         if let device = (advertisementData as NSDictionary) .object(forKey: CBAdvertisementDataLocalNameKey) as? NSString {
             bleDevice.name = device as String
         }
-        bleDevice.distance = Util.getBLEBeaconDistance(RSSI: RSSI)
+        let coord = self.position!.toBLEPosition().coord!
+        coord.distance = Util.getBLEBeaconDistance(RSSI: RSSI)
+        bleDevice.coord = coord
+        bleDevice.ownerId = self.user.id
         if !self.devices.map({ (device) -> String in
             return (device as! BLEDevice).id
         }).contains(bleDevice.id) {
             self.devices.add(bleDevice)
         }
-        
     }
     
-
+    @IBAction func showOnMap(_ sender: Any) {
+        guard !self.progress.isAnimating else {
+            Util.showAlert(message: "Please wait")
+            return
+        }
+        guard self.items.count > 0 else {
+            Util.showAlert(message: "There is no product around.")
+            return
+        }
+        self.performSegue(withIdentifier: "bluetoothmap", sender: self)
+    }
+    
 }

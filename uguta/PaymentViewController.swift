@@ -26,15 +26,20 @@ class PaymentViewController: BaseViewController {
     @IBAction func payment(_ sender: Any) {
          progress.startAnimating()
         Util.getUesrInfo { (userInfo) in
-            WebApi.payment(itemId: self.item.id, userInfo: userInfo, completion: { (i) in
-                if let item = i {
-                    self.performSegue(withIdentifier: "buyercode", sender: item)
-                }
-                else {
-                    Util.showOKAlert(VC: self, message: "Cannot buy this item")
-                }
-                 self.progress.stopAnimating()
-            })
+            if let userI = userInfo {
+                WebApi.payment(itemId: self.item.id, userInfo: userI, completion: { (i) in
+                    if let item = i {
+                        self.performSegue(withIdentifier: "buyercode", sender: item)
+                    }
+                    else {
+                        Util.showAlert(message: "Cannot buy this item")
+                    }
+                    self.progress.stopAnimating()
+                })
+            }
+            else {
+                self.progress.stopAnimating()
+            }
         }
     }
     func prepareModel(item: Item){

@@ -107,19 +107,28 @@ class FillItemViewController: BaseViewController, UIImagePickerControllerDelegat
         item.category = cat
         item.image = Util.getData64(image: imgImage.image)
         item.bluetoothCode = device
-       
+        
         Util.getUesrInfo { (history) in
-            item.owner = history
-            WebApi.addItem(item: item, completion: { (item) in
-                if let it = item {
-                    self.performSegue(withIdentifier: "doneadditem", sender: it)
-                }
-                else{
-                    Util.showOKAlert(VC: self, message: "Cannot add item")
-                }
+            if let his = history {
+                if let ble = self.bluetoothDevice {
+                    item.location = BLEPosition()
+                    item.location.coord = ble.coord
+                }                
+                item.owner = his
+                WebApi.addItem(item: item, completion: { (item) in
+                    if let it = item {
+                        self.performSegue(withIdentifier: "doneadditem", sender: it)
+                    }
+                    else{
+                        Util.showOKAlert(VC: self, message: "Cannot add item")
+                    }
+                    self.progress.stopAnimating()
+                    
+                })
+            }
+            else{
                 self.progress.stopAnimating()
-                
-            })
+            }
         }
         
     }

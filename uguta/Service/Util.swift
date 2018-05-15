@@ -106,7 +106,7 @@ class Util {
         let strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
         return strBase64
     }
-    static func getUesrInfo(completion: @escaping (_ history: History )->Void){
+    static func getUesrInfo(completion: @escaping (_ history: History? )->Void){
         var history : History = Store.getUserHistory()!
         history.position = Store.getPosition()!
         WebApi.getWeather(lat: history.position.coord.latitude, lon: history.position.coord.longitude) { (weather) in
@@ -118,6 +118,7 @@ class Util {
             }
             else {
                 Util.showAlert(message: "Cannot get weather.")
+                completion(nil)
             }
         }
     }

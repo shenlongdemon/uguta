@@ -24,7 +24,7 @@ class Item: IObject, Mappable {
     var section: Section!
     var owner: History!
     var buyer: History?
-    var location:Position!
+    var location:BLEPosition!
     override init() {
         
     }

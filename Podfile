@@ -14,6 +14,7 @@ target 'uguta' do
   pod 'SwiftyJSON', '~> 4.0'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'OmniVirtSDK'
   # Pods for uguta
 
 end

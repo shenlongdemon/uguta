@@ -14,6 +14,7 @@ PODS:
     - GoogleMaps/Base (= 2.7.0)
   - IQKeyboardManagerSwift (6.0.1)
   - ObjectMapper (3.1.0)
+  - OmniVirtSDK (1.4.8)
   - QRCode (2.0)
   - QRCodeReader.swift (8.1.1)
   - SwiftyJSON (4.1.0)
@@ -26,6 +27,7 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
   - IQKeyboardManagerSwift
+  - OmniVirtSDK
   - QRCode
   - QRCodeReader.swift (~> 8.1.1)
   - SwiftyJSON (~> 4.0)
@@ -40,6 +42,7 @@ SPEC REPOS:
     - GooglePlaces
     - IQKeyboardManagerSwift
     - ObjectMapper
+    - OmniVirtSDK
     - QRCode
     - QRCodeReader.swift
     - SwiftyJSON
@@ -53,10 +56,11 @@ SPEC CHECKSUMS:
   GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
   IQKeyboardManagerSwift: 748d06e0f8134fc28934031e6377da3cf3d4f38c
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
+  OmniVirtSDK: 4d74e1ad9a677d854ced4d1807617150d0980018
   QRCode: f98a1886c8f37523704a7512a4c0cd45b34c18a4
   QRCodeReader.swift: b164a681887de276d405ff02bce854d82cd6360b
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 0392661a8dce2792d1b97324156892dcf0550578
+PODFILE CHECKSUM: c46e2436c4b236f1ab3cb12c067dea1b1ad557eb
 
 COCOAPODS: 1.5.0

@@ -21,8 +21,8 @@ class BluetoothItemViewController: BaseViewController,CBCentralManagerDelegate, 
     let SERVICE : [CBUUID]? = nil //[CBUUID.init()]
     var devices: NSMutableArray = NSMutableArray()
     var tableAdapter : TableAdapter!
-    var position = Store.getPosition()
-    var user = Store.getUser()
+    
+    var user = StoreUtil.getUser()
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -142,7 +142,8 @@ class BluetoothItemViewController: BaseViewController,CBCentralManagerDelegate, 
         if let device = (advertisementData as NSDictionary) .object(forKey: CBAdvertisementDataLocalNameKey) as? NSString {
             bleDevice.name = device as String
         }
-        let coord = self.position!.toBLEPosition().coord!
+        var position = StoreUtil.getPosition()
+        let coord = position!.toBLEPosition().coord!
         coord.distance = Util.getBLEBeaconDistance(RSSI: RSSI)
         bleDevice.coord = coord
         bleDevice.ownerId = self.user!.id

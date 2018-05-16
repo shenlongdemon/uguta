@@ -57,7 +57,7 @@ class MyDocumentsViewController: BaseViewController {
         progress.startAnimating()
         items.removeAllObjects()
         self.tableView.reloadData()
-        let user = Store.getUser()!
+        let user = StoreUtil.getUser()!
         WebApi.getItemsByOwnerId(userId: user.id) { (list) in
             self.items.addObjects(from: list)
             self.tableView.reloadData()

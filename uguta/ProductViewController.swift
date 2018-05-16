@@ -51,7 +51,7 @@ class ProductViewController: BaseViewController {
     }
     func makeButtonAction() {
         var title = "SELL"
-        let user = Store.getUser()!
+        let user = StoreUtil.getUser()!
         
         self.btnAction.isEnabled = true
         if item.owner.id == user.id {

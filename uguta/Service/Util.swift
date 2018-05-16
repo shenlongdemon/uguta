@@ -107,8 +107,8 @@ class Util {
         return strBase64
     }
     static func getUesrInfo(completion: @escaping (_ history: History? )->Void){
-        var history : History = Store.getUserHistory()!
-        history.position = Store.getPosition()!
+        var history : History = StoreUtil.getUserHistory()!
+        history.position = StoreUtil.getPosition()!
         WebApi.getWeather(lat: history.position.coord.latitude, lon: history.position.coord.longitude) { (weather) in
             if let wa = weather {
                 history.weather = wa

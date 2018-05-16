@@ -36,7 +36,7 @@ class WebApi{
     static let COMFIRM_RECEIVED = "\(WebApi.HOST)/api/sellrecognizer/confirmReceiveItem"
     static let GET_PRODUCTS_BY_BLUETOOTH_CODES = "\(WebApi.HOST)/api/sellrecognizer/getProductsByBluetoothCodes"
     static let CANCEL_SELL =  "\(WebApi.HOST)/api/sellrecognizer/cancelSell"
-    
+    static let GET_STORES =  "\(WebApi.HOST)/api/sellrecognizer/getStores"
     
     static func manager()-> SessionManager{
 //        var defaultHeaders = Alamofire.SessionManager.defaultHTTPHeaders
@@ -90,6 +90,28 @@ class WebApi{
                 }
                 else {
                     completion(nil)
+                }
+                
+                
+        }
+    }
+    static func getStores(completion: @escaping (_ stores: [Store] )->Void){
+        
+        let url = URL(string: WebApi.GET_STORES)
+        
+        WebApi.manager().request(url!)
+            .responseJSON { (data) in
+                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
+                    completion([])
+                    return
+                }
+                
+                if(apiModel.Status == 1){
+                    let stores: [Store] = Mapper<Store>().mapArray(JSONObject: apiModel.Data) ?? []
+                    completion(stores)
+                }
+                else {
+                    completion([])
                 }
                 
                 

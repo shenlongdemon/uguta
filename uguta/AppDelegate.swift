@@ -120,7 +120,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         position.coord = coord
         
-        Store.savePosition(position: position);
+        StoreUtil.savePosition(position: position);
     }
 
 }

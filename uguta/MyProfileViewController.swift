@@ -40,7 +40,7 @@ class MyProfileViewController: BaseViewController, UIImagePickerControllerDelega
         present(imagePicker, animated: true, completion: nil)
     }
     func loadInfo() {
-        let user = Store.getUser()!
+        let user = StoreUtil.getUser()!
         txtFirstName.text = user.firstName
         txtLastName.text = user.lastName
         txtState.text = user.state
@@ -57,14 +57,14 @@ class MyProfileViewController: BaseViewController, UIImagePickerControllerDelega
         dismiss(animated: true, completion: nil)
     }
     @IBAction func save(_ sender: Any) {
-        let user = Store.getUser()!
+        let user = StoreUtil.getUser()!
         user.firstName = txtFirstName.text!
         user.lastName = txtLastName.text!
         user.state = txtState.text!
         user.zipCode = txtZipcode.text!
         user.country = txtCountry.text!
         user.image = Util.getData64(image: imgImage.image! )
-        Store.saveUser(user: user)
+        StoreUtil.saveUser(user: user)
         WebApi.updateUser(user: user) { (done) in
             if (done){
                 Util.showOKAlert(VC: self, message: "Update success.")
@@ -74,6 +74,7 @@ class MyProfileViewController: BaseViewController, UIImagePickerControllerDelega
             }
         }
     }
+   
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

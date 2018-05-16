@@ -20,7 +20,7 @@ import QRCode
 import DataCompression
 import Alamofire
 import ObjectMapper
-class Store {
+class StoreUtil {
    
     static func saveUser(user: User){
         let JSONString = user.toJSONString(prettyPrint: true)

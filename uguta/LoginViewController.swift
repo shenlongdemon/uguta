@@ -44,7 +44,7 @@ class LoginViewController: UIViewController {
                 Util.showOKAlert(VC: self, message: "Wrong phone or password!")
                 return
             }
-            Store.saveUser(user: user)
+            StoreUtil.saveUser(user: user)
             self.performSegue(withIdentifier: "logged", sender: nil)
         }
     }

@@ -41,7 +41,7 @@
 		3B210DB120962B4900A5CF84 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B210DAF20962B4900A5CF84 /* HistoryTableViewCell.xib */; };
 		3B210DB320962B7400A5CF84 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B210DB220962B7400A5CF84 /* History.swift */; };
 		3B448B9820A9DACF00A71001 /* ProductMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B448B9720A9DACF00A71001 /* ProductMapViewController.swift */; };
-		3B76B85C2096A8CA000438C9 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B76B85B2096A8CA000438C9 /* Store.swift */; };
+		3B76B85C2096A8CA000438C9 /* StoreUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B76B85B2096A8CA000438C9 /* StoreUtil.swift */; };
 		3B76B85E2096B1EB000438C9 /* MyDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B76B85D2096B1EB000438C9 /* MyDocumentsViewController.swift */; };
 		3B76B8602096B54A000438C9 /* FillItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B76B85F2096B54A000438C9 /* FillItemViewController.swift */; };
 		3B76B8622096D245000438C9 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B76B8612096D245000438C9 /* ItemDetailViewController.swift */; };
@@ -55,6 +55,11 @@
 		3B799EB820A4249400320A70 /* BluetoothItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B799EB720A4249400320A70 /* BluetoothItemViewController.swift */; };
 		3B799EBB20A427C000320A70 /* BLEDeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B799EB920A427C000320A70 /* BLEDeviceTableViewCell.swift */; };
 		3B799EBC20A427C000320A70 /* BLEDeviceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B799EBA20A427C000320A70 /* BLEDeviceTableViewCell.xib */; };
+		41BF8D9420AC1C3800F86117 /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BF8D9220AC1C3800F86117 /* StoreTableViewCell.swift */; };
+		41BF8D9520AC1C3800F86117 /* StoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41BF8D9320AC1C3800F86117 /* StoreTableViewCell.xib */; };
+		41BF8D9720AC1D3700F86117 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BF8D9620AC1D3700F86117 /* Store.swift */; };
+		41BF8D9920AC21F200F86117 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BF8D9820AC21F200F86117 /* StoreViewController.swift */; };
+		41BF8D9B20AC2A9000F86117 /* Video360ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BF8D9A20AC2A9000F86117 /* Video360ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,7 +99,7 @@
 		3B210DAF20962B4900A5CF84 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		3B210DB220962B7400A5CF84 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		3B448B9720A9DACF00A71001 /* ProductMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMapViewController.swift; sourceTree = "<group>"; };
-		3B76B85B2096A8CA000438C9 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		3B76B85B2096A8CA000438C9 /* StoreUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreUtil.swift; sourceTree = "<group>"; };
 		3B76B85D2096B1EB000438C9 /* MyDocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDocumentsViewController.swift; sourceTree = "<group>"; };
 		3B76B85F2096B54A000438C9 /* FillItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillItemViewController.swift; sourceTree = "<group>"; };
 		3B76B8612096D245000438C9 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +113,11 @@
 		3B799EB720A4249400320A70 /* BluetoothItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothItemViewController.swift; sourceTree = "<group>"; };
 		3B799EB920A427C000320A70 /* BLEDeviceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDeviceTableViewCell.swift; sourceTree = "<group>"; };
 		3B799EBA20A427C000320A70 /* BLEDeviceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BLEDeviceTableViewCell.xib; sourceTree = "<group>"; };
+		41BF8D9220AC1C3800F86117 /* StoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
+		41BF8D9320AC1C3800F86117 /* StoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreTableViewCell.xib; sourceTree = "<group>"; };
+		41BF8D9620AC1D3700F86117 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		41BF8D9820AC21F200F86117 /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
+		41BF8D9A20AC2A9000F86117 /* Video360ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video360ViewController.swift; sourceTree = "<group>"; };
 		774118D0D85DBFDD0FBCE2E6 /* Pods-uguta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uguta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uguta/Pods-uguta.debug.xcconfig"; sourceTree = "<group>"; };
 		B28DBF4389D9FFA96CDF2965 /* Pods-uguta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uguta.release.xcconfig"; path = "Pods/Target Support Files/Pods-uguta/Pods-uguta.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,6 +156,7 @@
 		3B210D622095826200A5CF84 /* uguta */ = {
 			isa = PBXGroup;
 			children = (
+				41BF8D9A20AC2A9000F86117 /* Video360ViewController.swift */,
 				3B210D632095826200A5CF84 /* AppDelegate.swift */,
 				3B210D6D2095826300A5CF84 /* Assets.xcassets */,
 				3B210D7C20958A4300A5CF84 /* BaseViewController.swift */,
@@ -175,6 +186,7 @@
 				3B76B86D20979F0E000438C9 /* OMIDCODEViewController.swift */,
 				3B799EB720A4249400320A70 /* BluetoothItemViewController.swift */,
 				3B448B9720A9DACF00A71001 /* ProductMapViewController.swift */,
+				41BF8D9820AC21F200F86117 /* StoreViewController.swift */,
 			);
 			path = uguta;
 			sourceTree = "<group>";
@@ -194,7 +206,7 @@
 				3B210D882095B83F00A5CF84 /* WebApi.swift */,
 				3B210D8A2095BB6C00A5CF84 /* ApiModel.swift */,
 				3B210DA82096059E00A5CF84 /* Util.swift */,
-				3B76B85B2096A8CA000438C9 /* Store.swift */,
+				3B76B85B2096A8CA000438C9 /* StoreUtil.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -208,6 +220,7 @@
 				3B210DA62096051D00A5CF84 /* User.swift */,
 				3B210DB220962B7400A5CF84 /* History.swift */,
 				3B799EB520A41A3B00320A70 /* BLEDevice.swift */,
+				41BF8D9620AC1D3700F86117 /* Store.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -241,6 +254,8 @@
 				3B210DAF20962B4900A5CF84 /* HistoryTableViewCell.xib */,
 				3B799EB920A427C000320A70 /* BLEDeviceTableViewCell.swift */,
 				3B799EBA20A427C000320A70 /* BLEDeviceTableViewCell.xib */,
+				41BF8D9220AC1C3800F86117 /* StoreTableViewCell.swift */,
+				41BF8D9320AC1C3800F86117 /* StoreTableViewCell.xib */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -337,6 +352,7 @@
 				3B210DB120962B4900A5CF84 /* HistoryTableViewCell.xib in Resources */,
 				3B799EBC20A427C000320A70 /* BLEDeviceTableViewCell.xib in Resources */,
 				3B210D9D2095CD5800A5CF84 /* CategoryTableViewCell.xib in Resources */,
+				41BF8D9520AC1C3800F86117 /* StoreTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +390,7 @@
 				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${PODS_ROOT}/OmniVirtSDK/OmniVirtSDK.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCode/QRCode.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -386,6 +403,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OmniVirtSDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -422,6 +440,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41BF8D9B20AC2A9000F86117 /* Video360ViewController.swift in Sources */,
 				3B799EB820A4249400320A70 /* BluetoothItemViewController.swift in Sources */,
 				3B210D7D20958A4300A5CF84 /* BaseViewController.swift in Sources */,
 				3B210DAD2096297400A5CF84 /* HistoryViewController.swift in Sources */,
@@ -433,7 +452,7 @@
 				3B08CE2020A89C76001857DD /* BaseImage.swift in Sources */,
 				3B210D7F20958A5C00A5CF84 /* LookAndFindViewController.swift in Sources */,
 				3B76B85E2096B1EB000438C9 /* MyDocumentsViewController.swift in Sources */,
-				3B76B85C2096A8CA000438C9 /* Store.swift in Sources */,
+				3B76B85C2096A8CA000438C9 /* StoreUtil.swift in Sources */,
 				3B76B8622096D245000438C9 /* ItemDetailViewController.swift in Sources */,
 				3B210D842095B6DD00A5CF84 /* FindProductViewController.swift in Sources */,
 				3B210D8B2095BB6C00A5CF84 /* ApiModel.swift in Sources */,
@@ -441,6 +460,8 @@
 				3B210DB320962B7400A5CF84 /* History.swift in Sources */,
 				3B76B86C20970461000438C9 /* MyProfileViewController.swift in Sources */,
 				3B799EBB20A427C000320A70 /* BLEDeviceTableViewCell.swift in Sources */,
+				41BF8D9420AC1C3800F86117 /* StoreTableViewCell.swift in Sources */,
+				41BF8D9920AC21F200F86117 /* StoreViewController.swift in Sources */,
 				3B210D942095CBF900A5CF84 /* TableAdapter.swift in Sources */,
 				3B210DA72096051D00A5CF84 /* User.swift in Sources */,
 				3B210D892095B83F00A5CF84 /* WebApi.swift in Sources */,
@@ -459,6 +480,7 @@
 				3B76B8602096B54A000438C9 /* FillItemViewController.swift in Sources */,
 				3B210D8E2095BC2100A5CF84 /* Category.swift in Sources */,
 				3B210D912095CA9200A5CF84 /* TypeExtention.swift in Sources */,
+				41BF8D9720AC1D3700F86117 /* Store.swift in Sources */,
 				3B76B86E20979F0E000438C9 /* OMIDCODEViewController.swift in Sources */,
 				3B210D9C2095CD5800A5CF84 /* CategoryTableViewCell.swift in Sources */,
 			);

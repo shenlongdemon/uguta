@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard let user = Store.getUser() else {
+        guard let user = StoreUtil.getUser() else {
             self.performSegue(withIdentifier: "login", sender: nil)
             return
         }

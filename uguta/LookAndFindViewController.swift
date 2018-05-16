@@ -109,7 +109,7 @@ class LookAndFindViewController: BaseViewController , QRCodeReaderViewController
     }
     func processQRCode(qrCode: String) {
         if (self.isScanning == false){
-            let coord = Store.getPosition()!.coord!
+            let coord = StoreUtil.getPosition()!.coord!
             WebApi.getItemByQRCode(code: qrCode, coord: coord) { (i) in
                 guard let item = i else {
                     Util.showOKAlert(VC: self, message: "QRCode is not valid for product.\nMake sure the product is published to sell.")

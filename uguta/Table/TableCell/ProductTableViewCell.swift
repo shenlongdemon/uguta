@@ -21,6 +21,8 @@ class ProductTableViewCell: TableCell {
     
     @IBOutlet weak var heightImage: NSLayoutConstraint!
     
+    @IBOutlet weak var lbBluetoothName: UILabel!
+    @IBOutlet weak var imgBluetooth: UIImageView!
     var item : Item!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,7 +38,7 @@ class ProductTableViewCell: TableCell {
         self.item = object as! Item
        
         if (self.item.id.count > 0){
-            heightImage.constant = 0.0
+            heightImage.constant = 95
             self.lbName.text = "\(self.item.name)"
             self.imgImage.image = item.getImage()
             self.lbCategory.text = self.item.category.value
@@ -52,9 +54,17 @@ class ProductTableViewCell: TableCell {
                 self.lbStatus.text = "PUBLISH"
                 self.lbStatus.textColor = #colorLiteral(red: 0, green: 0.5628422499, blue: 0.3188166618, alpha: 1)
             }
+            if let bluetooth = self.item.bluetooth {
+                self.imgBluetooth.image = #imageLiteral(resourceName: "bluetooth")
+                self.lbBluetoothName.text = bluetooth.name
+            }
+            else {
+                self.imgBluetooth.image = nil
+                self.lbBluetoothName.text = ""
+            }
         }
         else{
-            heightImage.constant = -120.0
+            heightImage.constant = 0.0
             
             self.lbName.text = self.item.name
             self.lbCategory.text = self.item.bluetoothCode
@@ -85,7 +95,7 @@ class ProductTableViewCell: TableCell {
     
     static let nibName = String(describing:  ProductTableViewCell.self)
     static let reuseIdentifier = String(describing: ProductTableViewCell.self)
-    static let height : CGFloat = 120
+    static let height : CGFloat = 140
     
 }
 

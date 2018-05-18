@@ -9,14 +9,14 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
-class ProductMapViewController: BaseViewController {
+class ProductMapViewController: BaseViewController, GMSMapViewDelegate {
     var items: [Item]!
     var markers : [GMSMarker] = []
     var circles : [GMSCircle] = []
-    let colors = [#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 0.5491491866), #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 0.5), #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 0.5308219178), #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 0.5367883134), #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 0.5186483305), #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 0.4916256421), #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 0.475973887)]
+    let colors = [#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 0.6416149401), #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 0.5), #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 0.5308219178), #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 0.5367883134), #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 0.5186483305), #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 0.4916256421), #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 0.475973887)]
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         // Creates a marker in the center of the map.
         var bounds = GMSCoordinateBounds()
         var i : Int = 0
@@ -38,8 +38,10 @@ class ProductMapViewController: BaseViewController {
                 let circle = GMSCircle(position: loc , radius: item.location.coord.distance)
                 circle.fillColor = self.colors[i]
                 circle.strokeColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+                circle.title = item.name
+                circle.isTappable = true
                 bounds = bounds.includingCoordinate(circle.position)
-
+                
                 self.circles.append(circle)
             }
             i += 1
@@ -50,6 +52,7 @@ class ProductMapViewController: BaseViewController {
         let camera = GMSCameraPosition.camera(withLatitude: items[0].location.coord!.latitude, longitude: items[0].location.coord!.longitude, zoom: 18.0)
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         mapView.isMyLocationEnabled = true
+        mapView.delegate = self
         mapView.animate(with: GMSCameraUpdate.fit(bounds, with: UIEdgeInsetsMake(50.0 , 50.0 ,50.0 ,50.0)))
         for marker in self.markers{
             marker.map = mapView
@@ -58,7 +61,8 @@ class ProductMapViewController: BaseViewController {
             circle.map = mapView
         }
         view = mapView
-        
+        let update = GMSCameraUpdate.fit(bounds, withPadding: 60)
+        mapView.animate(with: update)
         // Do any additional setup after loading the view.
     }
     func prepareModel(items: [Item]){
@@ -69,7 +73,11 @@ class ProductMapViewController: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func mapView(_ mapView: GMSMapView, didTap overlay: GMSOverlay) {
+        if let title = overlay.title {
+            Util.showAlert(message: title )
+        }
+    }
     /*
     // MARK: - Navigation
 

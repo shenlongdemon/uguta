@@ -26,9 +26,17 @@ class GenCodeViewController: BaseViewController {
 
     @IBAction func print(_ sender: Any) {
         let qrCode = QRCode(self.item)
-        Util.print(id: "QRCode", image: qrCode!.image!, frame: self.imgImage.frame, inView: self.view)
+        //Util.print(id: "QRCode", image: qrCode!.image!, frame: self.imgImage.frame, inView: self.view)
+        UIImageWriteToSavedPhotosAlbum(qrCode!.image!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+
     }
-    
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            Util.showAlert(message: "Save error: \(error.localizedDescription)")
+        } else {
+            Util.showAlert(message: "Your QR Code image has been saved to your photos.")
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

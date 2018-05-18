@@ -75,15 +75,22 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
             let coord = StoreUtil.getPosition()!.coord!
             WebApi.getProductsByBluetoothCodes(devices: self.devices as! [BLEDevice], coord: coord) { (list) in
                 self.items.addObjects(from: list)
+                
+                var bluetoothIds = self.items.map({ (i) -> String in
+                    return (i as! Item).bluetoothCode
+                })
+                
                 self.devices.forEach({ (device) in
-                    if let d = device as? BLEDevice{
-                        let i : Item = Item()
-                        i.name = d.name
-                        i.description = d.localName
-                        i.bluetoothCode = d.id
-                        i.price = d.getDistance()
-                        i.id = ""
-                        self.items.add(i)
+                    if !bluetoothIds.contains((device as! BLEDevice).id) {
+                        if let d = device as? BLEDevice{
+                            let i : Item = Item()
+                            i.name = d.name
+                            i.description = d.localName
+                            i.bluetoothCode = d.id
+                            i.price = d.getDistance()
+                            i.id = ""
+                            self.items.add(i)
+                        }
                     }
                 })
                 self.tableView.reloadData()
@@ -129,8 +136,10 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
         }
         else if segue.identifier == "bluetoothmap" {
             let vc = segue.destination as! ProductMapViewController           
-            
-            vc.prepareModel(items: self.items as! [Item])
+            let its = self.items.filter({ (i) -> Bool in
+                return (i as! Item).id.count > 0
+            }) as! [Item]
+            vc.prepareModel(items: its)
         }
     }
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
@@ -185,6 +194,13 @@ class BluetoothViewController: BaseViewController,CBCentralManagerDelegate, CBPe
             return
         }
         guard self.items.count > 0 else {
+            Util.showAlert(message: "There is no product around.")
+            return
+        }
+        let its = self.items.filter({ (i) -> Bool in
+            return (i as! Item).id.count > 0
+        }) as! [Item]
+        guard its.count > 0 else {
             Util.showAlert(message: "There is no product around.")
             return
         }

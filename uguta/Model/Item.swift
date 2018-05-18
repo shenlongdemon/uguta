@@ -25,6 +25,7 @@ class Item: IObject, Mappable {
     var owner: History!
     var buyer: History?
     var location:BLEPosition!
+    var bluetooth : Bluetooth?
     override init() {
         
     }
@@ -48,6 +49,7 @@ class Item: IObject, Mappable {
         self.owner   <- map["owner"]
         self.buyer   <- map["buyer"]
         self.location   <- map["location"]
+        self.bluetooth   <- map["bluetooth"]
     }
     func getImage() -> UIImage? {
         return Util.getImage(data64: self.image)

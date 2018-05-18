@@ -637,9 +637,9 @@
                         <viewLayoutGuide key="safeArea" id="9qn-Ca-cH6"/>
                     </view>
                     <navigationItem key="navigationItem" id="cKf-cw-5m1">
-                        <barButtonItem key="rightBarButtonItem" title="Store" id="5Ef-xO-tb9">
+                        <barButtonItem key="rightBarButtonItem" title="Stores" id="5Ef-xO-tb9">
                             <connections>
-                                <segue destination="05N-TW-ucw" kind="show" identifier="store" id="6K4-e4-QeL"/>
+                                <segue destination="x4A-OM-LpJ" kind="show" id="xLF-MJ-Hya"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1114,7 +1114,7 @@
                         <viewLayoutGuide key="safeArea" id="QYa-oM-Z5C"/>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="PRm-4R-eoc">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="printer" id="vac-nP-kvE">
+                        <barButtonItem key="rightBarButtonItem" title="Save QR" id="vac-nP-kvE">
                             <connections>
                                 <action selector="print:" destination="SgU-Pe-Afe" id="bXB-7J-Skp"/>
                             </connections>
@@ -1277,7 +1277,7 @@
                         <viewLayoutGuide key="safeArea" id="UvK-Sy-JdB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Code" id="nny-ZF-gGD">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="printer" id="N4v-aA-Djm">
+                        <barButtonItem key="rightBarButtonItem" title="Save QR" id="N4v-aA-Djm">
                             <connections>
                                 <action selector="print:" destination="Apw-ml-4I8" id="qUp-73-v1E"/>
                             </connections>
@@ -1447,7 +1447,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FED-Vn-sdi">
-                                <rect key="frame" x="10" y="74" width="355" height="534"/>
+                                <rect key="frame" x="10" y="30" width="355" height="627"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="lwe-Hk-PK1" customClass="StoreTableViewCell" customModule="uguta" customModuleProvider="target">
@@ -1461,7 +1461,7 @@
                                 </prototypes>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="wMu-hT-Rk7">
-                                <rect key="frame" x="177.5" y="94" width="20" height="20"/>
+                                <rect key="frame" x="177.5" y="50" width="20" height="20"/>
                                 <color key="color" red="0.9073926806" green="0.35688179730000003" blue="0.35232397910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
@@ -1482,12 +1482,11 @@
                     <connections>
                         <outlet property="progress" destination="wMu-hT-Rk7" id="eWy-kL-OGX"/>
                         <outlet property="tableView" destination="FED-Vn-sdi" id="zfv-nl-m1s"/>
-                        <segue destination="x4A-OM-LpJ" kind="show" identifier="storevideo" id="vm7-Ok-jBL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wee-xO-LzO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5415" y="-506"/>
+            <point key="canvasLocation" x="5332" y="-790"/>
         </scene>
         <!--Video360 View Controller-->
         <scene sceneID="p9L-Ga-1Cn">
@@ -1497,27 +1496,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e2G-Bx-76c" customClass="VRPlayer" customModule="OmniVirtSDK">
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fli-8T-tqE">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="e2G-Bx-76c" firstAttribute="top" secondItem="gl2-fU-NlG" secondAttribute="top" id="G8p-S9-FGC"/>
-                            <constraint firstItem="e2G-Bx-76c" firstAttribute="leading" secondItem="gl2-fU-NlG" secondAttribute="leading" id="QSO-dc-d2y"/>
-                            <constraint firstItem="gl2-fU-NlG" firstAttribute="bottom" secondItem="e2G-Bx-76c" secondAttribute="bottom" id="pPL-E4-vVt"/>
-                            <constraint firstItem="gl2-fU-NlG" firstAttribute="trailing" secondItem="e2G-Bx-76c" secondAttribute="trailing" id="s38-Jq-MTw"/>
+                            <constraint firstItem="Fli-8T-tqE" firstAttribute="leading" secondItem="gl2-fU-NlG" secondAttribute="leading" id="XHn-v4-7xH"/>
+                            <constraint firstItem="gl2-fU-NlG" firstAttribute="bottom" secondItem="Fli-8T-tqE" secondAttribute="bottom" id="cfo-bp-vKR"/>
+                            <constraint firstItem="Fli-8T-tqE" firstAttribute="top" secondItem="gl2-fU-NlG" secondAttribute="top" id="gUM-9S-BhR"/>
+                            <constraint firstItem="gl2-fU-NlG" firstAttribute="trailing" secondItem="Fli-8T-tqE" secondAttribute="trailing" id="iXz-kd-ndx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gl2-fU-NlG"/>
                     </view>
                     <connections>
-                        <outlet property="player" destination="e2G-Bx-76c" id="bX8-5w-8nZ"/>
+                        <outlet property="webView" destination="Fli-8T-tqE" id="RLg-rP-pol"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1jv-39-kiT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6286" y="-856"/>
+            <point key="canvasLocation" x="6089" y="-588"/>
         </scene>
     </scenes>
     <resources>
@@ -1534,7 +1537,6 @@
         <image name="maps" width="512" height="512"/>
         <image name="myprofile" width="30" height="30"/>
         <image name="plus" width="512" height="512"/>
-        <image name="printer" width="30" height="30"/>
         <image name="splash" width="750" height="1334"/>
         <image name="sync" width="128" height="128"/>
     </resources>

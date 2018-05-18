@@ -44,10 +44,20 @@ class ProductViewController: BaseViewController {
         self.makeButtonAction()       
         
     }
-
+    
     @IBAction func print(_ sender: Any) {
         let image = Util.getQRCodeImage(str: self.item.sellCode)
-        Util.print(id: "QRCode", image: image!, frame: self.imgQR.frame, inView: self.view)
+        
+        //Util.print(id: "QRCode", image: qrCode!.image!, frame: self.imgImage.frame, inView: self.view)
+        UIImageWriteToSavedPhotosAlbum(image!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+        
+    }
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            Util.showAlert(message: "Save error: \(error.localizedDescription)")
+        } else {
+            Util.showAlert(message: "Your QR Code image has been saved to your photos.")
+        }
     }
     func makeButtonAction() {
         var title = "SELL"

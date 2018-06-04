@@ -13,6 +13,7 @@ import ObjectMapper
 class Store: IObject, Mappable {
     var name: String = ""
     var image: String = ""
+    var video360 : String = ""
     required init?(map: Map) {
         
     }
@@ -21,6 +22,7 @@ class Store: IObject, Mappable {
         self.id <- map["id"]
         self.name     <- map["name"]
         self.image     <- map["image"]
+        self.video360     <- map["video360"]
     }
     func getImage() -> UIImage? {
         return Util.getImage(data64: self.image)

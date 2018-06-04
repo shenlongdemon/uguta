@@ -1504,6 +1504,10 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sle-Cu-4gK">
+                                <rect key="frame" x="177" y="74" width="20" height="20"/>
+                                <color key="color" red="0.9073926806" green="0.35688179730000003" blue="0.35232397910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1511,16 +1515,78 @@
                             <constraint firstItem="gl2-fU-NlG" firstAttribute="bottom" secondItem="Fli-8T-tqE" secondAttribute="bottom" id="cfo-bp-vKR"/>
                             <constraint firstItem="Fli-8T-tqE" firstAttribute="top" secondItem="gl2-fU-NlG" secondAttribute="top" id="gUM-9S-BhR"/>
                             <constraint firstItem="gl2-fU-NlG" firstAttribute="trailing" secondItem="Fli-8T-tqE" secondAttribute="trailing" id="iXz-kd-ndx"/>
+                            <constraint firstItem="sle-Cu-4gK" firstAttribute="top" secondItem="gl2-fU-NlG" secondAttribute="top" constant="10" id="jYM-Yy-fWq"/>
+                            <constraint firstItem="sle-Cu-4gK" firstAttribute="centerX" secondItem="gl2-fU-NlG" secondAttribute="centerX" id="tWF-fl-bC0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gl2-fU-NlG"/>
                     </view>
                     <connections>
+                        <outlet property="progress" destination="sle-Cu-4gK" id="6ro-RH-kgp"/>
                         <outlet property="webView" destination="Fli-8T-tqE" id="RLg-rP-pol"/>
+                        <segue destination="SgU-Pe-Afe" kind="show" identifier="video360product" id="JLo-GP-bbC"/>
+                        <segue destination="YdI-7H-pju" kind="show" identifier="view3d" id="Bt3-KN-yaD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1jv-39-kiT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6089" y="-588"/>
+        </scene>
+        <!--View3D View Controller-->
+        <scene sceneID="Vet-zz-DNl">
+            <objects>
+                <viewController id="YdI-7H-pju" customClass="View3DViewController" customModule="uguta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Oqy-1W-vJO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qIS-dd-JSQ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGp-Ka-FaU" customClass="BaseButton" customModule="uguta" customModuleProvider="target">
+                                <rect key="frame" x="157" y="568" width="60" height="40"/>
+                                <color key="backgroundColor" red="0.93328660730000002" green="0.65118694310000003" blue="0.27680155629999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="JYB-FM-RhG"/>
+                                    <constraint firstAttribute="width" constant="60" id="Khn-a3-RJW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="NEXT">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="next:" destination="YdI-7H-pju" eventType="touchUpInside" id="sGh-kJ-omF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IGp-Ka-FaU" firstAttribute="centerX" secondItem="4Hc-52-DjM" secondAttribute="centerX" id="0KR-Jb-FAx"/>
+                            <constraint firstItem="4Hc-52-DjM" firstAttribute="trailing" secondItem="qIS-dd-JSQ" secondAttribute="trailing" id="28J-DN-Z0E"/>
+                            <constraint firstItem="qIS-dd-JSQ" firstAttribute="top" secondItem="4Hc-52-DjM" secondAttribute="top" id="5ta-MM-Ze1"/>
+                            <constraint firstItem="qIS-dd-JSQ" firstAttribute="leading" secondItem="4Hc-52-DjM" secondAttribute="leading" id="OOl-TC-JQf"/>
+                            <constraint firstItem="4Hc-52-DjM" firstAttribute="bottom" secondItem="IGp-Ka-FaU" secondAttribute="bottom" constant="10" id="YkY-CW-FFD"/>
+                            <constraint firstItem="4Hc-52-DjM" firstAttribute="bottom" secondItem="qIS-dd-JSQ" secondAttribute="bottom" id="YsC-xo-poY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4Hc-52-DjM"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="qIS-dd-JSQ" id="yIU-eQ-VFS"/>
+                        <segue destination="SgU-Pe-Afe" kind="show" identifier="view3dnext" id="5QU-d9-QjX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F8d-Ps-XNp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7006" y="-663"/>
         </scene>
     </scenes>
     <resources>
@@ -1543,9 +1609,9 @@
     <inferredMetricsTieBreakers>
         <segue reference="tVy-DX-tnJ"/>
         <segue reference="tF1-h1-eqB"/>
-        <segue reference="bHY-zC-Nqh"/>
+        <segue reference="zTD-Vu-Vtb"/>
         <segue reference="46C-92-WHH"/>
-        <segue reference="PnA-A5-uNA"/>
+        <segue reference="JLo-GP-bbC"/>
         <segue reference="l4C-gJ-rut"/>
     </inferredMetricsTieBreakers>
 </document>

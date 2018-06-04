@@ -18,8 +18,8 @@ import Foundation
 import Alamofire
 import ObjectMapper
 class WebApi{
-    static let HOST = "http://96.93.123.234:5000"
-    //static let HOST = "http://192.168.1.15:5000"
+    //	static let HOST = "http://96.93.123.234:5000"
+    static let HOST = "http://192.168.1.3:5000"
     //static let HOST = "http://192.168.79.84:5000"
     //static let HOST = "http://192.168.60.67:5000" // wifi
     
@@ -27,6 +27,9 @@ class WebApi{
     static let GET_PRODUCT_BY_CATEGORY = "\(WebApi.HOST)/api/sellrecognizer/getProductsByCategory"
     static let GET_DESCRIPTION_BY_QRCODE = "\(WebApi.HOST)/api/sellrecognizer/getDescriptionQRCode"
     static let GET_ITEM_BY_QRCODE = "\(WebApi.HOST)/api/sellrecognizer/getItemByQRCode"
+    static let GET_ITEM_BY_ID = "\(WebApi.HOST)/api/sellrecognizer/getItemById?id={id}"
+    static let GET_ITEM_INSIDE_STORE = "\(WebApi.HOST)/api/sellrecognizer/getItemInsideStore?storeId={storeId}&position={position}"
+
     static let LOGIN = "\(WebApi.HOST)/api/sellrecognizer/login"
     static let GET_ITEMS_BY_USERID = "\(WebApi.HOST)/api/sellrecognizer/getItemsByOwnerId"
     static let ADD_ITEM = "\(WebApi.HOST)/api/sellrecognizer/insertItem"
@@ -78,6 +81,50 @@ class WebApi{
         let url = URL(string: WebApi.ADD_ITEM)
         
         WebApi.manager().request(url!, method: .post, parameters: json, encoding: JSONEncoding.default)
+            .responseJSON { (data) in
+                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
+                    completion(nil)
+                    return
+                }
+                
+                if(apiModel.Status == 1){
+                    let item: Item? = Mapper<Item>().map(JSONObject: apiModel.Data)
+                    completion(item)
+                }
+                else {
+                    completion(nil)
+                }
+                
+                
+        }
+    }
+    static func getItemById(id: String, completion: @escaping (_ item: Item? )->Void){
+        
+        let url = URL(string: WebApi.GET_ITEM_BY_ID.replacingOccurrences(of: "{id}", with: id))
+        
+        WebApi.manager().request(url!)
+            .responseJSON { (data) in
+                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
+                    completion(nil)
+                    return
+                }
+                
+                if(apiModel.Status == 1){
+                    let item: Item? = Mapper<Item>().map(JSONObject: apiModel.Data)
+                    completion(item)
+                }
+                else {
+                    completion(nil)
+                }
+                
+                
+        }
+    }
+    static func getItemInsideStore(storeId: String, position: Int, completion: @escaping (_ item: Item? )->Void){
+        
+        let url = URL(string: WebApi.GET_ITEM_INSIDE_STORE.replacingOccurrences(of: "{storeId}", with: storeId).replacingOccurrences(of: "{position}", with: "\(position)"))
+        
+        WebApi.manager().request(url!)
             .responseJSON { (data) in
                 guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
                     completion(nil)

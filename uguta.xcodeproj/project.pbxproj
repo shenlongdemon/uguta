@@ -42,6 +42,7 @@
 		3B210DB320962B7400A5CF84 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B210DB220962B7400A5CF84 /* History.swift */; };
 		3B3F500120ADC4D50005A713 /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F500020ADC4D50005A713 /* Bluetooth.swift */; };
 		3B448B9820A9DACF00A71001 /* ProductMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B448B9720A9DACF00A71001 /* ProductMapViewController.swift */; };
+		3B56230E20C4CCB600E59D88 /* View3DViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B56230D20C4CCB600E59D88 /* View3DViewController.swift */; };
 		3B76B85C2096A8CA000438C9 /* StoreUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B76B85B2096A8CA000438C9 /* StoreUtil.swift */; };
 		3B76B85E2096B1EB000438C9 /* MyDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B76B85D2096B1EB000438C9 /* MyDocumentsViewController.swift */; };
 		3B76B8602096B54A000438C9 /* FillItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B76B85F2096B54A000438C9 /* FillItemViewController.swift */; };
@@ -101,6 +102,7 @@
 		3B210DB220962B7400A5CF84 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		3B3F500020ADC4D50005A713 /* Bluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bluetooth.swift; sourceTree = "<group>"; };
 		3B448B9720A9DACF00A71001 /* ProductMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMapViewController.swift; sourceTree = "<group>"; };
+		3B56230D20C4CCB600E59D88 /* View3DViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View3DViewController.swift; sourceTree = "<group>"; };
 		3B76B85B2096A8CA000438C9 /* StoreUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreUtil.swift; sourceTree = "<group>"; };
 		3B76B85D2096B1EB000438C9 /* MyDocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDocumentsViewController.swift; sourceTree = "<group>"; };
 		3B76B85F2096B54A000438C9 /* FillItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillItemViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				3B799EB720A4249400320A70 /* BluetoothItemViewController.swift */,
 				3B448B9720A9DACF00A71001 /* ProductMapViewController.swift */,
 				41BF8D9820AC21F200F86117 /* StoreViewController.swift */,
+				3B56230D20C4CCB600E59D88 /* View3DViewController.swift */,
 			);
 			path = uguta;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				3B210D892095B83F00A5CF84 /* WebApi.swift in Sources */,
 				3B210D8220958C9E00A5CF84 /* BaseButton.swift in Sources */,
 				3B448B9820A9DACF00A71001 /* ProductMapViewController.swift in Sources */,
+				3B56230E20C4CCB600E59D88 /* View3DViewController.swift in Sources */,
 				3B210D662095826200A5CF84 /* ViewController.swift in Sources */,
 				3B210DA22095D59400A5CF84 /* ProductTableViewCell.swift in Sources */,
 				3B799EB620A41A3C00320A70 /* BLEDevice.swift in Sources */,

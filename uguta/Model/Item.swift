@@ -26,6 +26,7 @@ class Item: IObject, Mappable {
     var buyer: History?
     var location:BLEPosition!
     var bluetooth : Bluetooth?
+    var view3d : String = ""
     override init() {
         
     }
@@ -50,6 +51,7 @@ class Item: IObject, Mappable {
         self.buyer   <- map["buyer"]
         self.location   <- map["location"]
         self.bluetooth   <- map["bluetooth"]
+        self.view3d   <- map["view3d"]
     }
     func getImage() -> UIImage? {
         return Util.getImage(data64: self.image)

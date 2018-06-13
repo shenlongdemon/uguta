@@ -89,6 +89,7 @@ class TableAdapter: NSObject, UITableViewDelegate, UITableViewDataSource {
             
             
             cell.initData(object: item as! IObject)
+            cell.performSelect = self.didSelectRowAt
             //self.cellHeight = cell.getFrame().size.height
             
             cell.isHidden = !(self.filterPredicate?(item as! IObject) ?? true)        

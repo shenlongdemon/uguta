@@ -41,8 +41,12 @@
 		3B210DB120962B4900A5CF84 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B210DAF20962B4900A5CF84 /* HistoryTableViewCell.xib */; };
 		3B210DB320962B7400A5CF84 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B210DB220962B7400A5CF84 /* History.swift */; };
 		3B3F500120ADC4D50005A713 /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3F500020ADC4D50005A713 /* Bluetooth.swift */; };
+		3B40720220CAA5CD00394C93 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B40720020CAA5CD00394C93 /* ProductCollectionViewCell.swift */; };
+		3B40720320CAA5CD00394C93 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B40720120CAA5CD00394C93 /* ProductCollectionViewCell.xib */; };
 		3B448B9820A9DACF00A71001 /* ProductMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B448B9720A9DACF00A71001 /* ProductMapViewController.swift */; };
 		3B56230E20C4CCB600E59D88 /* View3DViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B56230D20C4CCB600E59D88 /* View3DViewController.swift */; };
+		3B56231120C724DF00E59D88 /* Product3DTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B56230F20C724DE00E59D88 /* Product3DTableViewCell.swift */; };
+		3B56231220C724DF00E59D88 /* Product3DTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B56231020C724DE00E59D88 /* Product3DTableViewCell.xib */; };
 		3B76B85C2096A8CA000438C9 /* StoreUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B76B85B2096A8CA000438C9 /* StoreUtil.swift */; };
 		3B76B85E2096B1EB000438C9 /* MyDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B76B85D2096B1EB000438C9 /* MyDocumentsViewController.swift */; };
 		3B76B8602096B54A000438C9 /* FillItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B76B85F2096B54A000438C9 /* FillItemViewController.swift */; };
@@ -101,8 +105,12 @@
 		3B210DAF20962B4900A5CF84 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		3B210DB220962B7400A5CF84 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		3B3F500020ADC4D50005A713 /* Bluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bluetooth.swift; sourceTree = "<group>"; };
+		3B40720020CAA5CD00394C93 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		3B40720120CAA5CD00394C93 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		3B448B9720A9DACF00A71001 /* ProductMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductMapViewController.swift; sourceTree = "<group>"; };
 		3B56230D20C4CCB600E59D88 /* View3DViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View3DViewController.swift; sourceTree = "<group>"; };
+		3B56230F20C724DE00E59D88 /* Product3DTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product3DTableViewCell.swift; sourceTree = "<group>"; };
+		3B56231020C724DE00E59D88 /* Product3DTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Product3DTableViewCell.xib; sourceTree = "<group>"; };
 		3B76B85B2096A8CA000438C9 /* StoreUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreUtil.swift; sourceTree = "<group>"; };
 		3B76B85D2096B1EB000438C9 /* MyDocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDocumentsViewController.swift; sourceTree = "<group>"; };
 		3B76B85F2096B54A000438C9 /* FillItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillItemViewController.swift; sourceTree = "<group>"; };
@@ -160,10 +168,10 @@
 		3B210D622095826200A5CF84 /* uguta */ = {
 			isa = PBXGroup;
 			children = (
-				41BF8D9A20AC2A9000F86117 /* Video360ViewController.swift */,
 				3B210D632095826200A5CF84 /* AppDelegate.swift */,
 				3B210D6D2095826300A5CF84 /* Assets.xcassets */,
 				3B210D7C20958A4300A5CF84 /* BaseViewController.swift */,
+				3B799EB720A4249400320A70 /* BluetoothItemViewController.swift */,
 				3B76B8672096D65F000438C9 /* BluetoothViewController.swift */,
 				3B210D8020958C8C00A5CF84 /* CusomUI */,
 				3B210D8F2095CA8100A5CF84 /* Extendtion */,
@@ -180,18 +188,18 @@
 				3B210D8C2095BC1100A5CF84 /* Model */,
 				3B76B85D2096B1EB000438C9 /* MyDocumentsViewController.swift */,
 				3B76B86B20970461000438C9 /* MyProfileViewController.swift */,
+				3B76B86D20979F0E000438C9 /* OMIDCODEViewController.swift */,
 				3B76B8652096D4F9000438C9 /* PaymentViewController.swift */,
 				3B210D852095B71D00A5CF84 /* ProductListViewController.swift */,
+				3B448B9720A9DACF00A71001 /* ProductMapViewController.swift */,
 				3B210DAA2096065000A5CF84 /* ProductViewController.swift */,
 				3B210D872095B82800A5CF84 /* Service */,
+				41BF8D9820AC21F200F86117 /* StoreViewController.swift */,
 				3B210D922095CBEB00A5CF84 /* Table */,
 				3B210D6A2095826300A5CF84 /* uguta.xcdatamodeld */,
-				3B210D652095826200A5CF84 /* ViewController.swift */,
-				3B76B86D20979F0E000438C9 /* OMIDCODEViewController.swift */,
-				3B799EB720A4249400320A70 /* BluetoothItemViewController.swift */,
-				3B448B9720A9DACF00A71001 /* ProductMapViewController.swift */,
-				41BF8D9820AC21F200F86117 /* StoreViewController.swift */,
+				41BF8D9A20AC2A9000F86117 /* Video360ViewController.swift */,
 				3B56230D20C4CCB600E59D88 /* View3DViewController.swift */,
+				3B210D652095826200A5CF84 /* ViewController.swift */,
 			);
 			path = uguta;
 			sourceTree = "<group>";
@@ -208,10 +216,10 @@
 		3B210D872095B82800A5CF84 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				3B210D882095B83F00A5CF84 /* WebApi.swift */,
 				3B210D8A2095BB6C00A5CF84 /* ApiModel.swift */,
-				3B210DA82096059E00A5CF84 /* Util.swift */,
 				3B76B85B2096A8CA000438C9 /* StoreUtil.swift */,
+				3B210DA82096059E00A5CF84 /* Util.swift */,
+				3B210D882095B83F00A5CF84 /* WebApi.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -219,14 +227,14 @@
 		3B210D8C2095BC1100A5CF84 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3B799EB520A41A3B00320A70 /* BLEDevice.swift */,
+				3B3F500020ADC4D50005A713 /* Bluetooth.swift */,
 				3B210D8D2095BC2100A5CF84 /* Category.swift */,
+				3B210DB220962B7400A5CF84 /* History.swift */,
 				3B210D952095CC2A00A5CF84 /* IObject.swift */,
 				3B210DA42095D5C200A5CF84 /* Item.swift */,
-				3B210DA62096051D00A5CF84 /* User.swift */,
-				3B210DB220962B7400A5CF84 /* History.swift */,
-				3B799EB520A41A3B00320A70 /* BLEDevice.swift */,
 				41BF8D9620AC1D3700F86117 /* Store.swift */,
-				3B3F500020ADC4D50005A713 /* Bluetooth.swift */,
+				3B210DA62096051D00A5CF84 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -242,6 +250,7 @@
 		3B210D922095CBEB00A5CF84 /* Table */ = {
 			isa = PBXGroup;
 			children = (
+				3B4071FF20CAA59E00394C93 /* CollectionCell */,
 				3B210D992095CD1E00A5CF84 /* TableCell */,
 				3B210D932095CBF900A5CF84 /* TableAdapter.swift */,
 				3B210D972095CC7E00A5CF84 /* TableCell.swift */,
@@ -252,18 +261,29 @@
 		3B210D992095CD1E00A5CF84 /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
-				3B210D9A2095CD5800A5CF84 /* CategoryTableViewCell.swift */,
-				3B210D9B2095CD5800A5CF84 /* CategoryTableViewCell.xib */,
-				3B210DA02095D59400A5CF84 /* ProductTableViewCell.swift */,
-				3B210DA12095D59400A5CF84 /* ProductTableViewCell.xib */,
-				3B210DAE20962B4900A5CF84 /* HistoryTableViewCell.swift */,
-				3B210DAF20962B4900A5CF84 /* HistoryTableViewCell.xib */,
 				3B799EB920A427C000320A70 /* BLEDeviceTableViewCell.swift */,
 				3B799EBA20A427C000320A70 /* BLEDeviceTableViewCell.xib */,
+				3B210D9A2095CD5800A5CF84 /* CategoryTableViewCell.swift */,
+				3B210D9B2095CD5800A5CF84 /* CategoryTableViewCell.xib */,
+				3B210DAE20962B4900A5CF84 /* HistoryTableViewCell.swift */,
+				3B210DAF20962B4900A5CF84 /* HistoryTableViewCell.xib */,
+				3B210DA02095D59400A5CF84 /* ProductTableViewCell.swift */,
+				3B210DA12095D59400A5CF84 /* ProductTableViewCell.xib */,
 				41BF8D9220AC1C3800F86117 /* StoreTableViewCell.swift */,
 				41BF8D9320AC1C3800F86117 /* StoreTableViewCell.xib */,
+				3B56230F20C724DE00E59D88 /* Product3DTableViewCell.swift */,
+				3B56231020C724DE00E59D88 /* Product3DTableViewCell.xib */,
 			);
 			path = TableCell;
+			sourceTree = "<group>";
+		};
+		3B4071FF20CAA59E00394C93 /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				3B40720020CAA5CD00394C93 /* ProductCollectionViewCell.swift */,
+				3B40720120CAA5CD00394C93 /* ProductCollectionViewCell.xib */,
+			);
+			path = CollectionCell;
 			sourceTree = "<group>";
 		};
 		6318905BC8FF2C05A50F622E /* Frameworks */ = {
@@ -353,7 +373,9 @@
 			files = (
 				3B210D712095826300A5CF84 /* LaunchScreen.storyboard in Resources */,
 				3B210D6E2095826300A5CF84 /* Assets.xcassets in Resources */,
+				3B40720320CAA5CD00394C93 /* ProductCollectionViewCell.xib in Resources */,
 				3B210DA32095D59400A5CF84 /* ProductTableViewCell.xib in Resources */,
+				3B56231220C724DF00E59D88 /* Product3DTableViewCell.xib in Resources */,
 				3B210D692095826200A5CF84 /* Main.storyboard in Resources */,
 				3B210DB120962B4900A5CF84 /* HistoryTableViewCell.xib in Resources */,
 				3B799EBC20A427C000320A70 /* BLEDeviceTableViewCell.xib in Resources */,
@@ -448,10 +470,12 @@
 				3B799EB820A4249400320A70 /* BluetoothItemViewController.swift in Sources */,
 				3B210D7D20958A4300A5CF84 /* BaseViewController.swift in Sources */,
 				3B210DAD2096297400A5CF84 /* HistoryViewController.swift in Sources */,
+				3B40720220CAA5CD00394C93 /* ProductCollectionViewCell.swift in Sources */,
 				3B76B8642096D37F000438C9 /* GenCodeViewController.swift in Sources */,
 				3B210D862095B71D00A5CF84 /* ProductListViewController.swift in Sources */,
 				3B210D982095CC7E00A5CF84 /* TableCell.swift in Sources */,
 				3B210D7B2095858200A5CF84 /* LoginViewController.swift in Sources */,
+				3B56231120C724DF00E59D88 /* Product3DTableViewCell.swift in Sources */,
 				3B210DA92096059E00A5CF84 /* Util.swift in Sources */,
 				3B08CE2020A89C76001857DD /* BaseImage.swift in Sources */,
 				3B210D7F20958A5C00A5CF84 /* LookAndFindViewController.swift in Sources */,

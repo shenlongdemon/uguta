@@ -17,18 +17,21 @@ class Video360ViewController: BaseViewController, WKUIDelegate, WKNavigationDele
     @IBOutlet weak var webView: WKWebView!
     
     var isDississ : Bool = true
-    //@IBOutlet weak var player: VRPlayer!
+    var store: Store!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.progress.stopAnimating()
-        var storeId = "64ec1546-c23d-4b9d-9309-35af7736070f"
+        let storeId = self.store.id
         let url = URL(string: "\(WebApi.HOST)/#/store/video360?id=\(storeId)")
         
         let request = URLRequest(url: url!)
         webView.uiDelegate = self
         webView.navigationDelegate = self
         webView.load(request)
+    }
+    func prepareModel(store: Store){
+        self.store = store
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -98,6 +101,7 @@ class Video360ViewController: BaseViewController, WKUIDelegate, WKNavigationDele
         return nil
     }
     
+ 
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

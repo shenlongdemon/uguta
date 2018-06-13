@@ -23,9 +23,12 @@ class ProductViewController: BaseViewController {
     @IBOutlet weak var lbPrice: UILabel!
     var item : Item!
     var action = 1
+    
+    @IBOutlet weak var progressvideo360: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.progress.stopAnimating()
+        self.progressvideo360.stopAnimating()
         self.imgImage.image = self.item.getImage()
         self.lbName.text = self.item.name
         self.lbCategory.text = self.item.category.value
@@ -59,6 +62,23 @@ class ProductViewController: BaseViewController {
             Util.showAlert(message: "Your QR Code image has been saved to your photos.")
         }
     }
+    @IBAction func gotoStore(_ sender: Any) {
+        if self.progressvideo360.isAnimating {
+            Util.showAlert(message: "Please wait.")
+        }
+        else {
+            self.progressvideo360.startAnimating()
+            WebApi.getStoreContainItem(itemId: self.item.id) { (store) in
+                self.progressvideo360.stopAnimating()
+                guard let st = store else {
+                    Util.showAlert(message: "Item is not set position inside store.")
+                    return
+                }
+                self.performSegue(withIdentifier: "video360product", sender: st)
+            }
+        }
+    }
+    
     func makeButtonAction() {
         var title = "SELL"
         let user = StoreUtil.getUser()!
@@ -106,9 +126,12 @@ class ProductViewController: BaseViewController {
     }
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
-        
-        Util.showOKAlert(VC: self, message: self.item.bluetoothCode);
-        
+        if self.item.view3d.count > 0 {
+            self.performSegue(withIdentifier: "view3dproduct", sender: self)
+        }
+        else {
+            Util.showAlert(message: "No 3D model.")
+        }
     }
     @IBAction func doAction(_ sender: Any) {
         if (action > 0){
@@ -180,6 +203,15 @@ class ProductViewController: BaseViewController {
         })
        
     }
+    
+    @IBAction func gotoMap(_ sender: Any) {
+        guard let ble = self.item.bluetooth else {
+            Util.showAlert(message: "No bluetooth.")
+            return
+        }
+        self.performSegue(withIdentifier: "productmap", sender: self)
+    }
+    
     func buy() {
         self.performSegue(withIdentifier: "payment", sender: self.item)
     }
@@ -208,6 +240,15 @@ class ProductViewController: BaseViewController {
             var items : [Item] = [self.item]
             vc.prepareModel(items: items)
         }
+        else if segue.identifier == "view3dproduct" {
+            let vc = segue.destination as! View3DViewController
+            vc.prepareModel(item: self.item)
+        }
+        else if segue.identifier == "video360product" {
+            let vc = segue.destination as! Video360ViewController
+            vc.prepareModel(store: sender as! Store)
+        }
+        
     }
     
     @IBAction func viewHistory(_ sender: Any) {

@@ -18,8 +18,8 @@ import Foundation
 import Alamofire
 import ObjectMapper
 class WebApi{
-    //	static let HOST = "http://96.93.123.234:5000"
-    static let HOST = "http://192.168.1.3:5000"
+    static let HOST = "http://96.93.123.234:5000"
+    //static let HOST = "http://192.168.1.2:5000"
     //static let HOST = "http://192.168.79.84:5000"
     //static let HOST = "http://192.168.60.67:5000" // wifi
     
@@ -40,7 +40,8 @@ class WebApi{
     static let GET_PRODUCTS_BY_BLUETOOTH_CODES = "\(WebApi.HOST)/api/sellrecognizer/getProductsByBluetoothCodes"
     static let CANCEL_SELL =  "\(WebApi.HOST)/api/sellrecognizer/cancelSell"
     static let GET_STORES =  "\(WebApi.HOST)/api/sellrecognizer/getStores"
-    
+    static let GET_STORE_CONTAIN_ITEM =  "\(WebApi.HOST)/api/sellrecognizer/getStoreContainItem?itemId={itemId}"
+
     static func manager()-> SessionManager{
 //        var defaultHeaders = Alamofire.SessionManager.defaultHTTPHeaders
 //        defaultHeaders["Accept"] = "application/json"
@@ -112,6 +113,28 @@ class WebApi{
                 if(apiModel.Status == 1){
                     let item: Item? = Mapper<Item>().map(JSONObject: apiModel.Data)
                     completion(item)
+                }
+                else {
+                    completion(nil)
+                }
+                
+                
+        }
+    }
+    static func getStoreContainItem(itemId: String, completion: @escaping (_ store: Store? )->Void){
+        
+        let url = URL(string: WebApi.GET_STORE_CONTAIN_ITEM.replacingOccurrences(of: "{itemId}", with: itemId))
+        
+        WebApi.manager().request(url!)
+            .responseJSON { (data) in
+                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
+                    completion(nil)
+                    return
+                }
+                
+                if(apiModel.Status == 1){
+                    let store: Store? = Mapper<Store>().map(JSONObject: apiModel.Data)
+                    completion(store)
                 }
                 else {
                     completion(nil)

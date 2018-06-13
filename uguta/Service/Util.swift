@@ -79,7 +79,18 @@ class Util {
         }
         
     }
-        
+    static func getVC() -> UIViewController? {
+        if var topController = UIApplication.shared.keyWindow?.rootViewController {
+            while let presentedViewController = topController.presentedViewController {
+                topController = presentedViewController
+            }
+           return topController
+        // topController should now be your topmost view controller
+        }
+        else {
+            return nil
+        }
+    }
         
     
     static func resizeImage(image : UIImage) -> UIImage{

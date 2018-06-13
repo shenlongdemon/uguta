@@ -10,6 +10,7 @@ import UIKit
 
 class ProductListViewController: BaseViewController {
     
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var progress: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     var category: Category!
@@ -18,7 +19,8 @@ class ProductListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         progress.stopAnimating()
-        initTable()
+        //initTable()
+        initCollection()
         loadData()
         // Do any additional setup after loading the view.
     }
@@ -33,12 +35,19 @@ class ProductListViewController: BaseViewController {
     func prepareModel(cat: Category){
         self.category = cat
     }
+    func initCollection() {
+        let cellNib = UINib(nibName: ProductCollectionViewCell.nibName, bundle: nil)
+        self.collectionView.register(cellNib, forCellWithReuseIdentifier: ProductCollectionViewCell.reuseIdentifier)
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
+        
+    }
     func initTable() {
-        let cellIdentifier = ProductTableViewCell.reuseIdentifier
+        let cellIdentifier = Product3DTableViewCell.reuseIdentifier
         let cellNib = UINib(nibName: cellIdentifier, bundle: nil)
         self.tableView.register(cellNib, forCellReuseIdentifier: cellIdentifier)
         
-        self.tableAdapter = TableAdapter(items:self.items, cellIdentifier: cellIdentifier, cellHeight : ProductTableViewCell.height)
+        self.tableAdapter = TableAdapter(items:self.items, cellIdentifier: cellIdentifier, cellHeight : Product3DTableViewCell.height)
         self.tableAdapter.onDidSelectRowAt { (item) in
             self.performSegue(withIdentifier: "productdetail", sender: item)
         }
@@ -51,7 +60,8 @@ class ProductListViewController: BaseViewController {
         items.removeAllObjects()
         WebApi.getProductsByCategory(categoryId: self.category.id) { (list) in
             self.items.addObjects(from: list)
-            self.tableView.reloadData()
+            //self.tableView.reloadData()
+            self.collectionView.reloadData()
             self.progress.stopAnimating()
         }
     }
@@ -66,3 +76,44 @@ class ProductListViewController: BaseViewController {
  
 
 }
+extension ProductListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.items.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = self.items[indexPath.row] as! Item
+        self.performSegue(withIdentifier: "productdetail", sender: item)
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionViewCell.reuseIdentifier, for: indexPath) as! ProductCollectionViewCell
+        
+        let item = self.items[indexPath.row] as! Item
+        
+        cell.imgImage.image = item.getImage()
+        cell.lbName.text = item.name
+        cell.lbPrice.text = item.price
+//        cell.lbStatus.text = ""
+//        if item.buyerCode.count > 0 {
+//            cell.lbStatus.text = "SOLD by \(item.buyer?.firstName ?? "" )"
+//            cell.lbStatus.textColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+//        }
+//        else if item.sellCode.count > 0 {
+//            cell.lbStatus.text = "PUBLISH"
+//            cell.lbStatus.textColor = #colorLiteral(red: 0, green: 0.5628422499, blue: 0.3188166618, alpha: 1)
+//        }
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let padding : CGFloat = 5.0
+        let count : CGFloat = 2
+        
+        let size = collectionView.frame.size.width / count  - padding
+        return CGSize(width: size , height: size )
+    }
+    
+}
+

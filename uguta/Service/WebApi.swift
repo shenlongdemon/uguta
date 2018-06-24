@@ -18,8 +18,8 @@ import Foundation
 import Alamofire
 import ObjectMapper
 class WebApi{
-    static let HOST = "http://96.93.123.234:5000"
-    //static let HOST = "http://192.168.1.2:5000"
+    //static let HOST = "http://96.93.123.234:5000"
+    static let HOST = "http://192.168.1.12:5000"
     //static let HOST = "http://192.168.79.84:5000"
     //static let HOST = "http://192.168.60.67:5000" // wifi
     
@@ -41,7 +41,7 @@ class WebApi{
     static let CANCEL_SELL =  "\(WebApi.HOST)/api/sellrecognizer/cancelSell"
     static let GET_STORES =  "\(WebApi.HOST)/api/sellrecognizer/getStores"
     static let GET_STORE_CONTAIN_ITEM =  "\(WebApi.HOST)/api/sellrecognizer/getStoreContainItem?itemId={itemId}"
-
+    static let GET_PRODUCTS_ON_WEB = "\(WebApi.HOST)/api/sellrecognizer/getProductsOnWeb?obj={name}"
     static func manager()-> SessionManager{
 //        var defaultHeaders = Alamofire.SessionManager.defaultHTTPHeaders
 //        defaultHeaders["Accept"] = "application/json"
@@ -487,6 +487,45 @@ class WebApi{
                 
         }
     }
-    
+    static func getProductSearch(name:String, completion: @escaping (_ list:[ProductSearch])->Void){
+        let originalString = WebApi.GET_PRODUCTS_ON_WEB.replacingOccurrences(of: "{name}", with: name)
+        let escapedString = originalString.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed)
+
+        let url = URL(string: escapedString!)
+        
+        WebApi.manager().request(url!)
+            .responseJSON { (data) in
+                
+                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
+                    completion([])
+                    return
+                }
+                
+                if(apiModel.Status == 1){
+                    let products: [ProductSearch] = Mapper<ProductSearch>().mapArray(JSONObject: apiModel.Data) ?? []
+                    completion(products)
+                }
+                else {
+                    completion([])
+                }
+                
+        }
+    }
+    static func getImage(url : String, completion: @escaping (_ image:UIImage?)->Void){
+        if url == ""{
+            completion(nil)
+        }
+        else {
+            DispatchQueue.global().async {
+                let u = URL(string:  url)
+                let data = try? Data(contentsOf: u!)
+                DispatchQueue.main.async { () -> Void in
+                    
+                    completion(UIImage(data: data!))
+                }
+            }
+        }
+    }
+
 }
 

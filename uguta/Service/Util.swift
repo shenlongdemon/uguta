@@ -49,7 +49,7 @@ class Util {
     }
     static func showYesNoAlert(VC:UIViewController,  message:String?, yesHandle: @escaping (_ action:Void)->Void, noHandle: @escaping (_ action:Void)->Void){
         
-            let alert = UIAlertController(title: "uGuta", message: message ?? "", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Dassee", message: message ?? "", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {(alert: UIAlertAction!) in
                 yesHandle(())
@@ -62,7 +62,7 @@ class Util {
         
     }
     static func showOKAlert(VC:UIViewController,  message:String?)-> Void {
-        let alert = UIAlertController(title: "uGuta", message: message ?? "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Dassee", message: message ?? "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         VC.present(alert, animated: true, completion: nil)
     }
@@ -72,7 +72,7 @@ class Util {
             while let presentedViewController = topController.presentedViewController {
                 topController = presentedViewController
             }
-            let alert = UIAlertController(title: "uGuta", message: message ?? "", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Dassee", message: message ?? "", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             topController.present(alert, animated: true, completion: nil)
             // topController should now be your topmost view controller

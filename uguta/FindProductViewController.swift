@@ -11,6 +11,7 @@ import UIKit
 class FindProductViewController: BaseViewController {
     
     
+    @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var progress: UIActivityIndicatorView!
     var tableAdapter : TableAdapter!
     var items: NSMutableArray = NSMutableArray()
@@ -39,6 +40,18 @@ class FindProductViewController: BaseViewController {
         self.loadData()
     }
     
+    @IBAction func searchOnWeb(_ sender: Any) {
+        guard let text = self.txtSearch.text else {
+            Util.showAlert(message: "Please fill product name or serial to search!")
+            return
+        }
+        if text == "" {
+            Util.showAlert(message: "Please fill product name or serial to search!")
+            return
+        }
+        self.performSegue(withIdentifier: "findonweb", sender: self)
+    }
+    
     func initTable() {
         let cellIdentifier = CategoryTableViewCell.reuseIdentifier
         let cellNib = UINib(nibName: cellIdentifier, bundle: nil)
@@ -62,6 +75,10 @@ class FindProductViewController: BaseViewController {
         if segue.identifier == "productlist" {
             let vc = segue.destination as! ProductListViewController
             vc.prepareModel(cat: sender as! Category)
+        }
+        else if segue.identifier == "findonweb" {
+            let vc = segue.destination as! ProductSearchViewController
+            vc.prepareModel(text: self.txtSearch.text!)
         }
     }
     

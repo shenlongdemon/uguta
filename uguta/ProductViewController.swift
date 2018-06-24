@@ -203,6 +203,9 @@ class ProductViewController: BaseViewController {
         })
        
     }
+    @IBAction func review(_ sender: Any) {
+        self.performSegue(withIdentifier: "searchonweb", sender: self)
+    }
     
     @IBAction func gotoMap(_ sender: Any) {
         guard let ble = self.item.bluetooth else {
@@ -248,7 +251,10 @@ class ProductViewController: BaseViewController {
             let vc = segue.destination as! Video360ViewController
             vc.prepareModel(store: sender as! Store)
         }
-        
+        else if segue.identifier == "searchonweb" {
+            let vc = segue.destination as! ProductSearchViewController
+            vc.prepareModel(text: self.item.name)
+        }
     }
     
     @IBAction func viewHistory(_ sender: Any) {

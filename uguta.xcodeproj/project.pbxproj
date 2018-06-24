@@ -47,6 +47,10 @@
 		3B56230E20C4CCB600E59D88 /* View3DViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B56230D20C4CCB600E59D88 /* View3DViewController.swift */; };
 		3B56231120C724DF00E59D88 /* Product3DTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B56230F20C724DE00E59D88 /* Product3DTableViewCell.swift */; };
 		3B56231220C724DF00E59D88 /* Product3DTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B56231020C724DE00E59D88 /* Product3DTableViewCell.xib */; };
+		3B65EC6620DAD3C80093E5A0 /* ProductSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65EC6520DAD3C80093E5A0 /* ProductSearch.swift */; };
+		3B65EC6920DAD6F80093E5A0 /* ProductSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65EC6720DAD6F80093E5A0 /* ProductSearchTableViewCell.swift */; };
+		3B65EC6A20DAD6F80093E5A0 /* ProductSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B65EC6820DAD6F80093E5A0 /* ProductSearchTableViewCell.xib */; };
+		3B65EC6C20DADCC30093E5A0 /* ProductSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B65EC6B20DADCC30093E5A0 /* ProductSearchViewController.swift */; };
 		3B76B85C2096A8CA000438C9 /* StoreUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B76B85B2096A8CA000438C9 /* StoreUtil.swift */; };
 		3B76B85E2096B1EB000438C9 /* MyDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B76B85D2096B1EB000438C9 /* MyDocumentsViewController.swift */; };
 		3B76B8602096B54A000438C9 /* FillItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B76B85F2096B54A000438C9 /* FillItemViewController.swift */; };
@@ -111,6 +115,10 @@
 		3B56230D20C4CCB600E59D88 /* View3DViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View3DViewController.swift; sourceTree = "<group>"; };
 		3B56230F20C724DE00E59D88 /* Product3DTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product3DTableViewCell.swift; sourceTree = "<group>"; };
 		3B56231020C724DE00E59D88 /* Product3DTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Product3DTableViewCell.xib; sourceTree = "<group>"; };
+		3B65EC6520DAD3C80093E5A0 /* ProductSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearch.swift; sourceTree = "<group>"; };
+		3B65EC6720DAD6F80093E5A0 /* ProductSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchTableViewCell.swift; sourceTree = "<group>"; };
+		3B65EC6820DAD6F80093E5A0 /* ProductSearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductSearchTableViewCell.xib; sourceTree = "<group>"; };
+		3B65EC6B20DADCC30093E5A0 /* ProductSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchViewController.swift; sourceTree = "<group>"; };
 		3B76B85B2096A8CA000438C9 /* StoreUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreUtil.swift; sourceTree = "<group>"; };
 		3B76B85D2096B1EB000438C9 /* MyDocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDocumentsViewController.swift; sourceTree = "<group>"; };
 		3B76B85F2096B54A000438C9 /* FillItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillItemViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +208,7 @@
 				41BF8D9A20AC2A9000F86117 /* Video360ViewController.swift */,
 				3B56230D20C4CCB600E59D88 /* View3DViewController.swift */,
 				3B210D652095826200A5CF84 /* ViewController.swift */,
+				3B65EC6B20DADCC30093E5A0 /* ProductSearchViewController.swift */,
 			);
 			path = uguta;
 			sourceTree = "<group>";
@@ -235,6 +244,7 @@
 				3B210DA42095D5C200A5CF84 /* Item.swift */,
 				41BF8D9620AC1D3700F86117 /* Store.swift */,
 				3B210DA62096051D00A5CF84 /* User.swift */,
+				3B65EC6520DAD3C80093E5A0 /* ProductSearch.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -273,6 +283,8 @@
 				41BF8D9320AC1C3800F86117 /* StoreTableViewCell.xib */,
 				3B56230F20C724DE00E59D88 /* Product3DTableViewCell.swift */,
 				3B56231020C724DE00E59D88 /* Product3DTableViewCell.xib */,
+				3B65EC6720DAD6F80093E5A0 /* ProductSearchTableViewCell.swift */,
+				3B65EC6820DAD6F80093E5A0 /* ProductSearchTableViewCell.xib */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -381,6 +393,7 @@
 				3B799EBC20A427C000320A70 /* BLEDeviceTableViewCell.xib in Resources */,
 				3B210D9D2095CD5800A5CF84 /* CategoryTableViewCell.xib in Resources */,
 				41BF8D9520AC1C3800F86117 /* StoreTableViewCell.xib in Resources */,
+				3B65EC6A20DAD6F80093E5A0 /* ProductSearchTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +484,7 @@
 				3B210D7D20958A4300A5CF84 /* BaseViewController.swift in Sources */,
 				3B210DAD2096297400A5CF84 /* HistoryViewController.swift in Sources */,
 				3B40720220CAA5CD00394C93 /* ProductCollectionViewCell.swift in Sources */,
+				3B65EC6620DAD3C80093E5A0 /* ProductSearch.swift in Sources */,
 				3B76B8642096D37F000438C9 /* GenCodeViewController.swift in Sources */,
 				3B210D862095B71D00A5CF84 /* ProductListViewController.swift in Sources */,
 				3B210D982095CC7E00A5CF84 /* TableCell.swift in Sources */,
@@ -487,12 +501,14 @@
 				3B76B8682096D65F000438C9 /* BluetoothViewController.swift in Sources */,
 				3B210DB320962B7400A5CF84 /* History.swift in Sources */,
 				3B76B86C20970461000438C9 /* MyProfileViewController.swift in Sources */,
+				3B65EC6C20DADCC30093E5A0 /* ProductSearchViewController.swift in Sources */,
 				3B799EBB20A427C000320A70 /* BLEDeviceTableViewCell.swift in Sources */,
 				41BF8D9420AC1C3800F86117 /* StoreTableViewCell.swift in Sources */,
 				41BF8D9920AC21F200F86117 /* StoreViewController.swift in Sources */,
 				3B210D942095CBF900A5CF84 /* TableAdapter.swift in Sources */,
 				3B210DA72096051D00A5CF84 /* User.swift in Sources */,
 				3B3F500120ADC4D50005A713 /* Bluetooth.swift in Sources */,
+				3B65EC6920DAD6F80093E5A0 /* ProductSearchTableViewCell.swift in Sources */,
 				3B210D892095B83F00A5CF84 /* WebApi.swift in Sources */,
 				3B210D8220958C9E00A5CF84 /* BaseButton.swift in Sources */,
 				3B448B9820A9DACF00A71001 /* ProductMapViewController.swift in Sources */,

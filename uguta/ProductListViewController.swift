@@ -96,16 +96,7 @@ extension ProductListViewController: UICollectionViewDelegate, UICollectionViewD
         cell.imgImage.image = item.getImage()
         cell.lbName.text = item.name
         cell.lbPrice.text = item.price
-//        cell.lbStatus.text = ""
-//        if item.buyerCode.count > 0 {
-//            cell.lbStatus.text = "SOLD by \(item.buyer?.firstName ?? "" )"
-//            cell.lbStatus.textColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
-//        }
-//        else if item.sellCode.count > 0 {
-//            cell.lbStatus.text = "PUBLISH"
-//            cell.lbStatus.textColor = #colorLiteral(red: 0, green: 0.5628422499, blue: 0.3188166618, alpha: 1)
-//        }
-        return cell
+	        return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let padding : CGFloat = 5.0

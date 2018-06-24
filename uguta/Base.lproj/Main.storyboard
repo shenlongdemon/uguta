@@ -73,7 +73,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YyK-2f-wmE" customClass="BaseButton" customModule="uguta" customModuleProvider="target">
                                 <rect key="frame" x="62.5" y="330.5" width="250" height="36"/>
-                                <color key="backgroundColor" red="0.93328660730000002" green="0.65118694310000003" blue="0.27680155629999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.30196078431372547" green="0.28235294117647058" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -248,7 +248,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7s-F2-KyD" customClass="BaseButton" customModule="uguta" customModuleProvider="target">
                                 <rect key="frame" x="125" y="568" width="125" height="40"/>
-                                <color key="backgroundColor" red="0.93328660730000002" green="0.65118694310000003" blue="0.27680155629999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.30196078430000001" green="0.28235294119999998" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="uQJ-o6-hlM"/>
                                 </constraints>
@@ -372,7 +372,7 @@
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="u4g-yO-DOU">
                                 <rect key="frame" x="177.5" y="84" width="20" height="20"/>
-                                <color key="color" red="0.9073926806" green="0.35688179730000003" blue="0.35232397910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="color" red="0.16862745100000001" green="0.1529411765" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -422,7 +422,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ro-4f-coa" customClass="BaseButton" customModule="uguta" customModuleProvider="target">
                                 <rect key="frame" x="93.5" y="486.5" width="187.5" height="50"/>
-                                <color key="backgroundColor" red="0.93328660726547241" green="0.65118694305419922" blue="0.27680155634880066" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.30196078430000001" green="0.28235294119999998" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="SAk-0D-IoD"/>
                                 </constraints>
@@ -526,7 +526,7 @@
                             </tableView>
                             <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="519-Xc-EpS">
                                 <rect key="frame" x="177.5" y="74" width="20" height="20"/>
-                                <color key="color" red="0.9073926806" green="0.35688179730000003" blue="0.35232397910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="color" red="0.16862745100000001" green="0.1529411765" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9x-C8-IJN">
                                 <rect key="frame" x="167.5" y="528" width="40" height="40"/>
@@ -595,7 +595,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find by Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jw-re-cwe">
-                                <rect key="frame" x="10" y="74" width="130.5" height="30"/>
+                                <rect key="frame" x="10" y="124" width="130.5" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="3hG-Be-TGJ"/>
                                 </constraints>
@@ -604,7 +604,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MmO-Cd-aHU">
-                                <rect key="frame" x="10" y="114" width="355" height="494"/>
+                                <rect key="frame" x="10" y="164" width="355" height="444"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryTableViewCell" id="cXc-Br-fas" customClass="CategoryTableViewCell" customModule="uguta" customModuleProvider="target">
@@ -618,19 +618,44 @@
                                 </prototypes>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6jh-xF-EfO">
-                                <rect key="frame" x="177.5" y="79" width="20" height="20"/>
-                                <color key="color" red="0.9073926806" green="0.35688179730000003" blue="0.35232397910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="177.5" y="129" width="20" height="20"/>
+                                <color key="color" red="0.16862745100000001" green="0.1529411765" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search on web" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kXn-3R-abW">
+                                <rect key="frame" x="10" y="74" width="310" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="bfN-lU-487"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ujg-nc-P4v">
+                                <rect key="frame" x="325" y="74" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="7Iz-3u-MI8"/>
+                                    <constraint firstAttribute="height" constant="40" id="Hac-Gf-Y7H"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="searchonweb"/>
+                                <connections>
+                                    <action selector="searchOnWeb:" destination="wyW-LK-GIi" eventType="touchUpInside" id="cNA-nn-LaJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="MmO-Cd-aHU" firstAttribute="leading" secondItem="9qn-Ca-cH6" secondAttribute="leading" constant="10" id="FoD-Ix-b5P"/>
-                            <constraint firstItem="6Jw-re-cwe" firstAttribute="top" secondItem="9qn-Ca-cH6" secondAttribute="top" constant="10" id="J5a-pV-F1L"/>
                             <constraint firstItem="9qn-Ca-cH6" firstAttribute="bottom" secondItem="MmO-Cd-aHU" secondAttribute="bottom" constant="10" id="Ldb-ce-JU6"/>
+                            <constraint firstItem="kXn-3R-abW" firstAttribute="leading" secondItem="9qn-Ca-cH6" secondAttribute="leading" constant="10" id="QjZ-6k-Enk"/>
+                            <constraint firstItem="6Jw-re-cwe" firstAttribute="top" secondItem="kXn-3R-abW" secondAttribute="bottom" constant="10" id="TBF-8z-n02"/>
+                            <constraint firstItem="Ujg-nc-P4v" firstAttribute="centerY" secondItem="kXn-3R-abW" secondAttribute="centerY" id="ajE-82-Mjj"/>
                             <constraint firstItem="6Jw-re-cwe" firstAttribute="leading" secondItem="9qn-Ca-cH6" secondAttribute="leading" constant="10" id="dia-jy-YjE"/>
                             <constraint firstItem="9qn-Ca-cH6" firstAttribute="trailing" secondItem="MmO-Cd-aHU" secondAttribute="trailing" constant="10" id="fO0-lg-eBd"/>
+                            <constraint firstItem="kXn-3R-abW" firstAttribute="top" secondItem="9qn-Ca-cH6" secondAttribute="top" constant="10" id="jVg-JU-uKt"/>
                             <constraint firstItem="6jh-xF-EfO" firstAttribute="centerX" secondItem="9qn-Ca-cH6" secondAttribute="centerX" id="myz-qa-Prz"/>
+                            <constraint firstItem="Ujg-nc-P4v" firstAttribute="leading" secondItem="kXn-3R-abW" secondAttribute="trailing" constant="5" id="n2H-MM-gSN"/>
+                            <constraint firstItem="9qn-Ca-cH6" firstAttribute="trailing" secondItem="Ujg-nc-P4v" secondAttribute="trailing" constant="10" id="ogt-3t-ylg"/>
                             <constraint firstItem="MmO-Cd-aHU" firstAttribute="top" secondItem="6Jw-re-cwe" secondAttribute="bottom" constant="10" id="zTG-9a-RBA"/>
                             <constraint firstItem="6jh-xF-EfO" firstAttribute="centerY" secondItem="6Jw-re-cwe" secondAttribute="centerY" id="zrv-33-LL0"/>
                         </constraints>
@@ -646,12 +671,14 @@
                     <connections>
                         <outlet property="progress" destination="6jh-xF-EfO" id="Ton-s5-hFZ"/>
                         <outlet property="tableView" destination="MmO-Cd-aHU" id="lkA-JU-m3E"/>
+                        <outlet property="txtSearch" destination="kXn-3R-abW" id="Guo-g2-RLZ"/>
                         <segue destination="Rj6-gW-Dgc" kind="show" identifier="productlist" id="bzC-yu-Kct"/>
+                        <segue destination="ls2-25-sKg" kind="show" identifier="findonweb" id="uZ0-W0-wea"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3VK-vn-Nka" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4714" y="284"/>
+            <point key="canvasLocation" x="4712.8000000000002" y="283.80809595202402"/>
         </scene>
         <!--Fill Item View Controller-->
         <scene sceneID="wZg-tk-ysD">
@@ -727,7 +754,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qb1-lZ-CEm" customClass="BaseButton" customModule="uguta" customModuleProvider="target">
                                 <rect key="frame" x="125" y="569" width="125" height="40"/>
-                                <color key="backgroundColor" red="0.93328660730000002" green="0.65118694310000003" blue="0.27680155629999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.30196078430000001" green="0.28235294119999998" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="PNg-Rv-dzh"/>
                                 </constraints>
@@ -746,7 +773,7 @@
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="NkV-qB-7Pm">
                                 <rect key="frame" x="275" y="579" width="20" height="20"/>
-                                <color key="color" red="0.9073926806" green="0.35688179730000003" blue="0.35232397910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="color" red="0.16862745100000001" green="0.1529411765" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IBf-xq-O2M">
                                 <rect key="frame" x="105" y="357" width="210" height="30"/>
@@ -869,7 +896,7 @@
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="xWt-2s-4pc">
                                 <rect key="frame" x="177" y="94" width="20" height="20"/>
-                                <color key="color" red="0.9073926806" green="0.35688179730000003" blue="0.35232397910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="color" red="0.16862745100000001" green="0.1529411765" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wz8-n1-a4t">
                                 <rect key="frame" x="167" y="568" width="40" height="40"/>
@@ -935,7 +962,7 @@
                             </collectionView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="HKb-WR-8Ii">
                                 <rect key="frame" x="177.5" y="84" width="20" height="20"/>
-                                <color key="color" red="0.9073926806" green="0.35688179730000003" blue="0.35232397910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="color" red="0.16862745100000001" green="0.1529411765" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1072,7 +1099,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Jv-fM-Wxd">
-                                <rect key="frame" x="325" y="94" width="40" height="40"/>
+                                <rect key="frame" x="325" y="134" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="PQK-Ca-PDe"/>
                                     <constraint firstAttribute="height" constant="40" id="rYN-rY-IXr"/>
@@ -1083,7 +1110,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUn-EB-itT">
-                                <rect key="frame" x="325" y="154" width="40" height="40"/>
+                                <rect key="frame" x="325" y="194" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="JgS-ar-CXe"/>
                                     <constraint firstAttribute="width" constant="40" id="uxX-38-Pke"/>
@@ -1094,9 +1121,20 @@
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="uur-5M-uIT">
-                                <rect key="frame" x="335" y="204" width="20" height="20"/>
+                                <rect key="frame" x="335" y="244" width="20" height="20"/>
                                 <color key="color" red="0.9073926806" green="0.35688179730000003" blue="0.35232397910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pze-d9-JGm">
+                                <rect key="frame" x="325" y="74" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Xrq-zH-hIL"/>
+                                    <constraint firstAttribute="height" constant="40" id="u0N-Al-YH4"/>
+                                </constraints>
+                                <state key="normal" image="info"/>
+                                <connections>
+                                    <action selector="review:" destination="SgU-Pe-Afe" eventType="touchUpInside" id="baJ-6o-R6x"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1105,16 +1143,18 @@
                             <constraint firstItem="QYa-oM-Z5C" firstAttribute="trailing" secondItem="p3Q-4I-92i" secondAttribute="trailing" id="AOe-hK-52M"/>
                             <constraint firstItem="uur-5M-uIT" firstAttribute="centerX" secondItem="DUn-EB-itT" secondAttribute="centerX" id="AYu-oE-Yef"/>
                             <constraint firstItem="QYa-oM-Z5C" firstAttribute="trailing" secondItem="hl6-kD-AYu" secondAttribute="trailing" id="BS9-Cu-3E2"/>
-                            <constraint firstItem="1Jv-fM-Wxd" firstAttribute="top" secondItem="QYa-oM-Z5C" secondAttribute="top" constant="30" id="CAf-1H-aWG"/>
                             <constraint firstItem="c40-Mg-tjR" firstAttribute="leading" secondItem="QYa-oM-Z5C" secondAttribute="leading" id="D9D-sF-XEW"/>
                             <constraint firstItem="QYa-oM-Z5C" firstAttribute="bottom" secondItem="hl6-kD-AYu" secondAttribute="bottom" id="E0V-Af-Ali"/>
+                            <constraint firstItem="pze-d9-JGm" firstAttribute="centerX" secondItem="1Jv-fM-Wxd" secondAttribute="centerX" id="FT8-YJ-qXe"/>
                             <constraint firstItem="feN-5h-Xvb" firstAttribute="width" secondItem="Gc4-Ip-8KV" secondAttribute="width" multiplier="5:7" id="Fsq-v6-roZ"/>
                             <constraint firstItem="C25-54-Der" firstAttribute="top" secondItem="GkB-LI-7bL" secondAttribute="bottom" constant="5" id="G8p-4d-2WV"/>
                             <constraint firstItem="hl6-kD-AYu" firstAttribute="top" secondItem="LVX-Xj-jUN" secondAttribute="bottom" constant="10" id="GKl-Qf-Lrt"/>
                             <constraint firstItem="DUn-EB-itT" firstAttribute="centerX" secondItem="1Jv-fM-Wxd" secondAttribute="centerX" id="HFv-ne-1ed"/>
                             <constraint firstItem="p3Q-4I-92i" firstAttribute="centerX" secondItem="QYa-oM-Z5C" secondAttribute="centerX" id="HOJ-K9-thb"/>
+                            <constraint firstItem="pze-d9-JGm" firstAttribute="top" secondItem="QYa-oM-Z5C" secondAttribute="top" constant="10" id="HcV-gg-vvX"/>
                             <constraint firstItem="I3Q-tK-8vi" firstAttribute="leading" secondItem="QYa-oM-Z5C" secondAttribute="leading" id="J9B-kc-P79"/>
                             <constraint firstItem="feN-5h-Xvb" firstAttribute="centerX" secondItem="QYa-oM-Z5C" secondAttribute="centerX" id="KGy-7P-iZ8"/>
+                            <constraint firstItem="1Jv-fM-Wxd" firstAttribute="top" secondItem="pze-d9-JGm" secondAttribute="bottom" constant="20" id="O0m-kK-MXu"/>
                             <constraint firstItem="hl6-kD-AYu" firstAttribute="leading" secondItem="5tI-pN-4HQ" secondAttribute="trailing" constant="27.5" id="O9c-GD-qhs"/>
                             <constraint firstItem="5tI-pN-4HQ" firstAttribute="centerY" secondItem="I3Q-tK-8vi" secondAttribute="centerY" id="Qwi-fN-E4x"/>
                             <constraint firstItem="DUn-EB-itT" firstAttribute="top" secondItem="1Jv-fM-Wxd" secondAttribute="bottom" constant="20" id="RxM-Sb-rqv"/>
@@ -1162,11 +1202,59 @@
                         <segue destination="YdI-7H-pju" kind="show" identifier="view3dproduct" id="GPz-xu-HS8"/>
                         <segue destination="x4A-OM-LpJ" kind="show" identifier="video360product" id="554-vJ-CAa"/>
                         <segue destination="MDV-46-Q1r" kind="show" identifier="productmap" id="9is-aT-fpe"/>
+                        <segue destination="ls2-25-sKg" kind="show" identifier="searchonweb" id="Dgx-Z0-E5b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WO3-FF-amA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5287" y="1549"/>
+        </scene>
+        <!--Product Search View Controller-->
+        <scene sceneID="DAh-fc-Z8Z">
+            <objects>
+                <viewController id="ls2-25-sKg" customClass="ProductSearchViewController" customModule="uguta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wtl-di-aLP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u6v-yC-gUU">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ProductSearchTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductSearchTableViewCell" id="gsT-Jn-lo2" customClass="ProductSearchTableViewCell" customModule="uguta" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gsT-Jn-lo2" id="g7X-zW-hbp">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="NQF-1T-Gdy">
+                                <rect key="frame" x="177" y="74" width="20" height="20"/>
+                                <color key="color" red="0.30196078430000001" green="0.28235294119999998" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WU0-xI-poc" firstAttribute="bottom" secondItem="u6v-yC-gUU" secondAttribute="bottom" id="9lq-8R-2Cz"/>
+                            <constraint firstItem="NQF-1T-Gdy" firstAttribute="centerX" secondItem="WU0-xI-poc" secondAttribute="centerX" id="BYt-OJ-PwG"/>
+                            <constraint firstItem="WU0-xI-poc" firstAttribute="trailing" secondItem="u6v-yC-gUU" secondAttribute="trailing" id="Wss-eD-E2W"/>
+                            <constraint firstItem="u6v-yC-gUU" firstAttribute="top" secondItem="WU0-xI-poc" secondAttribute="top" id="eO0-Kf-VDR"/>
+                            <constraint firstItem="NQF-1T-Gdy" firstAttribute="top" secondItem="WU0-xI-poc" secondAttribute="top" constant="10" id="iIt-cN-5b8"/>
+                            <constraint firstItem="u6v-yC-gUU" firstAttribute="leading" secondItem="WU0-xI-poc" secondAttribute="leading" id="uiO-cW-2pv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WU0-xI-poc"/>
+                    </view>
+                    <connections>
+                        <outlet property="progress" destination="NQF-1T-Gdy" id="kD8-qH-nwd"/>
+                        <outlet property="tableView" destination="u6v-yC-gUU" id="dEn-YE-9RG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f3B-o5-N60" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6031" y="1895"/>
         </scene>
         <!--Payment View Controller-->
         <scene sceneID="wCg-1T-aWZ">
@@ -1178,7 +1266,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDf-y2-rHc" customClass="BaseButton" customModule="uguta" customModuleProvider="target">
                                 <rect key="frame" x="94" y="568" width="187.5" height="40"/>
-                                <color key="backgroundColor" red="0.93328660730000002" green="0.65118694310000003" blue="0.27680155629999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.30196078430000001" green="0.28235294119999998" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="7oi-hW-Ths"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="9c9-UC-V3t"/>
@@ -1199,7 +1287,7 @@
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="03h-Gr-xle">
                                 <rect key="frame" x="306.5" y="578" width="20" height="20"/>
-                                <color key="color" red="0.9073926806" green="0.35688179730000003" blue="0.35232397910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="color" red="0.16862745100000001" green="0.1529411765" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1252,7 +1340,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQw-Gd-yWd" customClass="BaseButton" customModule="uguta" customModuleProvider="target">
                                 <rect key="frame" x="125" y="568" width="125" height="40"/>
-                                <color key="backgroundColor" red="0.93328660730000002" green="0.65118694310000003" blue="0.27680155629999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.30196078430000001" green="0.28235294119999998" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="LLV-8K-KlZ"/>
                                     <constraint firstAttribute="height" constant="40" id="W51-0h-X5g"/>
@@ -1402,7 +1490,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.9073926806" green="0.35688179730000003" blue="0.35232397910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.9073926806" green="0.35688179730000003" blue="0.35232397910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.16862745098039217" green="0.15294117647058825" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
@@ -1426,7 +1514,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.90739268064498901" green="0.35688179731369019" blue="0.352323979139328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.9073926806" green="0.35688179730000003" blue="0.35232397910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.16862745100000001" green="0.1529411765" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -1451,9 +1539,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2cc-F1-I7j">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.9073926806" green="0.35688179730000003" blue="0.35232397910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.16862745100000001" green="0.1529411765" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.9073926806" green="0.35688179730000003" blue="0.35232397910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.16862745100000001" green="0.1529411765" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
@@ -1535,7 +1623,7 @@
                             </wkWebView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sle-Cu-4gK">
                                 <rect key="frame" x="177" y="74" width="20" height="20"/>
-                                <color key="color" red="0.9073926806" green="0.35688179730000003" blue="0.35232397910000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="color" red="0.16862745100000001" green="0.1529411765" blue="0.36078431370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1578,7 +1666,7 @@
                             </wkWebView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGp-Ka-FaU" customClass="BaseButton" customModule="uguta" customModuleProvider="target">
                                 <rect key="frame" x="157" y="568" width="60" height="40"/>
-                                <color key="backgroundColor" red="0.93328660730000002" green="0.65118694310000003" blue="0.27680155629999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.30196078430000001" green="0.28235294119999998" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="JYB-FM-RhG"/>
                                     <constraint firstAttribute="width" constant="60" id="Khn-a3-RJW"/>
@@ -1626,24 +1714,27 @@
         <image name="browse" width="30" height="30"/>
         <image name="documents" width="30" height="30"/>
         <image name="fingerprint" width="317" height="399"/>
+        <image name="info" width="512" height="512"/>
         <image name="library" width="512" height="512"/>
         <image name="logo" width="1201" height="670"/>
         <image name="map" width="512" height="512"/>
         <image name="maps" width="512" height="512"/>
         <image name="myprofile" width="30" height="30"/>
         <image name="plus" width="512" height="512"/>
+        <image name="searchonweb" width="512" height="512"/>
         <image name="splash" width="750" height="1334"/>
         <image name="store" width="512" height="512"/>
         <image name="sync" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="GPz-xu-HS8"/>
-        <segue reference="554-vJ-CAa"/>
-        <segue reference="VRF-Vv-m1s"/>
+        <segue reference="xLF-MJ-Hya"/>
+        <segue reference="tVy-DX-tnJ"/>
         <segue reference="tF1-h1-eqB"/>
         <segue reference="bHY-zC-Nqh"/>
-        <segue reference="gV9-bB-00A"/>
-        <segue reference="du2-tc-6Uz"/>
-        <segue reference="1Mm-go-3Vm"/>
+        <segue reference="9is-aT-fpe"/>
+        <segue reference="uZ0-W0-wea"/>
+        <segue reference="OzS-F2-PkU"/>
+        <segue reference="l4C-gJ-rut"/>
     </inferredMetricsTieBreakers>
 </document>

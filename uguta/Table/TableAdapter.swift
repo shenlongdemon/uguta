@@ -16,6 +16,7 @@ class TableAdapter: NSObject, UITableViewDelegate, UITableViewDataSource {
     var cellCanEdit: Bool! = true
     private var didSelectRowAt : ((IObject) -> Void)? = nil
     private var didDeleteRowAt : ((IObject) -> Void)? = nil
+    private var didPerformSelectRowAt : ((IObject, Int) -> Void)? = nil
     private var filterPredicate : ((Any) -> Bool)? = nil
     private var sortPredicate: ((Any, Any) -> ComparisonResult)? = nil
     
@@ -77,6 +78,9 @@ class TableAdapter: NSObject, UITableViewDelegate, UITableViewDataSource {
     func onDidSelectRowAt(handle : @escaping ((IObject) -> Void))  {
         self.didSelectRowAt = handle
     }
+    func onDidPerformSelectRowAt(handle : @escaping ((IObject, Int) -> Void))  {
+        self.didPerformSelectRowAt = handle
+    }
     func onDidDeleteRowAt(handle : @escaping ((IObject) -> Void))  {
         self.didDeleteRowAt = handle
     }
@@ -86,12 +90,9 @@ class TableAdapter: NSObject, UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! TableCell
         if self.isIndexPathValid(indexPath: indexPath) {
             let item = self.items[indexPath.row]
-            
-            
             cell.initData(object: item as! IObject)
             cell.performSelect = self.didSelectRowAt
-            //self.cellHeight = cell.getFrame().size.height
-            
+            cell.performSelectAt = self.didPerformSelectRowAt
             cell.isHidden = !(self.filterPredicate?(item as! IObject) ?? true)        
         }
         return cell

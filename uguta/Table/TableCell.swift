@@ -11,6 +11,8 @@ import UIKit
 class TableCell: UITableViewCell {
     var id : Any!
     var performSelect : ((IObject) -> Void)? = nil
+    var performSelectAt : ((IObject, Int) -> Void)? = nil
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         

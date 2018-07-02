@@ -65,8 +65,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Link" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3a-uj-J9M">
-                        <rect key="frame" x="381.5" y="56" width="28.5" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Link" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3a-uj-J9M">
+                        <rect key="frame" x="106.5" y="56" width="303.5" height="18"/>
                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.32136757041666669" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -82,6 +82,7 @@
                     <constraint firstItem="xIb-y8-TpV" firstAttribute="leading" secondItem="wPc-J3-DZl" secondAttribute="trailing" id="Hqq-cI-89L"/>
                     <constraint firstItem="4A4-r8-RKt" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="JP6-eH-O8W"/>
                     <constraint firstItem="wPc-J3-DZl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="M4D-BR-rEh"/>
+                    <constraint firstItem="o3a-uj-J9M" firstAttribute="leading" secondItem="wPc-J3-DZl" secondAttribute="trailing" constant="10" id="Tfe-VN-7hZ"/>
                     <constraint firstItem="vFY-fa-wQd" firstAttribute="centerY" secondItem="gSX-v9-eCH" secondAttribute="centerY" id="X3w-qJ-hCE"/>
                     <constraint firstAttribute="trailingMargin" secondItem="GBv-Se-lxq" secondAttribute="trailing" id="cGR-mg-VxT"/>
                     <constraint firstItem="gSX-v9-eCH" firstAttribute="centerY" secondItem="Ujr-zp-tGR" secondAttribute="centerY" id="cSx-n5-i9z"/>
@@ -99,7 +100,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="imgImage" destination="wPc-J3-DZl" id="9Wq-2V-d5x"/>
+                <outlet property="imgReview" destination="4A4-r8-RKt" id="2op-Mu-jnV"/>
                 <outlet property="imgStar" destination="gSX-v9-eCH" id="lR0-cW-ORr"/>
+                <outlet property="lbLink" destination="o3a-uj-J9M" id="F51-ze-tEJ"/>
                 <outlet property="lbPrice" destination="GBv-Se-lxq" id="qdc-u4-q46"/>
                 <outlet property="lbRate" destination="vFY-fa-wQd" id="gIf-GK-fu6"/>
                 <outlet property="lbReview" destination="Ujr-zp-tGR" id="9bz-4O-CyF"/>

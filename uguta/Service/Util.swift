@@ -95,11 +95,20 @@ class Util {
     
     static func resizeImage(image : UIImage) -> UIImage{
        
-        let newSize: CGSize = CGSize(width: 70, height: 70)
+        let v : CGFloat = 300.0
+        let w = image.size.width
+        let h = image.size.height
+        
+        let ratio = v / h
+        
+        let nh = v
+        let nw = w * ratio
+        
+        let newSize: CGSize = CGSize(width: nw, height: nh)
        
         
         // This is the rect that we've calculated out and this is what is actually used below
-        let rect = CGRect(x: 0, y: 0, width: 70, height: 70)
+        let rect = CGRect(x: 0, y: 0, width: nw, height: nh)
         
         // Actually do the resizing to the rect using the ImageContext stuff
         UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)

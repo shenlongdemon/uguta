@@ -35,7 +35,7 @@ class HistoryTableViewCell: TableCell {
         
         var action = ""
         let milisecond = self.item.time
-        let dateVar = Date.init(timeIntervalSinceNow: TimeInterval(milisecond)/1000)
+        let dateVar = Date.init(timeIntervalSinceNow: TimeInterval(milisecond)/1000000)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy hh:mm"
         let at = dateFormatter.string(from: dateVar)

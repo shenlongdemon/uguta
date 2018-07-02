@@ -92,8 +92,8 @@ class ProductViewController: BaseViewController {
                 action = 0
             }
             else if (self.item.sellCode.count > 0){
-                title = "CANCEL"
-                action = 4
+                title = "" //CANCEL"
+                action = 0 // 4
             }
         }
         else if item.owner.id != user.id { // not mine
@@ -253,7 +253,7 @@ class ProductViewController: BaseViewController {
         }
         else if segue.identifier == "searchonweb" {
             let vc = segue.destination as! ProductSearchViewController
-            vc.prepareModel(text: self.item.name)
+            vc.prepareModel(text: "\(self.item.name) \(self.item.category.value)")
         }
     }
     

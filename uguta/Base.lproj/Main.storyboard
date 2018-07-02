@@ -623,6 +623,7 @@
                             </activityIndicatorView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search on web" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kXn-3R-abW">
                                 <rect key="frame" x="10" y="74" width="310" height="40"/>
+                                <color key="tintColor" red="0.0" green="0.32136757040000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="bfN-lU-487"/>
                                 </constraints>
@@ -688,7 +689,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="library" translatesAutoresizingMaskIntoConstraints="NO" id="MIW-0T-gw5">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="library" translatesAutoresizingMaskIntoConstraints="NO" id="MIW-0T-gw5">
                                 <rect key="frame" x="125" y="84" width="125" height="125"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="MIW-0T-gw5" secondAttribute="height" multiplier="1:1" id="iT1-SQ-dAL"/>
@@ -994,7 +995,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GkB-LI-7bL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GkB-LI-7bL">
                                 <rect key="frame" x="140" y="69" width="94" height="94"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="GkB-LI-7bL" secondAttribute="height" multiplier="1:1" id="thx-UZ-DmY"/>
@@ -1250,11 +1251,52 @@
                     <connections>
                         <outlet property="progress" destination="NQF-1T-Gdy" id="kD8-qH-nwd"/>
                         <outlet property="tableView" destination="u6v-yC-gUU" id="dEn-YE-9RG"/>
+                        <segue destination="PEE-3N-1aO" kind="show" identifier="reviewobweb" id="qPE-HD-frd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3B-o5-N60" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6031" y="1895"/>
+            <point key="canvasLocation" x="6089" y="1879"/>
+        </scene>
+        <!--Review List View Controller-->
+        <scene sceneID="ENh-Gf-dwg">
+            <objects>
+                <viewController id="PEE-3N-1aO" customClass="ReviewListViewController" customModule="uguta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bzt-og-q5g">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aSa-5q-EB7">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="cNk-u4-0wx" customClass="ReviewTableViewCell" customModule="uguta" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cNk-u4-0wx" id="zLO-QS-9Ne">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="45U-Me-Rzy" firstAttribute="trailing" secondItem="aSa-5q-EB7" secondAttribute="trailing" id="CKZ-r8-slI"/>
+                            <constraint firstItem="aSa-5q-EB7" firstAttribute="leading" secondItem="45U-Me-Rzy" secondAttribute="leading" id="DF2-f3-rRG"/>
+                            <constraint firstItem="aSa-5q-EB7" firstAttribute="top" secondItem="45U-Me-Rzy" secondAttribute="top" id="Q5f-Db-gpG"/>
+                            <constraint firstItem="45U-Me-Rzy" firstAttribute="bottom" secondItem="aSa-5q-EB7" secondAttribute="bottom" id="h41-c9-ekb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="45U-Me-Rzy"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="aSa-5q-EB7" id="U9c-ul-xHf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LGZ-Ke-9eo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7348" y="2085"/>
         </scene>
         <!--Payment View Controller-->
         <scene sceneID="wCg-1T-aWZ">
@@ -1728,12 +1770,12 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="GPz-xu-HS8"/>
-        <segue reference="xLF-MJ-Hya"/>
+        <segue reference="554-vJ-CAa"/>
         <segue reference="tVy-DX-tnJ"/>
         <segue reference="tF1-h1-eqB"/>
         <segue reference="bHY-zC-Nqh"/>
         <segue reference="9is-aT-fpe"/>
-        <segue reference="uZ0-W0-wea"/>
+        <segue reference="Dgx-Z0-E5b"/>
         <segue reference="OzS-F2-PkU"/>
         <segue reference="l4C-gJ-rut"/>
     </inferredMetricsTieBreakers>

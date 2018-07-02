@@ -17,12 +17,12 @@ class ProductSearchViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initTable()
-        
+        loadData()
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadData()
+        
         
     }
     override func didReceiveMemoryWarning() {
@@ -40,9 +40,24 @@ class ProductSearchViewController: BaseViewController {
         
         self.tableAdapter = TableAdapter(items:self.items, cellIdentifier: cellIdentifier, cellHeight : ProductSearchTableViewCell.height)
         self.tableAdapter.onDidSelectRowAt { (item) in
+            //let svc = SFSafariViewController(url: URL(string: (item as! ProductSearch).link)!)
+            //self.present(svc, animated: true, completion: nil)
             
-            let svc = SFSafariViewController(url: URL(string: (item as! ProductSearch).link)!)
-            self.present(svc, animated: true, completion: nil)
+        }
+        self.tableAdapter.onDidPerformSelectRowAt { (item, type) in
+            let i = item as! ProductSearch
+            if type == 1{
+                if i.reviews.count > 0 {
+                    self.performSegue(withIdentifier: "reviewobweb", sender: item)
+                }
+                else {
+                    Util.showAlert(message: "Have no review.")
+                }
+            }
+            else {
+                let svc = SFSafariViewController(url: URL(string: i.link)!)
+                self.present(svc, animated: true, completion: nil)
+            }
         }
         self.tableView.delegate = self.tableAdapter
         self.tableView.dataSource = self.tableAdapter
@@ -63,6 +78,10 @@ class ProductSearchViewController: BaseViewController {
         if segue.identifier == "itemdetail" {
             let vc = segue.destination as! ProductViewController
             vc.prepareModel(item: sender as! Item)
+        }
+        if segue.identifier == "reviewobweb" {
+            let vc = segue.destination as! ReviewListViewController
+            vc.prepareModel(item: (sender as! ProductSearch).reviews)
         }
     }
     

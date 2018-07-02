@@ -22,7 +22,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="553" height="139.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aNQ-sO-KOG" customClass="BaseImage" customModule="uguta" customModuleProvider="target">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aNQ-sO-KOG" customClass="BaseImage" customModule="uguta" customModuleProvider="target">
                         <rect key="frame" x="5" y="10" width="95" height="95"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="95" id="I5F-mG-jX1"/>
@@ -30,7 +30,7 @@
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="45"/>
+                                <real key="value" value="0.0"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                 <real key="value" value="1"/>

@@ -15,7 +15,7 @@ class ProductSearch: IObject, Mappable {
     var image: String = ""
     var title: String = ""
     var index: Int = 0
-    var reviews: Int = 0
+    var reviews: [Review] = []
     var price: String = ""
     var currency: String = ""
     var rate: Int = -1
@@ -41,5 +41,16 @@ class ProductSearch: IObject, Mappable {
         WebApi.getImage(url: self.image) { (img) in
             completion(img)
         }
+    }
+}
+class Review: IObject, Mappable {
+    var description : String = ""
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        self.id <- map["id"]
+        self.description <- map["description"]
     }
 }

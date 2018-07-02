@@ -65,6 +65,9 @@
 		3B799EB820A4249400320A70 /* BluetoothItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B799EB720A4249400320A70 /* BluetoothItemViewController.swift */; };
 		3B799EBB20A427C000320A70 /* BLEDeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B799EB920A427C000320A70 /* BLEDeviceTableViewCell.swift */; };
 		3B799EBC20A427C000320A70 /* BLEDeviceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B799EBA20A427C000320A70 /* BLEDeviceTableViewCell.xib */; };
+		3BBA79FF20E8615F0027BB1D /* ReviewListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA79FE20E8615F0027BB1D /* ReviewListViewController.swift */; };
+		3BBA7A0220E862410027BB1D /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBA7A0020E862410027BB1D /* ReviewTableViewCell.swift */; };
+		3BBA7A0320E862410027BB1D /* ReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BBA7A0120E862410027BB1D /* ReviewTableViewCell.xib */; };
 		41BF8D9420AC1C3800F86117 /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BF8D9220AC1C3800F86117 /* StoreTableViewCell.swift */; };
 		41BF8D9520AC1C3800F86117 /* StoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 41BF8D9320AC1C3800F86117 /* StoreTableViewCell.xib */; };
 		41BF8D9720AC1D3700F86117 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BF8D9620AC1D3700F86117 /* Store.swift */; };
@@ -133,6 +136,9 @@
 		3B799EB720A4249400320A70 /* BluetoothItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothItemViewController.swift; sourceTree = "<group>"; };
 		3B799EB920A427C000320A70 /* BLEDeviceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BLEDeviceTableViewCell.swift; sourceTree = "<group>"; };
 		3B799EBA20A427C000320A70 /* BLEDeviceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BLEDeviceTableViewCell.xib; sourceTree = "<group>"; };
+		3BBA79FE20E8615F0027BB1D /* ReviewListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListViewController.swift; sourceTree = "<group>"; };
+		3BBA7A0020E862410027BB1D /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		3BBA7A0120E862410027BB1D /* ReviewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewTableViewCell.xib; sourceTree = "<group>"; };
 		41BF8D9220AC1C3800F86117 /* StoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
 		41BF8D9320AC1C3800F86117 /* StoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoreTableViewCell.xib; sourceTree = "<group>"; };
 		41BF8D9620AC1D3700F86117 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
@@ -209,6 +215,7 @@
 				3B56230D20C4CCB600E59D88 /* View3DViewController.swift */,
 				3B210D652095826200A5CF84 /* ViewController.swift */,
 				3B65EC6B20DADCC30093E5A0 /* ProductSearchViewController.swift */,
+				3BBA79FE20E8615F0027BB1D /* ReviewListViewController.swift */,
 			);
 			path = uguta;
 			sourceTree = "<group>";
@@ -285,6 +292,8 @@
 				3B56231020C724DE00E59D88 /* Product3DTableViewCell.xib */,
 				3B65EC6720DAD6F80093E5A0 /* ProductSearchTableViewCell.swift */,
 				3B65EC6820DAD6F80093E5A0 /* ProductSearchTableViewCell.xib */,
+				3BBA7A0020E862410027BB1D /* ReviewTableViewCell.swift */,
+				3BBA7A0120E862410027BB1D /* ReviewTableViewCell.xib */,
 			);
 			path = TableCell;
 			sourceTree = "<group>";
@@ -392,6 +401,7 @@
 				3B210DB120962B4900A5CF84 /* HistoryTableViewCell.xib in Resources */,
 				3B799EBC20A427C000320A70 /* BLEDeviceTableViewCell.xib in Resources */,
 				3B210D9D2095CD5800A5CF84 /* CategoryTableViewCell.xib in Resources */,
+				3BBA7A0320E862410027BB1D /* ReviewTableViewCell.xib in Resources */,
 				41BF8D9520AC1C3800F86117 /* StoreTableViewCell.xib in Resources */,
 				3B65EC6A20DAD6F80093E5A0 /* ProductSearchTableViewCell.xib in Resources */,
 			);
@@ -488,6 +498,7 @@
 				3B76B8642096D37F000438C9 /* GenCodeViewController.swift in Sources */,
 				3B210D862095B71D00A5CF84 /* ProductListViewController.swift in Sources */,
 				3B210D982095CC7E00A5CF84 /* TableCell.swift in Sources */,
+				3BBA7A0220E862410027BB1D /* ReviewTableViewCell.swift in Sources */,
 				3B210D7B2095858200A5CF84 /* LoginViewController.swift in Sources */,
 				3B56231120C724DF00E59D88 /* Product3DTableViewCell.swift in Sources */,
 				3B210DA92096059E00A5CF84 /* Util.swift in Sources */,
@@ -524,6 +535,7 @@
 				3B210DA52095D5C200A5CF84 /* Item.swift in Sources */,
 				3B210D642095826200A5CF84 /* AppDelegate.swift in Sources */,
 				3B76B8602096B54A000438C9 /* FillItemViewController.swift in Sources */,
+				3BBA79FF20E8615F0027BB1D /* ReviewListViewController.swift in Sources */,
 				3B210D8E2095BC2100A5CF84 /* Category.swift in Sources */,
 				3B210D912095CA9200A5CF84 /* TypeExtention.swift in Sources */,
 				41BF8D9720AC1D3700F86117 /* Store.swift in Sources */,

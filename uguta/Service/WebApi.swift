@@ -18,8 +18,8 @@ import Foundation
 import Alamofire
 import ObjectMapper
 class WebApi{
-    //static let HOST = "http://96.93.123.234:5000"
-    static let HOST = "http://192.168.1.12:5000"
+    static let HOST = "http://96.93.123.233:5000"
+    //static let HOST = "http://192.168.1.4:5000"
     //static let HOST = "http://192.168.79.84:5000"
     //static let HOST = "http://192.168.60.67:5000" // wifi
     
@@ -83,7 +83,7 @@ class WebApi{
         
         WebApi.manager().request(url!, method: .post, parameters: json, encoding: JSONEncoding.default)
             .responseJSON { (data) in
-                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
+                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) else {
                     completion(nil)
                     return
                 }
@@ -105,7 +105,7 @@ class WebApi{
         
         WebApi.manager().request(url!)
             .responseJSON { (data) in
-                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
+                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) else {
                     completion(nil)
                     return
                 }
@@ -127,7 +127,7 @@ class WebApi{
         
         WebApi.manager().request(url!)
             .responseJSON { (data) in
-                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
+                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) else {
                     completion(nil)
                     return
                 }
@@ -149,7 +149,7 @@ class WebApi{
         
         WebApi.manager().request(url!)
             .responseJSON { (data) in
-                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
+                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) else {
                     completion(nil)
                     return
                 }
@@ -171,7 +171,7 @@ class WebApi{
         
         WebApi.manager().request(url!)
             .responseJSON { (data) in
-                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
+                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) else {
                     completion([])
                     return
                 }
@@ -195,7 +195,7 @@ class WebApi{
         
         WebApi.manager().request(url!, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { (data) in
-                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
+                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) else {
                     completion("Error")
                     return
                 }
@@ -225,7 +225,7 @@ class WebApi{
         
         WebApi.manager().request(url!, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { (data) in
-                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
+                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) else {
                     completion(false)
                     return
                 }
@@ -250,7 +250,7 @@ class WebApi{
         
         WebApi.manager().request(url!, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { (data) in
-                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
+                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) else {
                     completion(nil)
                     return
                 }
@@ -275,7 +275,7 @@ class WebApi{
         
         WebApi.manager().request(url!, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { (data) in
-                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
+                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) else {
                     completion(nil)
                     return
                 }
@@ -298,7 +298,7 @@ class WebApi{
         
         WebApi.manager().request(url!)
             .responseJSON { (data) in
-                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
+                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) else {
                     completion(false)
                     return
                 }
@@ -318,7 +318,7 @@ class WebApi{
         
         WebApi.manager().request(url!)
             .responseJSON { (data) in
-                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
+                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) else {
                     completion(false)
                     return
                 }
@@ -338,7 +338,7 @@ class WebApi{
       
         WebApi.manager().request(url!)
             .responseJSON { (data) in
-                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
+                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) else {
                     completion(nil)
                     return
                 }
@@ -363,7 +363,7 @@ class WebApi{
         
         WebApi.manager().request(url!, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { (data) in
-                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
+                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) else {
                     completion(nil)
                     return
                 }
@@ -387,7 +387,7 @@ class WebApi{
             .responseJSON { (data) in
                 
                 
-                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
+                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) else {
                     completion([])
                     return
                 }
@@ -419,7 +419,7 @@ class WebApi{
         WebApi.manager().request(url!, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { (data) in
                 
-                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
+                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) else {
                     completion([])
                     return
                 }
@@ -440,7 +440,7 @@ class WebApi{
         WebApi.manager().request(url!)
             .responseJSON { (data) in
                 
-                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
+                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) else {
                     completion([])
                     return
                 }
@@ -466,7 +466,7 @@ class WebApi{
         WebApi.manager().request(url!)
             .responseJSON { (data) in
                 
-                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
+                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) else {
                     completion([])
                     return
                 }
@@ -496,7 +496,7 @@ class WebApi{
         WebApi.manager().request(url!)
             .responseJSON { (data) in
                 
-                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) as? ApiModel else {
+                guard let apiModel = Mapper<ApiModel>().map(JSONObject:data.result.value) else {
                     completion([])
                     return
                 }
